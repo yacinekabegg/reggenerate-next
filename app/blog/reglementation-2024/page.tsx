@@ -11,7 +11,7 @@ export default function Reglementation2024() {
       <article className="bg-[#fafafa] py-16">
         <div className="mx-auto max-w-[1000px] px-6">
           <div className="rounded-2xl bg-white p-8 shadow-[0_4px_20px_rgba(0,0,0,0.1)]">
-            <p className="text-[#666]">Mises à jour européennes, allégations, novel food et exigences d'étiquetage.</p>
+          <p className="text-[#666]">Mises à jour européennes, allégations, novel food et exigences d&apos;étiquetage.</p>
           </div>
         </div>
       </article>

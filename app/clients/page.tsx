@@ -9,7 +9,7 @@ export default function ClientsPage() {
       <section className="mt-16 bg-gradient-to-br from-[#2eb2a4] to-[#4e53a3] py-12 text-white">
         <div className="mx-auto max-w-[1200px] px-6 text-center">
           <div className="mx-auto mb-4 inline-block rounded-[20px] bg-white/20 px-4 py-2">
-            <span className="text-[0.9rem] font-medium">🥚 Ingrédient Membrane d'Œuf</span>
+            <span className="text-[0.9rem] font-medium">🥚 Ingrédient Membrane d&apos;Œuf</span>
           </div>
           <h1 className="mb-2 text-[3rem] font-bold">Nos Clients</h1>
           <p className="mx-auto max-w-[600px] text-[1.2rem] opacity-90">
@@ -24,7 +24,7 @@ export default function ClientsPage() {
           <div className="mb-12 text-center">
             <h2 className="text-[2.5rem] font-bold">Ils utilisent Reggenerate™</h2>
             <p className="mx-auto max-w-[600px] text-[#666]">
-              Plus de 30 marques font déjà confiance à notre ingrédient membrane d'œuf pour leurs produits
+              Plus de 30 marques font déjà confiance à notre ingrédient membrane d&apos;œuf pour leurs produits
             </p>
           </div>
 
@@ -44,13 +44,13 @@ export default function ClientsPage() {
         <div className="mx-auto max-w-[1000px] px-6">
           <div className="mb-12 text-center">
             <h2 className="text-[2.5rem] font-bold">Impact Reggenerate™</h2>
-            <p className="text-[1.1rem] opacity-90">L'ingrédient membrane d'œuf qui révolutionne la formulation</p>
+            <p className="text-[1.1rem] opacity-90">L&apos;ingrédient membrane d&apos;œuf qui révolutionne la formulation</p>
           </div>
           <div className="grid grid-cols-2 gap-8 sm:grid-cols-4">
             {[
               { v: "30+", l: "Marques partenaires" },
               { v: "50+", l: "Produits formulés" },
-              { v: "15+", l: "Pays d'export" },
+              { v: "15+", l: "Pays d&apos;export" },
               { v: "100%", l: "Satisfaction client" },
             ].map((s) => (
               <div key={s.l} className="text-center">

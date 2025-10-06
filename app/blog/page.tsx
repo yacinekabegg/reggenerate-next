@@ -84,7 +84,7 @@ export default function BlogPage() {
   const [category, setCategory] = useState<Category>("all");
   const filtered = articles.filter((a) => category === "all" || a.category === category);
 
-  const catBtn = (cat: Category, text: string, style?: string) => (
+  const catBtn = (cat: Category, text: string) => (
     <button
       key={cat}
       onClick={() => setCategory(cat)}
@@ -157,7 +157,7 @@ export default function BlogPage() {
                   <p className="mb-6 text-[#666]">{a.excerpt}</p>
                   <div className="flex items-center justify-between">
                     <Link href={a.href} className="rounded bg-[#2eb2a4] px-4 py-2 font-semibold text-white">
-                      Lire l'article
+                      Lire l&apos;article
                     </Link>
                     {/* tags omitted for brevity */}
                   </div>
@@ -172,9 +172,7 @@ export default function BlogPage() {
       <section className="bg-gradient-to-br from-[#2eb2a4] to-[#4e53a3] py-16 text-white">
         <div className="mx-auto max-w-[600px] px-6 text-center">
           <h2 className="mb-4 text-[2.5rem] font-bold">Inscription à la newsletter !</h2>
-          <p className="mb-8 text-[1.1rem] opacity-90">
-            Déjà 1 500 professionnels nous font confiance.
-          </p>
+          <p className="mb-8 text-[1.1rem] opacity-90">Déjà 1 500 professionnels nous font confiance.</p>
           <button className="rounded bg-white px-6 py-3 font-semibold text-[#2eb2a4]">Inscrivez-vous</button>
         </div>
       </section>

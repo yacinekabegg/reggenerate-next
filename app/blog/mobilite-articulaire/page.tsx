@@ -15,7 +15,7 @@ export default function MobiliteArticulaire() {
       <article className="bg-[#fafafa] py-16">
         <div className="mx-auto max-w-[1000px] px-6">
           <div className="rounded-2xl bg-white p-8 shadow-[0_4px_20px_rgba(0,0,0,0.1)]">
-            <p className="mb-6 text-[#666]">Comment maintenir une mobilité articulaire optimale avec des solutions naturelles et la membrane d'œuf.</p>
+            <p className="mb-6 text-[#666]">Comment maintenir une mobilité articulaire optimale avec des solutions naturelles et la membrane d&apos;œuf.</p>
             <ul className="list-disc space-y-2 pl-5 text-[#666]">
               <li>Collagène et GAGs pour la santé articulaire</li>
               <li>Formes galéniques adaptées (gélules, gummies, poudres)</li>

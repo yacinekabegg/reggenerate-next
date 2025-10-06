@@ -5,7 +5,7 @@ export default function ReadyToMarket() {
         <div className="mx-auto max-w-[1200px] px-6">
           <h1 className="mb-6 text-center text-[2.5rem] font-bold text-[#1a1a1a]">Ready‑to‑Market</h1>
           <p className="mx-auto max-w-[800px] text-center text-[#666]">
-            Formulations clés en main basées sur notre membrane d'œuf : mobility, beauty, performance…
+            Formulations clés en main basées sur notre membrane d&apos;œuf : mobility, beauty, performance…
           </p>
           <div className="mt-10 grid grid-cols-1 gap-6 md:grid-cols-3">
             {[
