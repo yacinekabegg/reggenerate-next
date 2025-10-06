@@ -12,7 +12,7 @@ const usefulLinks = [
 ];
 
 const menuLinks = [
-  { label: "Accueil", href: "/" },
+  { label: "Acccueil", href: "/" },
   { label: "Ingrédient", href: "/ingredient" },
   { label: "Ready-to-Market", href: "/ready-to-market" },
   { label: "Nos Clients", href: "/clients" },
