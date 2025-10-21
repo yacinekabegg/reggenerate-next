@@ -548,11 +548,11 @@ export default function ReadyToMarket() {
                 </span>
               </div>
               <div className="relative h-[240px] w-full overflow-hidden rounded-xl mt-2">
-                <Image src="/images/egglixir.svg" alt="L'Egglixir'" fill className="object-cover" />
+                <Image src="/images/egglixir.svg" alt="L'Egglixir" fill className="object-cover" />
               </div>
               <div className="mt-4">
                 <h3 className="font-['League_Spartan',Arial,sans-serif] text-[1.25rem] font-extrabold text-[#4e53a3] text-center">
-                  L'Egglixir                
+                  {`L'Egglixir`}               
                 </h3>
                 <p className="mb-4 font-['Roboto',Arial,sans-serif] italic text-[#2eb2a4] text-center">La beauté en poudre par eggcellence !</p>
 
@@ -591,7 +591,7 @@ export default function ReadyToMarket() {
               </div>
               <div className="mt-4">
                 <h3 className="font-['League_Spartan',Arial,sans-serif] text-[1.25rem] font-extrabold text-[#4e53a3] text-center">
-                  Comme n'œuf !
+                  {`Comme n'œuf !`}
                 </h3>
                 <p className="mb-4 font-['Roboto',Arial,sans-serif] italic text-[#2eb2a4] text-center">Une reggenerescence cutanée ultra-vitaminée !</p>
 
@@ -629,7 +629,7 @@ export default function ReadyToMarket() {
               </div>
               <div className="mt-4">
                 <h3 className="font-['League_Spartan',Arial,sans-serif] text-[1.25rem] font-extrabold text-[#4e53a3] text-center">
-                  Y’en a pas d’oeuf comme lui
+                  {`Y’en a pas d’œuf comme lui`}
                 </h3>
                 <p className="mb-4 font-['Roboto',Arial,sans-serif] italic text-[#2eb2a4] text-center">Ta peau mérite un peu d’egg-clat !</p>
 
