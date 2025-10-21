@@ -79,13 +79,12 @@ export function Footer() {
                 </ul>
               </div>
             </div>
-
-            <div className="mt-4 text-right">
-              <p className="font-['Roboto',Arial,sans-serif] text-sm text-white/80">
-                © Circul&apos;Egg 2025 // Mentions légales et conditions d&apos;utilisations • Politique de confidentialité et politique cookies
-              </p>
-            </div>
           </div>
+        </div>
+        <div className="mt-4 text-center self-center w-full">
+          <p className="font-['Roboto',Arial,sans-serif] text-sm text-white/80">
+            © Circul&apos;Egg 2025 // Mentions légales et conditions d&apos;utilisations • Politique de confidentialité et politique cookies
+          </p>
         </div>
       </div>
     </footer>
