@@ -200,8 +200,7 @@ export default function IngredientPage() {
                   </div>
                 ) : (
                   <div className="text-center">
-                    <Image src="/images/48.png" alt="Schéma des bienfaits sur les articulations (temporaire)" width={900} height={600} className="mx-auto h-auto w-full rounded-2xl shadow-[0_5px_15px_rgba(0,0,0,0.06)]" />
-                    <p className="mt-4 font-['Roboto',Arial,sans-serif] italic text-[#666]">Schéma temporaire - En attente du nouveau visuel pour les articulations</p>
+                    <Image src="/images/bienfaits-articulations.png" alt="Schéma des bienfaits sur les articulations (temporaire)" width={900} height={600} className="mx-auto h-auto w-full rounded-2xl shadow-[0_5px_15px_rgba(0,0,0,0.06)]" />
                   </div>
                 )}
               </div>
@@ -691,32 +690,32 @@ export default function IngredientPage() {
                   Certifications & Conformités
                 </h2>
 
-                <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
                   {/* Casseries certifiées */}
-                  <div>
+                  <div className="flex items-start md:h-[420px]">
                     <Image
                       src="/images/casseries-certifiees.png"
                       alt="Logos des casseries certifiées"
                       width={520}
                       height={420}
-                      className="mx-auto h-auto w-full max-w-[520px] object-contain"
+                      className="block h-full w-auto max-w-[520px] object-contain object-top align-top"
                     />
                   </div>
 
                   {/* Produit certifié */}
-                  <div>
+                  <div className="place-self-start !self-start">
                     <Image
                       src="/images/produit-certifie.png"
                       alt="Logos du produit certifié"
                       width={520}
                       height={420}
-                      className="mx-auto h-auto w-full max-w-[520px] object-contain"
+                      className="block h-full w-auto max-w-[520px] object-contain !self-start object-top align-top"
                     />
                   </div>
                 </div>
 
                 {/* Statut réglementaire */}
-                <div className="mt-10 text-left">
+                <div className="mt-4 text-left">
                   <h3 className="mb-2 font-['League_Spartan',Arial,sans-serif] text-[1.25rem] font-extrabold text-[#4e53a3]">
                     Statut réglementaire
                   </h3>
