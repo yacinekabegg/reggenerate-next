@@ -516,7 +516,7 @@ export default function ReadyToMarket() {
                 <h3 className="font-['League_Spartan',Arial,sans-serif] text-[1.25rem] font-extrabold text-[#4e53a3] text-center">
                   Bosw’Egg
                 </h3>
-                <p className="mb-4 font-['Roboto',Arial,sans-serif] italic text-[#2eb2a4] text-center">Douleurs articulaires ? Croque, c'est réglé.</p>
+                <p className="mb-4 font-['Roboto',Arial,sans-serif] italic text-[#2eb2a4] text-center">{`Douleurs articulaires ? Croque, c'est réglé.`}</p>
 
                 <div className="space-y-1 font-['Roboto',Arial,sans-serif] text-[#2eb2a4]">
                   <p className="m-0"><span className="font-semibold text-[#4e53a3]">Galénique</span> : 90 comprimés</p>
@@ -667,7 +667,7 @@ export default function ReadyToMarket() {
               </div>
               <div className="mt-4">
                 <h3 className="font-['League_Spartan',Arial,sans-serif] text-[1.25rem] font-extrabold text-[#4e53a3] text-center">
-                  L'Eggsplosif             
+                  {`L'Eggsplosif`}            
                 </h3>
                 <p className="mb-4 font-['Roboto',Arial,sans-serif] italic text-[#2eb2a4] text-center">Une eggsplosion de saveur au service de la peau !</p>
 
