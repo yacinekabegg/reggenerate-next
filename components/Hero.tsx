@@ -8,7 +8,7 @@ export function Hero() {
         <div className="flex flex-col justify-center gap-4 max-lg:mx-auto max-lg:max-w-[720px] max-lg:px-6 lg:self-center lg:pl-0 lg:pr-[clamp(24px,4vw,56px)]">
           <div
             
-            className="inline-flex items-center gap-[10px] rounded-[25px] border-[1px] border-current px-[18px] py-[10px] font-bold uppercase tracking-[0.02em] text-[#2eb2a4] w-[32ch]"
+            className="inline-flex items-center gap-[10px] rounded-[25px] border-[1px] border-current px-[18px] py-[10px] font-bold uppercase tracking-[0.02em] text-[#2eb2a4] w-[25ch]"
           >
             <Image
               src="/images/3.png"
