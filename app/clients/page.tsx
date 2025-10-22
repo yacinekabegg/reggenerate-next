@@ -1,63 +1,671 @@
 "use client";
 
+import { Footer } from "@/components/Footer";
 import Image from "next/image";
 
 export default function ClientsPage() {
   return (
     <main className="pt-16">
       {/* Hero */}
-      <section className="mt-16 bg-gradient-to-br from-[#2eb2a4] to-[#4e53a3] py-12 text-white">
-        <div className="mx-auto max-w-[1200px] px-6 text-center">
-          <div className="mx-auto mb-4 inline-block rounded-[20px] bg-white/20 px-4 py-2">
-            <span className="text-[0.9rem] font-medium">🥚 Ingrédient Membrane d&apos;Œuf</span>
+      <section className="relative h-[380px] w-full md:h-[520px]">
+        <Image
+          src="/images/clients-hero.svg"
+          alt="Produits Ready-to-Market"
+          fill
+          priority
+        />
+        {/* Badge aligné au container */}
+        <div className="absolute inset-0">
+          <div className="mx-auto max-w-[1400px] px-6 pt-6 flex justify-center">
+            <div className="flex w-fit items-center gap-2 rounded-full border-2 border-[#2eb2a4] bg-white/95 px-4 py-2">
+              <Image src="/images/clients-icon.png" alt="Rocket" width={40} height={40} className="h-10 w-10 object-contain" />
+              <span className="font-['League_Spartan',Arial,sans-serif] text-[0.95rem] font-extrabold tracking-wide text-[#2eb2a4]">
+                PRODUITS DÉJÀ SUR LE MARCHÉ
+              </span>
+            </div>
           </div>
-          <h1 className="mb-2 text-[3rem] font-bold">Nos Clients</h1>
-          <p className="mx-auto max-w-[600px] text-[1.2rem] opacity-90">
-            Découvrez les marques qui font confiance à Reggenerate™ pour leurs formulations innovantes
+          {/* Titre en overlay absolute */}
+          <h1 className="absolute left-1/2 -translate-x-1/2 bottom-24 sm:bottom-22 md:bottom-32 lg:bottom-28 lg:mb-2 z-10 text-center font-['League_Spartan',Arial,sans-serif] text-[1.6rem] sm:text-[1.9rem] md:text-[2.4rem] lg:text-[2.8rem] font-extrabold w-full">
+            <span className="text-[#2eb2a4]">Nos clients <span className="text-[#f3d86b]">EGG</span><span className="text-[#2eb2a4]">ceptionnels</span></span>
+          </h1>
+          {/* Texte descriptif en overlay absolute */}
+          <div className="absolute left-1/2 -translate-x-1/2 bottom-4 sm:bottom-4 md:bottom-8 z-10 w-full max-w-[1100px] px-4 sm:px-6">
+            <p className="text-center text-white text-[0.9rem] sm:text-[0.95rem] md:text-[1.05rem] leading-snug sm:leading-normal md:leading-relaxed drop-shadow-md">
+              Trouver le bon ingrédient, c’est un peu comme chercher l’âme sœur : il faut ce petit “plus” qui fait la différence. 71 marques ont déjà trouvé le bon ingrédient avec Reggenerate™. Chacune pour une raison différente — sa qualité, son brevet, sa facilité d’usage —mais toutes pour la même évidence : c’était le bon, au bon moment.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Zoom – titre + sous-titre */}
+      <section className="bg-white py-16">
+        <div className="mx-auto max-w-[1400px] px-6 text-center">
+          <h2 className="font-['League_Spartan','Roboto',Arial,sans-serif] text-[0.9rem] sm:text-[1.9rem] md:text-[2.4rem] lg:text-[2.8rem] font-extrabold leading-tight text-[#4e53a3]">
+            Zoom sur les produits <span className="text-[#f3d86b]">pondus</span> par nos clients
+          </h2>
+          <p className="mt-2 text-[1.05rem] sm:text-[1.15rem] md:text-[1.25rem] leading-relaxed text-[#2eb2a4]">
+            On apporte l’œuf, et nos clients font éclore les plus belles innovations de demain.
           </p>
         </div>
       </section>
 
-      {/* Clients list placeholder (Airtable-free static scaffold) */}
-      <section className="bg-[#fafafa] py-16">
-        <div className="mx-auto max-w-[1400px] px-6">
-          <div className="mb-12 text-center">
-            <h2 className="text-[2.5rem] font-bold">Ils utilisent Reggenerate™</h2>
-            <p className="mx-auto max-w-[600px] text-[#666]">
-              Plus de 30 marques font déjà confiance à notre ingrédient membrane d&apos;œuf pour leurs produits
-            </p>
-          </div>
-
-          <div className="mx-auto grid max-w-[1400px] grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
-            {[1, 2, 3, 4, 5, 6].map((i) => (
-              <div key={i} className="client-card rounded-2xl bg-white p-6 shadow-[0_2px_10px_rgba(0,0,0,0.1)] transition">
-                <div className="mb-4 h-12 w-32 rounded bg-[#f3f3f3]" />
-                <p className="m-0 text-[#666]">Client #{i} – logo et description à brancher.</p>
+      {/* Stats – KPIs */}
+      <section className="bg-[#eaf6f4] py-16 sm:py-20">
+        <div className="mx-auto max-w-[1200px] px-6">
+          <div className="grid grid-cols-2 gap-10 text-center sm:grid-cols-2 lg:grid-cols-4">
+            {[
+              { v: "60+", l: "Marques partenaires" },
+              { v: "71+", l: "Produits formulés" },
+              { v: "15+", l: "Pays d’eggsport" },
+              { v: "100%", l: "satisfaction client" },
+            ].map((s) => (
+              <div key={s.l} className="flex flex-col items-center justify-center py-2">
+                <div className="font-['League_Spartan','Roboto',Arial,sans-serif] text-[#4e53a3] text-[3rem] sm:text-[3.6rem] md:text-[4rem] lg:text-[4.5rem] font-extrabold leading-none">
+                  {s.v}
+                </div>
+                <div className="mt-3 text-[#2eb2a4] text-[1.1rem] sm:text-[1.2rem] font-semibold">
+                  {s.l}
+                </div>
               </div>
             ))}
           </div>
         </div>
       </section>
-
-      {/* Stats */}
-      <section className="bg-gradient-to-br from-[#2eb2a4] to-[#4e53a3] py-16 text-white">
-        <div className="mx-auto max-w-[1000px] px-6">
-          <div className="mb-12 text-center">
-            <h2 className="text-[2.5rem] font-bold">Impact Reggenerate™</h2>
-            <p className="text-[1.1rem] opacity-90">L&apos;ingrédient membrane d&apos;œuf qui révolutionne la formulation</p>
+      
+      {/* Clients map */}
+      <section className="bg-white pt-16 pb-4">
+        <div className="mx-auto max-w-[1400px] px-6 text-center flex flex-col justify-center">
+          <h2 className="font-['League_Spartan','Roboto',Arial,sans-serif] text-[0.9rem] sm:text-[1.9rem] md:text-[2.4rem] lg:text-[2.8rem] font-extrabold leading-tight text-[#2eb2a4]">
+            En France mais aussi à l&apos;<span className="text-[#f3d86b]">Egg</span>sport ✈️
+          </h2>
+          <div className="mx-auto mt-6 w-full max-w-[800px]">
+            <Image
+              src="/images/clients-map.png"
+              alt="Carte des clients en France et à l'international"
+              width={600}
+              height={400}
+              sizes="(min-width: 1280px) 800px, (min-width: 768px) 75vw, 95vw"
+              className="h-auto w-full"
+              priority
+            />
           </div>
-          <div className="grid grid-cols-2 gap-8 sm:grid-cols-4">
-            {[
-              { v: "30+", l: "Marques partenaires" },
-              { v: "50+", l: "Produits formulés" },
-              { v: "15+", l: "Pays d&apos;export" },
-              { v: "100%", l: "Satisfaction client" },
-            ].map((s) => (
-              <div key={s.l} className="text-center">
-                <div className="text-[3rem] font-bold">{s.v}</div>
-                <div className="text-[1.1rem] font-semibold">{s.l}</div>
+        </div>
+      </section>
+
+      {/* Clients products */}
+      <section className="bg-[#e8f6f4] pb-12 pt-16">
+        <div className="mx-auto w-full max-w-[1400px] px-6">
+          <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
+            {/* Card 1 */}
+            <div className="relative rounded-2xl border-2 border-[#2eb2a4] bg-white p-4">
+              {/* Badges icônes en haut à gauche */}
+              <div className="absolute -top-[3.8rem] -left-4 z-10 flex items-center">
+                {/* Wrapper dimensionné: augmente la taille en changeant size-16/20 */}
+                <span className="relative size-24">
+                  <Image src="/images/pill.png" alt="Gélules" fill className="object-contain p-2" />
+                </span>
+                <span className="relative -ml-10 size-24">
+                  <Image src="/images/knuckle.png" alt="Santé des articulations" fill className="object-contain p-2" />
+                </span>
               </div>
-            ))}
+              <div className="relative h-[280px] w-[85%] mx-auto overflow-hidden rounded-xl mt-2">
+                <Image src="/images/collagène-articulaire.svg" alt="Coquille de j'oeufnesse" fill className="object-cover" />
+              </div>
+              <div className="mt-4">
+                <h3 className="font-['League_Spartan',Arial,sans-serif] text-[1.25rem] font-extrabold text-[#4e53a3] text-center">
+                  Collagène articulaire
+                </h3>
+                <p className="mb-4 font-['Roboto',Arial,sans-serif] italic text-[#2eb2a4] text-center">Valebio</p>
+
+                <div className="space-y-1 font-['Roboto',Arial,sans-serif] text-[#2eb2a4]">
+                  <p className="m-0"><span className="font-semibold text-[#4e53a3]">Galénique</span> : 60 gélules</p>
+                  <p className="m-0"><span className="font-semibold text-[#4e53a3]">Bienfaits</span> : Articulations</p>
+                  <p className="m-0"><span className="font-semibold text-[#4e53a3]">Formulation</span> : Reggenerate + acide hyaluronique + curcuma vitamine C</p>
+                </div>
+
+                <div className="mt-4 rounded-xl p-3 text-center">
+                  <button className="rounded-full bg-[#2eb2a4] px-5 py-2 font-['League_Spartan',Arial,sans-serif] font-bold text-white transition hover:underline decoration-white underline-offset-2 decoration-2">
+                    Voir le produit
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            {/* Card 2 */}
+            <div className="relative rounded-2xl border-2 border-[#2eb2a4] bg-white p-4">
+              {/* Badges icônes en haut à gauche */}
+              <div className="absolute -top-[3.8rem] -left-4 z-10 flex items-center">
+                <span className="relative size-24">
+                  <Image src="/images/pill.png" alt="Gélules" fill className="object-contain p-2" />
+                </span>
+                <span className="relative -ml-10 size-24">
+                  <Image src="/images/knuckle.png" alt="Santé des articulations" fill className="object-contain p-2" />
+                </span>
+                <span className="relative -ml-10 size-24">
+                  <Image src="/images/skin-beauty.png" alt="Beauté de la peau" fill className="object-contain p-2" />
+                </span>
+              </div>
+              <div className="relative h-[280px] w-[85%] mx-auto overflow-hidden rounded-xl mt-2">
+                <Image src="/images/collagène-veggie.svg" alt="Collagène végétarien" fill className="object-cover" />
+              </div>
+              <div className="mt-4">
+                <h3 className="font-['League_Spartan',Arial,sans-serif] text-[1.25rem] font-extrabold text-[#4e53a3] text-center">
+                  Collagène végétarien
+                </h3>
+                <p className="mb-4 font-['Roboto',Arial,sans-serif] italic text-[#2eb2a4] text-center">Oemine</p>
+
+                <div className="space-y-1 font-['Roboto',Arial,sans-serif] text-[#2eb2a4]">
+                  <p className="m-0"><span className="font-semibold text-[#4e53a3]">Galénique</span> : Gélules</p>
+                  <p className="m-0"><span className="font-semibold text-[#4e53a3]">Bienfaits</span> : Anti-âge & Articulation</p>
+                  <p className="m-0"><span className="font-semibold text-[#4e53a3]">Formulation</span> : Reggenerate + Cynorrhodon</p>
+                </div>
+
+                <div className="mt-4 rounded-xl p-3 text-center">
+                  <button className="rounded-full bg-[#2eb2a4] px-5 py-2 font-['League_Spartan',Arial,sans-serif] font-bold text-white transition hover:underline decoration-white underline-offset-2 decoration-2">
+                    Voir le produit
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            {/* Card 3 */}
+            <div className="relative rounded-2xl border-2 border-[#2eb2a4] bg-white p-4">
+              {/* Badges icônes en haut à gauche */}
+              <div className="absolute -top-[3.8rem] -left-4 z-10 flex items-center">
+                <span className="relative size-24">
+                  <Image src="/images/pill.png" alt="Gélules" fill className="object-contain p-2" />
+                </span>
+                <span className="relative -ml-10 size-24">
+                  <Image src="/images/skin-beauty.png" alt="Beauté de la peau" fill className="object-contain p-2" />
+                </span>
+              </div>
+              <div className="relative h-[280px] w-[85%] mx-auto overflow-hidden rounded-xl mt-2">
+                <Image src="/images/cure-peau-repulpee.svg" alt="Cure peau repulpée" fill className="object-cover" />
+              </div>
+              <div className="mt-4">
+                <h3 className="font-['League_Spartan',Arial,sans-serif] text-[1.25rem] font-extrabold text-[#4e53a3] text-center">
+                  Cure peau repulpée
+                </h3>
+                <p className="mb-4 font-['Roboto',Arial,sans-serif] italic text-[#2eb2a4] text-center">Epycure</p>
+
+                <div className="space-y-1 font-['Roboto',Arial,sans-serif] text-[#2eb2a4]">
+                  <p className="m-0"><span className="font-semibold text-[#4e53a3]">Galénique</span> : Gélules</p>
+                  <p className="m-0"><span className="font-semibold text-[#4e53a3]">Bienfaits</span> : Beauté de la peau</p>
+                  <p className="m-0"><span className="font-semibold text-[#4e53a3]">Formulation</span> : Reggenerate + Bourrache + Vitamine C + Sélénium + Vitamine E + Zinc + Biotine + Vitamine B6</p>
+                </div>
+
+                <div className="mt-4 p-3 text-center">
+                  <button className="rounded-full bg-[#2eb2a4] px-5 py-2 font-['League_Spartan',Arial,sans-serif] font-bold text-white transition hover:underline decoration-white underline-offset-2 decoration-2">
+                    Voir le produit 
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            {/* Card 4 */}
+            <div className="relative rounded-2xl border-2 border-[#2eb2a4] bg-white p-4 mt-6">
+              {/* Badges icônes en haut à gauche */}
+              <div className="absolute -top-[3.8rem] -left-4 z-10 flex items-center">
+                {/* Wrapper dimensionné: augmente la taille en changeant size-16/20 */}
+                <span className="relative size-24">
+                  <Image src="/images/pill.png" alt="Gélules" fill className="object-contain p-2" />
+                </span>
+                <span className="relative -ml-10 size-24">
+                  <Image src="/images/skin-beauty.png" alt="Beauté de la peau" fill className="object-contain p-2" />
+                </span>
+              </div>
+              <div className="relative h-[240px] w-[85%] mx-auto overflow-hidden rounded-xl mt-2">
+                <Image src="/images/hair-skin-nails.svg" alt="Hair Skin Nails" fill className="object-cover" />
+              </div>
+              <div className="mt-4">
+                <h3 className="font-['League_Spartan',Arial,sans-serif] text-[1.25rem] font-extrabold text-[#4e53a3] text-center">
+                  Hair Skin Nails
+                </h3>
+                <p className="mb-4 font-['Roboto',Arial,sans-serif] italic text-[#2eb2a4] text-center">Nutrielement</p>
+
+                <div className="space-y-1 font-['Roboto',Arial,sans-serif] text-[#2eb2a4]">
+                  <p className="m-0"><span className="font-semibold text-[#4e53a3]">Galénique</span> : Gélules</p>
+                  <p className="m-0"><span className="font-semibold text-[#4e53a3]">Bienfaits</span> : Beauté globale peau, cheveu & ongles</p>
+                  <p className="m-0"><span className="font-semibold text-[#4e53a3]">Formulation</span> : Reggenerate + Kératine + Sélénium + Zinc + Vitamine C + Biotine + MSM</p>
+                </div>
+
+                <div className="mt-4 p-3 text-center">
+                  <button className="rounded-full bg-[#2eb2a4] px-5 py-2 font-['League_Spartan',Arial,sans-serif] font-bold text-white transition hover:underline decoration-white underline-offset-2 decoration-2">
+                    Voir le produit 
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            {/* Card 5 */}
+            <div className="relative rounded-2xl border-2 border-[#2eb2a4] bg-white p-4 mt-6">
+              {/* Badges icônes en haut à gauche */}
+              <div className="absolute -top-[3.8rem] -left-4 z-10 flex items-center">
+                <span className="relative size-24">
+                  <Image src="/images/powder.png" alt="Poudre" fill className="object-contain p-2" />
+                </span>
+                <span className="relative -ml-10 size-24">
+                  <Image src="/images/knuckle.png" alt="Santé des articulations" fill className="object-contain p-2" />
+                </span>
+                <span className="relative -ml-10 size-24">
+                  <Image src="/images/skin-beauty.png" alt="Beauté de la peau" fill className="object-contain p-2" />
+                </span>
+              </div>
+              <div className="relative h-[240px] w-[85%] mx-auto overflow-hidden rounded-xl mt-2">
+                <Image src="/images/collagène-veggie-2.svg" alt="Collagène végétarien" fill className="object-cover" />
+              </div>
+              <div className="mt-4">
+                <h3 className="font-['League_Spartan',Arial,sans-serif] text-[1.25rem] font-extrabold text-[#4e53a3] text-center">
+                  Collagène végétarien
+                </h3>
+                <p className="mb-4 font-['Roboto',Arial,sans-serif] italic text-[#2eb2a4] text-center">SIHO</p>
+
+                <div className="space-y-1 font-['Roboto',Arial,sans-serif] text-[#2eb2a4]">
+                  <p className="m-0"><span className="font-semibold text-[#4e53a3]">Galénique</span> : Poudre</p>
+                  <p className="m-0"><span className="font-semibold text-[#4e53a3]">Bienfaits</span> : Peau & Articulations</p>
+                  <p className="m-0"><span className="font-semibold text-[#4e53a3]">Formulation</span> : Reggenerate™</p>
+                </div>
+
+                <div className="mt-4 p-3 text-center">
+                  <button className="rounded-full bg-[#2eb2a4] px-5 py-2 font-['League_Spartan',Arial,sans-serif] font-bold text-white transition hover:underline decoration-white underline-offset-2 decoration-2">
+                    Voir le produit 
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            {/* Card 6 */}
+            <div className="relative rounded-2xl border-2 border-[#2eb2a4] bg-white p-4 mt-6">
+              {/* Badges icônes en haut à gauche */}
+              <div className="absolute -top-[3.8rem] -left-4 z-10 flex items-center">
+                <span className="relative size-24">
+                  <Image src="/images/pill.png" alt="Gélules" fill className="object-contain p-2" />
+                </span>
+                <span className="relative -ml-10 size-24">
+                  <Image src="/images/skin-beauty.png" alt="Beauté de la peau" fill className="object-contain p-2" />
+                </span>
+                <span className="relative -ml-10 size-24">
+                  <Image src="/images/knuckle.png" alt="Santé des articulations" fill className="object-contain p-2" />
+                </span>
+              </div>
+              <div className="relative h-[240px] w-[85%] mx-auto overflow-hidden rounded-xl mt-2">
+                <Image src="/images/kotor-collagène.svg" alt="Bosw’Egg" fill className="object-cover" />
+              </div>
+              <div className="mt-4">
+                <h3 className="font-['League_Spartan',Arial,sans-serif] text-[1.25rem] font-extrabold text-[#4e53a3] text-center">
+                  Kotor Collagène               
+                </h3>
+                <p className="mb-4 font-['Roboto',Arial,sans-serif] italic text-[#2eb2a4] text-center">Kotor Pharma</p>
+
+                <div className="space-y-1 font-['Roboto',Arial,sans-serif] text-[#2eb2a4]">
+                  <p className="m-0"><span className="font-semibold text-[#4e53a3]">Galénique</span> : Gélules</p>
+                  <p className="m-0"><span className="font-semibold text-[#4e53a3]">Bienfaits</span> : Peau & Articulations</p>
+                  <p className="m-0"><span className="font-semibold text-[#4e53a3]">Formulation</span> : Reggenerate + siliium végétal + Vitamine C + glucosamine + chondroïtine + kératine</p>
+                </div>
+
+                <div className="mt-4 p-3 text-center">
+                  <button className="rounded-full bg-[#2eb2a4] px-5 py-2 font-['League_Spartan',Arial,sans-serif] font-bold text-white transition hover:underline decoration-white underline-offset-2 decoration-2">
+                    Voir le produit 
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            {/* Card 7 */}
+            <div className="relative rounded-2xl border-2 border-[#2eb2a4] bg-white p-4 mt-6">
+              {/* Badges icônes en haut à gauche */}
+              <div className="absolute -top-[3.8rem] -left-4 z-10 flex items-center">
+                {/* Wrapper dimensionné: augmente la taille en changeant size-16/20 */}
+                <span className="relative size-24">
+                  <Image src="/images/bars.png" alt="Barres" fill className="object-contain p-2" />
+                </span>
+                <span className="relative -ml-10 size-24">
+                  <Image src="/images/skin-beauty.png" alt="Beauté de la peau" fill className="object-contain p-2" />
+                </span>
+              </div>
+              <div className="relative h-[240px] w-[85%] mx-auto overflow-hidden rounded-xl mt-2">
+                <Image src="/images/barre-collagène-matcha-choco.svg" alt="Barre Collagène Matcha Chocolat" fill className="object-cover" />
+              </div>
+              <div className="mt-4">
+                <h3 className="font-['League_Spartan',Arial,sans-serif] text-[1.25rem] font-extrabold text-[#4e53a3] text-center">
+                  Barre Collagène Matcha Chocolat
+                </h3>
+                <p className="mb-4 font-['Roboto',Arial,sans-serif] italic text-[#2eb2a4] text-center">Supernature</p>
+
+                <div className="space-y-1 font-['Roboto',Arial,sans-serif] text-[#2eb2a4]">
+                  <p className="m-0"><span className="font-semibold text-[#4e53a3]">Galénique</span> : Barre</p>
+                  <p className="m-0"><span className="font-semibold text-[#4e53a3]">Bienfaits</span> : Beauté de la peau</p>
+                  <p className="m-0"><span className="font-semibold text-[#4e53a3]">Formulation</span> : Reggenerate</p>
+                </div>
+
+                <div className="mt-4 p-3 text-center">
+                  <button className="rounded-full bg-[#2eb2a4] px-5 py-2 font-['League_Spartan',Arial,sans-serif] font-bold text-white transition hover:underline decoration-white underline-offset-2 decoration-2">
+                    Voir le produit 
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            {/* Card 8 */}
+            <div className="relative rounded-2xl border-2 border-[#2eb2a4] bg-white p-4 mt-6">
+              {/* Badges icônes en haut à gauche */}
+              <div className="absolute -top-[3.8rem] -left-4 z-10 flex items-center">
+                {/* Wrapper dimensionné: augmente la taille en changeant size-16/20 */}
+                <span className="relative size-24">
+                  <Image src="/images/powder.png" alt="Poudre" fill className="object-contain p-2" />
+                </span>
+                <span className="relative -ml-10 size-24">
+                  <Image src="/images/skin-beauty.png" alt="Beauté de la peau" fill className="object-contain p-2" />
+                </span>
+              </div>
+              <div className="relative h-[240px] w-[85%] mx-auto overflow-hidden rounded-xl mt-2">
+                <Image src="/images/chai-latte-collagène.svg" alt="Chaï Latte Collagène" fill className="object-cover" />
+              </div>
+              <div className="mt-4">
+                <h3 className="font-['League_Spartan',Arial,sans-serif] text-[1.25rem] font-extrabold text-[#4e53a3] text-center">
+                  Chaï Latte Collagène
+                </h3>
+                <p className="mb-4 font-['Roboto',Arial,sans-serif] italic text-[#2eb2a4] text-center">Supernature</p>
+
+                <div className="space-y-1 font-['Roboto',Arial,sans-serif] text-[#2eb2a4]">
+                  <p className="m-0"><span className="font-semibold text-[#4e53a3]">Galénique</span> : Poudre</p>
+                  <p className="m-0"><span className="font-semibold text-[#4e53a3]">Bienfaits</span> : Beauté de la peau</p>
+                  <p className="m-0"><span className="font-semibold text-[#4e53a3]">Formulation</span> : Reggenerate</p>
+                </div>
+
+                <div className="mt-4 p-3 text-center">
+                  <button className="rounded-full bg-[#2eb2a4] px-5 py-2 font-['League_Spartan',Arial,sans-serif] font-bold text-white transition hover:underline decoration-white underline-offset-2 decoration-2">
+                    Voir le produit 
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            {/* Card 9 */}
+            <div className="relative rounded-2xl border-2 border-[#2eb2a4] bg-white p-4 mt-6">
+              {/* Badges icônes en haut à gauche */}
+              <div className="absolute -top-[3.8rem] -left-4 z-10 flex items-center">
+                {/* Wrapper dimensionné: augmente la taille en changeant size-16/20 */}
+                <span className="relative size-24">
+                  <Image src="/images/pill.png" alt="Gélules" fill className="object-contain p-2" />
+                </span>
+                <span className="relative -ml-10 size-24">
+                  <Image src="/images/skin-beauty.png" alt="Beauté de la peau" fill className="object-contain p-2" />
+                </span>
+              </div>
+              <div className="relative h-[240px] w-[85%] mx-auto overflow-hidden rounded-xl mt-2">
+                <Image src="/images/dermavits.svg" alt="Dermavits" fill className="object-cover" />
+              </div>
+              <div className="mt-4">
+                <h3 className="font-['League_Spartan',Arial,sans-serif] text-[1.25rem] font-extrabold text-[#4e53a3] text-center">
+                  Dermavits
+                </h3>
+                <p className="mb-4 font-['Roboto',Arial,sans-serif] italic text-[#2eb2a4] text-center">Supernature</p>
+
+                <div className="space-y-1 font-['Roboto',Arial,sans-serif] text-[#2eb2a4]">
+                  <p className="m-0"><span className="font-semibold text-[#4e53a3]">Galénique</span> : Poudre</p>
+                  <p className="m-0"><span className="font-semibold text-[#4e53a3]">Bienfaits</span> : Beauté de la peau</p>
+                  <p className="m-0"><span className="font-semibold text-[#4e53a3]">Formulation</span> : Reggenerate + Vitamine C + Vitamine E</p>
+                </div>
+
+                <div className="mt-4 p-3 text-center">
+                  <button className="rounded-full bg-[#2eb2a4] px-5 py-2 font-['League_Spartan',Arial,sans-serif] font-bold text-white transition hover:underline decoration-white underline-offset-2 decoration-2">
+                    Voir le produit 
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            {/* Card 10 */}
+            <div className="relative rounded-2xl border-2 border-[#2eb2a4] bg-white p-4 mt-6">
+              {/* Badges icônes en haut à gauche */}
+              <div className="absolute -top-[3.8rem] -left-4 z-10 flex items-center">
+                {/* Wrapper dimensionné: augmente la taille en changeant size-16/20 */}
+                <span className="relative size-24">
+                  <Image src="/images/pill.png" alt="Gélules" fill className="object-contain p-2" />
+                </span>
+                <span className="relative -ml-10 size-24">
+                  <Image src="/images/knuckle.png" alt="Santé des articulations" fill className="object-contain p-2" />
+                </span>
+              </div>
+              <div className="relative h-[240px] w-[85%] mx-auto overflow-hidden rounded-xl mt-2">
+                <Image src="/images/membrane-coquille-curcuma.svg" alt="Membrane Coquille d'oeuf Curcuma" fill className="object-cover" />
+              </div>
+              <div className="mt-4">
+                <h3 className="font-['League_Spartan',Arial,sans-serif] text-[1.25rem] font-extrabold text-[#4e53a3] text-center">
+                  Membrane Coquille d&apos;Oeuf Curcuma
+                </h3>
+                <p className="mb-4 font-['Roboto',Arial,sans-serif] italic text-[#2eb2a4] text-center">Curcumaxx</p>
+
+                <div className="space-y-1 font-['Roboto',Arial,sans-serif] text-[#2eb2a4]">
+                  <p className="m-0"><span className="font-semibold text-[#4e53a3]">Galénique</span> : Gélules</p>
+                  <p className="m-0"><span className="font-semibold text-[#4e53a3]">Bienfaits</span> : Articulations</p>
+                  <p className="m-0"><span className="font-semibold text-[#4e53a3]">Formulation</span> : Reggenerate + Curcuma</p>
+                </div>
+
+                <div className="mt-4 p-3 text-center">
+                  <button className="rounded-full bg-[#2eb2a4] px-5 py-2 font-['League_Spartan',Arial,sans-serif] font-bold text-white transition hover:underline decoration-white underline-offset-2 decoration-2">
+                    Voir le produit 
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            {/* Card 11 */}
+            <div className="relative rounded-2xl border-2 border-[#2eb2a4] bg-white p-4 mt-6">
+              {/* Badges icônes en haut à gauche */}
+              <div className="absolute -top-[3.8rem] -left-4 z-10 flex items-center">
+                {/* Wrapper dimensionné: augmente la taille en changeant size-16/20 */}
+                <span className="relative size-24">
+                  <Image src="/images/pill.png" alt="Gélules" fill className="object-contain p-2" />
+                </span>
+                <span className="relative -ml-10 size-24">
+                  <Image src="/images/knuckle.png" alt="Santé des articulations" fill className="object-contain p-2" />
+                </span>
+              </div>
+              <div className="relative h-[240px] w-[85%] mx-auto overflow-hidden rounded-xl mt-2">
+                <Image src="/images/mouvement.svg" alt="Mouvement avec Collagène" fill className="object-cover" />
+              </div>
+              <div className="mt-4">
+                <h3 className="font-['League_Spartan',Arial,sans-serif] text-[1.25rem] font-extrabold text-[#4e53a3] text-center">
+                  Mouvement 
+                </h3>
+                <p className="mb-4 font-['Roboto',Arial,sans-serif] italic text-[#2eb2a4] text-center">Byogénie</p>
+
+                <div className="space-y-1 font-['Roboto',Arial,sans-serif] text-[#2eb2a4]">
+                  <p className="m-0"><span className="font-semibold text-[#4e53a3]">Galénique</span> : Gélules</p>
+                  <p className="m-0"><span className="font-semibold text-[#4e53a3]">Bienfaits</span> : Articulations</p>
+                  <p className="m-0"><span className="font-semibold text-[#4e53a3]">Formulation</span> : Reggenerate + Collagène + Acide hyaluronique + Bambou + Curcuma + Saule + cuivre</p>
+                </div>
+
+                <div className="mt-4 p-3 text-center">
+                  <button className="rounded-full bg-[#2eb2a4] px-5 py-2 font-['League_Spartan',Arial,sans-serif] font-bold text-white transition hover:underline decoration-white underline-offset-2 decoration-2">
+                    Voir le produit 
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            {/* Card 12 */}
+            <div className="relative rounded-2xl border-2 border-[#2eb2a4] bg-white p-4 mt-6">
+              {/* Badges icônes en haut à gauche */}
+              <div className="absolute -top-[3.8rem] -left-4 z-10 flex items-center">
+                {/* Wrapper dimensionné: augmente la taille en changeant size-16/20 */}
+                <span className="relative size-24">
+                  <Image src="/images/soap.png" alt="Savon" fill className="object-contain p-2" />
+                </span>
+                <span className="relative -ml-10 size-24">
+                  <Image src="/images/gommage.png" alt="Gommage" fill className="object-contain p-2" />
+                </span>
+              </div>
+              <div className="relative h-[240px] w-[85%] mx-auto overflow-hidden rounded-xl mt-2">
+                <Image src="/images/collagène-scrub-soap.svg" alt="Collagen Scrub Soap Set" fill className="object-cover" />
+              </div>
+              <div className="mt-4">
+                <h3 className="font-['League_Spartan',Arial,sans-serif] text-[1.25rem] font-extrabold text-[#4e53a3] text-center">
+                  C’est la Chic(k) Collagen Scrub Soap Set
+                </h3>
+                <p className="mb-4 font-['Roboto',Arial,sans-serif] italic text-[#2eb2a4] text-center">Mouvement</p>
+
+                <div className="space-y-1 font-['Roboto',Arial,sans-serif] text-[#2eb2a4]">
+                  <p className="m-0"><span className="font-semibold text-[#4e53a3]">Galénique</span> : Gommage</p>
+                  <p className="m-0"><span className="font-semibold text-[#4e53a3]">Bienfaits</span> : Beauté de la peau</p>
+                  <p className="m-0"><span className="font-semibold text-[#4e53a3]">Formulation</span> : Reggenerate + Graines de lin + Romarin + Coquille de noix + Sel marin + Beurre de karité</p>
+                </div>
+
+                <div className="mt-4 p-3 text-center">
+                  <button className="rounded-full bg-[#2eb2a4] px-5 py-2 font-['League_Spartan',Arial,sans-serif] font-bold text-white transition hover:underline decoration-white underline-offset-2 decoration-2">
+                    Voir le produit 
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            {/* Card 13 */}
+            <div className="relative rounded-2xl border-2 border-[#2eb2a4] bg-white p-4 mt-6">
+              {/* Badges icônes en haut à gauche */}
+              <div className="absolute -top-[3.8rem] -left-4 z-10 flex items-center">
+                {/* Wrapper dimensionné: augmente la taille en changeant size-16/20 */}
+                <span className="relative size-24">
+                  <Image src="/images/drink.png" alt="Liquide" fill className="object-contain p-2" />
+                </span>
+                <span className="relative -ml-10 size-24">
+                  <Image src="/images/skin-beauty.png" alt="Beauté de la peau" fill className="object-contain p-2" />
+                </span>
+              </div>
+              <div className="relative h-[240px] w-[85%] mx-auto overflow-hidden rounded-xl mt-2">
+                <Image src="/images/collagène-vinaigrette.svg" alt="Collagen Vinaigrett" fill className="object-cover" />
+              </div>
+              <div className="mt-4">
+                <h3 className="font-['League_Spartan',Arial,sans-serif] text-[1.25rem] font-extrabold text-[#4e53a3] text-center">
+                  Collagen+ Vinaigrett
+                </h3>
+                <p className="mb-4 font-['Roboto',Arial,sans-serif] italic text-[#2eb2a4] text-center">Archie</p>
+
+                <div className="space-y-1 font-['Roboto',Arial,sans-serif] text-[#2eb2a4]">
+                  <p className="m-0"><span className="font-semibold text-[#4e53a3]">Galénique</span> : Vinaigrette</p>
+                  <p className="m-0"><span className="font-semibold text-[#4e53a3]">Bienfaits</span> : Beauté de la peau</p>
+                  <p className="m-0"><span className="font-semibold text-[#4e53a3]">Formulation</span> : Reggenerate +</p>
+                </div>
+
+                <div className="mt-4 p-3 text-center">
+                  <button className="rounded-full bg-[#2eb2a4] px-5 py-2 font-['League_Spartan',Arial,sans-serif] font-bold text-white transition hover:underline decoration-white underline-offset-2 decoration-2">
+                    Voir le produit 
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            {/* Card 14 */}
+            <div className="relative rounded-2xl border-2 border-[#2eb2a4] bg-white p-4 mt-6">
+              {/* Badges icônes en haut à gauche */}
+              <div className="absolute -top-[3.8rem] -left-4 z-10 flex items-center">
+                {/* Wrapper dimensionné: augmente la taille en changeant size-16/20 */}
+                <span className="relative size-24">
+                  <Image src="/images/pill.png" alt="Gélules" fill className="object-contain p-2" />
+                </span>
+                <span className="relative -ml-10 size-24">
+                  <Image src="/images/knuckle.png" alt="Santé des articulations" fill className="object-contain p-2" />
+                </span>
+                <span className="relative -ml-10 size-24">
+                  <Image src="/images/skin-beauty.png" alt="Beauté de la peau" fill className="object-contain p-2" />
+                </span>
+              </div>
+              <div className="relative h-[240px] w-[85%] mx-auto overflow-hidden rounded-xl mt-2">
+                <Image src="/images/mouvement-collagène+.svg" alt="Mouvement Collagène +" fill className="object-cover" />
+              </div>
+              <div className="mt-4">
+                <h3 className="font-['League_Spartan',Arial,sans-serif] text-[1.25rem] font-extrabold text-[#4e53a3] text-center">
+                  Mouvement
+                </h3>
+                <p className="mb-4 font-['Roboto',Arial,sans-serif] italic text-[#2eb2a4] text-center">Byogénie</p>
+
+                <div className="space-y-1 font-['Roboto',Arial,sans-serif] text-[#2eb2a4]">
+                  <p className="m-0"><span className="font-semibold text-[#4e53a3]">Galénique</span> : Gélules</p>
+                  <p className="m-0"><span className="font-semibold text-[#4e53a3]">Bienfaits</span> : Peau & Articulations</p>
+                  <p className="m-0"><span className="font-semibold text-[#4e53a3]">Formulation</span> : Reggenerate + Prêle + Vitamine C</p>
+                </div>
+
+                <div className="mt-4 p-3 text-center">
+                  <button className="rounded-full bg-[#2eb2a4] px-5 py-2 font-['League_Spartan',Arial,sans-serif] font-bold text-white transition hover:underline decoration-white underline-offset-2 decoration-2">
+                    Voir le produit 
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            {/* Card 15 */}
+            <div className="relative rounded-2xl border-2 border-[#2eb2a4] bg-white p-4 mt-6">
+              {/* Badges icônes en haut à gauche */}
+              <div className="absolute -top-[3.8rem] -left-4 z-10 flex items-center">
+                {/* Wrapper dimensionné: augmente la taille en changeant size-16/20 */}
+                <span className="relative size-24">
+                  <Image src="/images/capsules.png" alt="Comprimés" fill className="object-contain p-2" />
+                </span>
+                <span className="relative -ml-10 size-24">
+                  <Image src="/images/knuckle.png" alt="Santé des articulations" fill className="object-contain p-2" />
+                </span>
+              </div>
+              <div className="relative h-[240px] w-[85%] mx-auto overflow-hidden rounded-xl mt-2">
+                <Image src="/images/suivimine.svg" alt="Mouvement Collagène +" fill className="object-cover" />
+              </div>
+              <div className="mt-4">
+                <h3 className="font-['League_Spartan',Arial,sans-serif] text-[1.25rem] font-extrabold text-[#4e53a3] text-center">
+                  Suivimine Arthro
+                </h3>
+                <p className="mb-4 font-['Roboto',Arial,sans-serif] italic text-[#2eb2a4] text-center">Therascience</p>
+
+                <div className="space-y-1 font-['Roboto',Arial,sans-serif] text-[#2eb2a4]">
+                  <p className="m-0"><span className="font-semibold text-[#4e53a3]">Galénique</span> : Comprimés</p>
+                  <p className="m-0"><span className="font-semibold text-[#4e53a3]">Bienfaits</span> : Articulations</p>
+                  <p className="m-0"><span className="font-semibold text-[#4e53a3]">Formulation</span> : Reggenerate + Boswellia + Glucosamine + Chondroïtine</p>
+                </div>
+
+                <div className="mt-4 p-3 text-center">
+                  <button className="rounded-full bg-[#2eb2a4] px-5 py-2 font-['League_Spartan',Arial,sans-serif] font-bold text-white transition hover:underline decoration-white underline-offset-2 decoration-2">
+                    Voir le produit 
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            {/* Card 16 */}
+            <div className="relative rounded-2xl border-2 border-[#2eb2a4] bg-white p-4 mt-6">
+              {/* Badges icônes en haut à gauche */}
+              <div className="absolute -top-[3.8rem] -left-4 z-10 flex items-center">
+                {/* Wrapper dimensionné: augmente la taille en changeant size-16/20 */}
+                <span className="relative size-24">
+                  <Image src="/images/pill.png" alt="Gélules" fill className="object-contain p-2" />
+                </span>
+                <span className="relative -ml-10 size-24">
+                  <Image src="/images/skin-beauty.png" alt="Beauté de la peau" fill className="object-contain p-2" />
+                </span>
+                <span className="relative -ml-10 size-24">
+                  <Image src="/images/knuckle.png" alt="Santé des articulations" fill className="object-contain p-2" />
+                </span>
+              </div>
+              <div className="relative h-[240px] w-[85%] mx-auto overflow-hidden rounded-xl mt-2">
+                <Image src="/images/silinovea.svg" alt="Silinovea du Laboratoire Motima" fill className="object-cover" />
+              </div>
+              <div className="mt-4">
+                <h3 className="font-['League_Spartan',Arial,sans-serif] text-[1.25rem] font-extrabold text-[#4e53a3] text-center">
+                  Laboratoire Motima
+                </h3>
+                <p className="mb-4 font-['Roboto',Arial,sans-serif] italic text-[#2eb2a4] text-center">Silinovea</p>
+
+                <div className="space-y-1 font-['Roboto',Arial,sans-serif] text-[#2eb2a4]">
+                  <p className="m-0"><span className="font-semibold text-[#4e53a3]">Galénique</span> : Gélules</p>
+                  <p className="m-0"><span className="font-semibold text-[#4e53a3]">Bienfaits</span> : Articulations & Peau</p>
+                  <p className="m-0"><span className="font-semibold text-[#4e53a3]">Formulation</span> : Vitamine C + Bambou Tabashir + L-Tyrosine + Lithothamne (iode) + Reggenerate + Zinc + Vitamine B5 + Vitamine B6 + Vitamine B8 </p>
+                </div>
+
+                <div className="mt-4 p-3 text-center">
+                  <button className="rounded-full bg-[#2eb2a4] px-5 py-2 font-['League_Spartan',Arial,sans-serif] font-bold text-white transition hover:underline decoration-white underline-offset-2 decoration-2">
+                    Voir le produit 
+                  </button>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -124,8 +732,7 @@ export default function ClientsPage() {
           </div>
         </div>
       </section>
+      <Footer />
     </main>
   );
 }
-
-
