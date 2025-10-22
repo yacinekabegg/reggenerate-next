@@ -18,7 +18,7 @@ export default function ReadyToMarket() {
 
   return (
     <main className="pt-16">
-      {/* Hero visuel produits plein écran */}
+      {/* Hero */}
       <section className="relative h-[380px] w-full md:h-[520px]">
         <Image
           src="/images/products.svg"
@@ -367,7 +367,7 @@ export default function ReadyToMarket() {
 
                 <div className="space-y-1 font-['Roboto',Arial,sans-serif] text-[#2eb2a4]">
                   <p className="m-0"><span className="font-semibold text-[#4e53a3]">Galénique</span> : 60 gélules</p>
-                  <p className="m-0"><span className="font-semibold text-[#4e53a3]">Bénéfaits</span> : Elasticité – Fermeté – Éclat</p>
+                  <p className="m-0"><span className="font-semibold text-[#4e53a3]">Bienfaits</span> : Elasticité – Fermeté – Éclat</p>
                   <p className="m-0"><span className="font-semibold text-[#4e53a3]">Arôme</span> : —</p>
                   <p className="m-0"><span className="font-semibold text-[#4e53a3]">Formulation</span> : Reggenerate™, Probiotiques, Acérola, Zinc</p>
                   <p className="m-0"><span className="font-semibold text-[#4e53a3]">MOQ</span> : dès 500 pots</p>
@@ -405,7 +405,7 @@ export default function ReadyToMarket() {
 
                 <div className="space-y-1 font-['Roboto',Arial,sans-serif] text-[#2eb2a4]">
                   <p className="m-0"><span className="font-semibold text-[#4e53a3]">Galénique</span> : 60 comprimés</p>
-                  <p className="m-0"><span className="font-semibold text-[#4e53a3]">Bénéfaits</span> : Elasticité – Fermeté – Éclat</p>
+                  <p className="m-0"><span className="font-semibold text-[#4e53a3]">Bienfaits</span> : Elasticité – Fermeté – Éclat</p>
                   <p className="m-0"><span className="font-semibold text-[#4e53a3]">Arôme</span> : Tropical</p>
                   <p className="m-0"><span className="font-semibold text-[#4e53a3]">Formulation</span> : Reggenerate™, Coenzyme Q10, acérola</p>
                   <p className="m-0"><span className="font-semibold text-[#4e53a3]">MOQ</span> : dès 2500 pots</p>
@@ -443,7 +443,7 @@ export default function ReadyToMarket() {
 
                 <div className="space-y-1 font-['Roboto',Arial,sans-serif] text-[#2eb2a4]">
                   <p className="m-0"><span className="font-semibold text-[#4e53a3]">Galénique</span> : Pot 105g / Stick 3,5g</p>
-                  <p className="m-0"><span className="font-semibold text-[#4e53a3]">Bénéfaits</span> : Elasticité – Fermeté – Éclat</p>
+                  <p className="m-0"><span className="font-semibold text-[#4e53a3]">Bienfaits</span> : Elasticité – Fermeté – Éclat</p>
                   <p className="m-0"><span className="font-semibold text-[#4e53a3]">Arôme</span> : Cerise</p>
                   <p className="m-0"><span className="font-semibold text-[#4e53a3]">Formulation</span> : Reggenerate™, Pétales de rose, Grenade, Acérola</p>
                   <p className="m-0"><span className="font-semibold text-[#4e53a3]">MOQ</span> : dès 1666 pots</p>
@@ -482,7 +482,7 @@ export default function ReadyToMarket() {
 
                 <div className="space-y-1 font-['Roboto',Arial,sans-serif] text-[#2eb2a4]">
                   <p className="m-0"><span className="font-semibold text-[#4e53a3]">Galénique</span> : 60 gélules</p>
-                  <p className="m-0"><span className="font-semibold text-[#4e53a3]">Bénéfaits</span> : Souplesse - Mobilité - Confort</p>
+                  <p className="m-0"><span className="font-semibold text-[#4e53a3]">Bienfaits</span> : Souplesse - Mobilité - Confort</p>
                   <p className="m-0"><span className="font-semibold text-[#4e53a3]">Arôme</span> : —</p>
                   <p className="m-0"><span className="font-semibold text-[#4e53a3]">Formulation</span> : Reggenerate™, Curcuma, Vitamine D</p>
                   <p className="m-0"><span className="font-semibold text-[#4e53a3]">MOQ</span> : dès 500 pots</p>
@@ -520,7 +520,7 @@ export default function ReadyToMarket() {
 
                 <div className="space-y-1 font-['Roboto',Arial,sans-serif] text-[#2eb2a4]">
                   <p className="m-0"><span className="font-semibold text-[#4e53a3]">Galénique</span> : 90 comprimés</p>
-                  <p className="m-0"><span className="font-semibold text-[#4e53a3]">Bénéfaits</span> : Souplesse - Mobilité - Confort</p>
+                  <p className="m-0"><span className="font-semibold text-[#4e53a3]">Bienfaits</span> : Souplesse - Mobilité - Confort</p>
                   <p className="m-0"><span className="font-semibold text-[#4e53a3]">Arôme</span> : Cerise</p>
                   <p className="m-0"><span className="font-semibold text-[#4e53a3]">Formulation</span> : Reggenerate™, Boswellia, Vitamine C</p>
                   <p className="m-0"><span className="font-semibold text-[#4e53a3]">MOQ</span> : dès 1666 pots</p>
@@ -558,7 +558,7 @@ export default function ReadyToMarket() {
 
                 <div className="space-y-1 font-['Roboto',Arial,sans-serif] text-[#2eb2a4]">
                   <p className="m-0"><span className="font-semibold text-[#4e53a3]">Galénique</span> : Pot 105g / Stick 3,5g</p>
-                  <p className="m-0"><span className="font-semibold text-[#4e53a3]">Bénéfaits</span> : Souplesse - Mobilité - Confort</p>
+                  <p className="m-0"><span className="font-semibold text-[#4e53a3]">Bienfaits</span> : Souplesse - Mobilité - Confort</p>
                   <p className="m-0"><span className="font-semibold text-[#4e53a3]">Arôme</span> : Mojito</p>
                   <p className="m-0"><span className="font-semibold text-[#4e53a3]">Formulation</span> : Reggenerate™, Bambou, Prêle des champs</p>
                   <p className="m-0"><span className="font-semibold text-[#4e53a3]">MOQ</span> : dès 1666 pots</p>
@@ -597,7 +597,7 @@ export default function ReadyToMarket() {
 
                 <div className="space-y-1 font-['Roboto',Arial,sans-serif] text-[#2eb2a4]">
                   <p className="m-0"><span className="font-semibold text-[#4e53a3]">Galénique</span> : 60 gummies</p>
-                  <p className="m-0"><span className="font-semibold text-[#4e53a3]">Bénéfaits</span> : Elasticité - Fermeté - Eclat</p>
+                  <p className="m-0"><span className="font-semibold text-[#4e53a3]">Bienfaits</span> : Elasticité - Fermeté - Eclat</p>
                   <p className="m-0"><span className="font-semibold text-[#4e53a3]">Arôme</span> : Fraise</p>
                   <p className="m-0"><span className="font-semibold text-[#4e53a3]">Formulation</span> : Reggenerate™, Vitamine C</p>
                   <p className="m-0"><span className="font-semibold text-[#4e53a3]">MOQ</span> : dès 120 pots</p>
@@ -635,7 +635,7 @@ export default function ReadyToMarket() {
 
                 <div className="space-y-1 font-['Roboto',Arial,sans-serif] text-[#2eb2a4]">
                   <p className="m-0"><span className="font-semibold text-[#4e53a3]">Galénique</span> : 60 comprimés bicouches</p>
-                  <p className="m-0"><span className="font-semibold text-[#4e53a3]">Bénéfaits</span> : Elasticité - Fermeté - Eclat</p>
+                  <p className="m-0"><span className="font-semibold text-[#4e53a3]">Bienfaits</span> : Elasticité - Fermeté - Eclat</p>
                   <p className="m-0"><span className="font-semibold text-[#4e53a3]">Arôme</span> : Cerise</p>
                   <p className="m-0"><span className="font-semibold text-[#4e53a3]">Formulation</span> : Reggenerate™, Probiotiques, Vitamine C</p>
                   <p className="m-0"><span className="font-semibold text-[#4e53a3]">MOQ</span> : dès 5000 pots</p>
@@ -673,7 +673,7 @@ export default function ReadyToMarket() {
 
                 <div className="space-y-1 font-['Roboto',Arial,sans-serif] text-[#2eb2a4]">
                   <p className="m-0"><span className="font-semibold text-[#4e53a3]">Galénique</span> : Stick de 2g</p>
-                  <p className="m-0"><span className="font-semibold text-[#4e53a3]">Bénéfaits</span> : Souplesse - Mobilité - Confort</p>
+                  <p className="m-0"><span className="font-semibold text-[#4e53a3]">Bienfaits</span> : Souplesse - Mobilité - Confort</p>
                   <p className="m-0"><span className="font-semibold text-[#4e53a3]">Arôme</span> : Framboise</p>
                   <p className="m-0"><span className="font-semibold text-[#4e53a3]">Formulation</span> : Reggenerate™, Vitamine C</p>
                   <p className="m-0"><span className="font-semibold text-[#4e53a3]">MOQ</span> : dès 4666 boîtes de 30 sticks</p>
@@ -712,7 +712,7 @@ export default function ReadyToMarket() {
 
                 <div className="space-y-1 font-['Roboto',Arial,sans-serif] text-[#2eb2a4]">
                   <p className="m-0"><span className="font-semibold text-[#4e53a3]">Galénique</span> : barre de 40g</p>
-                  <p className="m-0"><span className="font-semibold text-[#4e53a3]">Bénéfaits</span> : Elasticité - Fermeté - Eclat</p>
+                  <p className="m-0"><span className="font-semibold text-[#4e53a3]">Bienfaits</span> : Elasticité - Fermeté - Eclat</p>
                   <p className="m-0"><span className="font-semibold text-[#4e53a3]">Arôme</span> : Noisette</p>
                   <p className="m-0"><span className="font-semibold text-[#4e53a3]">Formulation</span> : Reggenerate™, Vitamine C, Vitamine E, Calcium, Phosophore</p>
                   <p className="m-0"><span className="font-semibold text-[#4e53a3]">MOQ</span> : dès 4000 barres</p>
@@ -750,7 +750,7 @@ export default function ReadyToMarket() {
 
                 <div className="space-y-1 font-['Roboto',Arial,sans-serif] text-[#2eb2a4]">
                   <p className="m-0"><span className="font-semibold text-[#4e53a3]">Galénique</span> : barre de 36g</p>
-                  <p className="m-0"><span className="font-semibold text-[#4e53a3]">Bénéfaits</span> : Elasticité - Fermeté - Eclat</p>
+                  <p className="m-0"><span className="font-semibold text-[#4e53a3]">Bienfaits</span> : Elasticité - Fermeté - Eclat</p>
                   <p className="m-0"><span className="font-semibold text-[#4e53a3]">Arôme</span> : Chocolat - graine de courges torréfiées</p>
                   <p className="m-0"><span className="font-semibold text-[#4e53a3]">Formulation</span> : Reggenerate™, Vitamines A, B1, B2, B3, B5, B6, B8, B9,  B12, C, E</p>
                   <p className="m-0"><span className="font-semibold text-[#4e53a3]">MOQ</span> : dès 1000 pots</p>
