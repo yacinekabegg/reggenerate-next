@@ -400,7 +400,7 @@ export default function ClientsPage() {
                 <h3 className="font-['League_Spartan',Arial,sans-serif] text-[1.25rem] font-extrabold text-[#4e53a3] text-center">
                   Dermavits
                 </h3>
-                <p className="mb-4 font-['Roboto',Arial,sans-serif] italic text-[#2eb2a4] text-center">Supernature</p>
+                <p className="mb-4 font-['Roboto',Arial,sans-serif] italic text-[#2eb2a4] text-center">Lepivits</p>
 
                 <div className="space-y-1 font-['Roboto',Arial,sans-serif] text-[#2eb2a4]">
                   <p className="m-0"><span className="font-semibold text-[#4e53a3]">Galénique</span> : Poudre</p>
