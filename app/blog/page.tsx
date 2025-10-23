@@ -1,7 +1,9 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { useState } from "react";
+import { Footer } from "@/components/Footer";
 
 type Category = "all" | "innovation" | "sante" | "marche" | "technique";
 
@@ -86,13 +88,14 @@ export default function BlogPage() {
 
   const catBtn = (cat: Category, text: string) => (
     <button
-      key={cat}
+      type="button"
+      key={cat + text}
       onClick={() => setCategory(cat)}
       className={
-        "rounded-full px-6 py-3 font-semibold transition-all border-2 " +
+        "inline-flex w-full items-center justify-center rounded-full border-2 px-8 py-4 font-['League_Spartan',Arial,sans-serif] text-[0.95rem] font-extrabold uppercase tracking-wide transition " +
         (category === cat
           ? "border-[#2eb2a4] bg-[#2eb2a4] text-white"
-          : "border-[#e5e5e5] bg-white text-[#666]")
+          : "border-[#2eb2a4] bg-white text-[#2eb2a4] hover:bg-[#e8f6f4]")
       }
     >
       {text}
@@ -102,27 +105,39 @@ export default function BlogPage() {
   return (
     <main className="pt-16">
       {/* Hero */}
-      <section className="mt-16 bg-gradient-to-br from-[#2eb2a4] to-[#4e53a3] py-12 text-white">
-        <div className="mx-auto max-w-[1200px] px-6 text-center">
-          <div className="mx-auto mb-4 inline-block rounded-[20px] bg-white/20 px-4 py-2">
-            <span className="text-[0.9rem] font-medium">📚 Expertise & Innovation</span>
+      <section className=" bg-white w-full">
+        <div className="relative  h-[280px] sm:h-[360px] md:h-[420px] lg:h-[520px] w-full">
+          <Image
+            src="/images/blog-hero.png"
+            alt="Œuf cassé sur fond blanc"
+            fill
+            className="object-contain object-center"
+            priority
+          />
+          {/* Badge aligné au container */}
+          <div className="absolute inset-0">
+            <div className="mx-auto max-w-[1400px] px-6 pt-6 flex justify-center items-center">
+              <div className="flex justify-center items-center h-10 w-fit gap-3 rounded-full border-2 border-[#2eb2a4] bg-white/95 px-4">
+                <Image src="/images/blog-icon.png" alt="Blog" width={32} height={32} className="h-8 w-8 object-contain" />
+                <span className="font-['League_Spartan',Arial,sans-serif] text-[0.95rem] leading-[32px] relative top-[1px] whitespace-nowrap font-extrabold tracking-wide text-[#2eb2a4]">
+                  EXPERTISE & INNOVATION
+                </span>
+              </div>
+            </div>
           </div>
-          <h1 className="mb-2 text-[3rem] font-bold">Blog Reggenerate™</h1>
-          <p className="mx-auto max-w-[600px] text-[1.2rem] opacity-90">
-            Découvrez les dernières innovations, tendances et expertises dans le monde des compléments alimentaires
-          </p>
         </div>
       </section>
 
       {/* Categories */}
-      <section className="bg-[#f8f9fa] py-6">
-        <div className="mx-auto max-w-[1200px] px-6">
-          <div className="flex flex-wrap justify-center gap-4">
-            {catBtn("all", "Tous")}
-            {catBtn("innovation", "Innovation")}
-            {catBtn("sante", "Santé & Bien-être")}
-            {catBtn("marche", "Marché & Tendances")}
-            {catBtn("technique", "Technique")}
+      <section className="bg-white py-10">
+        <div className="mx-auto max-w-[1100px] px-6">
+          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            {catBtn("all", "TOUS")}
+            {catBtn("technique", "EGGSPERTISE TECHNIQUE")}
+            {catBtn("sante", "SANTÉ & BIEN-ÊTRE")}
+            {catBtn("marche", "MARCHÉ & TENDANCES")}
+            {catBtn("innovation", "INNOVATIONS")}
+            {catBtn("sante", "BEAUTÉ PEAU & CHEVEUX")}
           </div>
         </div>
       </section>
@@ -168,16 +183,69 @@ export default function BlogPage() {
         </div>
       </section>
 
-      {/* Newsletter cta (button triggers Tally modal; can be wired later) */}
-      <section className="bg-gradient-to-br from-[#2eb2a4] to-[#4e53a3] py-16 text-white">
-        <div className="mx-auto max-w-[600px] px-6 text-center">
-          <h2 className="mb-4 text-[2.5rem] font-bold">Inscription à la newsletter !</h2>
-          <p className="mb-8 text-[1.1rem] opacity-90">Déjà 1 500 professionnels nous font confiance.</p>
-          <button className="rounded bg-white px-6 py-3 font-semibold text-[#2eb2a4]">Inscrivez-vous</button>
-        </div>
-      </section>
+      {/* Contact */}
+            <section id="contact" className="bg-[#fafafa] py-16">
+              <div className="mx-auto max-w-[1200px] px-6">
+                <div className="mb-12 text-center">
+                  <h2 className="text-[2.5rem] font-bold text-[#1a1a1a]">Rejoignez nos clients</h2>
+                  <p className="mx-auto max-w-[600px] text-[#666]">
+                    Vous souhaitez intégrer Reggenerate™ dans vos formulations ? Contactez notre équipe technique
+                  </p>
+                </div>
+                <div className="grid grid-cols-1 gap-12 md:grid-cols-2">
+                  <div className="rounded-2xl border border-[#e5e5e5] bg-white p-6">
+                    <iframe
+                      src="https://tally.so/embed/3lxroW?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1"
+                      loading="lazy"
+                      width="100%"
+                      height={820}
+                      frameBorder={0}
+                      title="Registration form"
+                    />
+                  </div>
+                  <div className="rounded-2xl border border-[#e5e5e5] bg-white p-6">
+                    <h3 className="mb-4 text-[1.5rem] font-bold text-[#1a1a1a]">Contact de notre CEO - Yacine Kabeche</h3>
+                    <div className="mb-8 flex flex-col gap-6">
+                      <div className="flex items-center gap-3">
+                        <span className="text-[1.5rem]">📧</span>
+                        <div>
+                          <h4 className="mb-1 font-semibold text-[#1a1a1a]">Email</h4>
+                          <p className="m-0 text-[#666]">yacine.kabeche@circulegg.fr</p>
+                        </div>
+                      </div>
+                      <div className="flex items-center gap-3">
+                        <span className="text-[1.5rem]">📞</span>
+                        <div>
+                          <h4 className="mb-1 font-semibold text-[#1a1a1a]">Téléphone</h4>
+                          <p className="m-0 text-[#666]">+33684159719</p>
+                        </div>
+                      </div>
+                      <div className="flex items-center gap-3">
+                        <span className="text-[1.5rem]">🌍</span>
+                        <div>
+                          <h4 className="mb-1 font-semibold text-[#1a1a1a]">Adresses</h4>
+                          <p className="m-0 text-[#666]">Usine : 21 Rue Charles Lindbergh, 35150 Janzé<br />Bureau : 14 rue Soleillet, 75020 Paris</p>
+                        </div>
+                      </div>
+                    </div>
+                    <div className="rounded bg-[#f8f9fa] p-4">
+                      <h4 className="mb-2 font-semibold text-[#1a1a1a]">Délai de réponse</h4>
+                      <p className="m-0 text-[#666]">Notre équipe vous répond sous 48h ouvrées sinon on vous doit un cadeau !</p>
+                    </div>
+                    <div className="mt-8 text-center">
+                      <Image
+                        src="/images/Mon image ChatGPT.jpg"
+                        alt="Reggenerate - Image ChatGPT"
+                        width={1200}
+                        height={800}
+                        className="mx-auto h-auto w-full rounded-xl shadow-[0_5px_15px_rgba(0,0,0,0.1)]"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+            <Footer />
     </main>
   );
 }
-
-
