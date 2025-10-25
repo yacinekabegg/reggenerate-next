@@ -11,7 +11,7 @@ type Category = "all" | "innovation" | "sante" | "marche" | "technique" | "beaut
 const articles = [
   {
     category: "sante" as const,
-    href: "/blog/innovation-membrane-oeuf",
+    href: "/blog/10-astuces-naturelles-sante-articulaire",
     title: "10 astuces naturelles pour améliorer votre santé articulaire",
     date: "15 Janvier 2025",
     read: "5 min",
