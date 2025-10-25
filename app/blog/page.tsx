@@ -9,76 +9,82 @@ type Category = "all" | "innovation" | "sante" | "marche" | "technique";
 
 const articles = [
   {
-    category: "innovation" as const,
+    category: "sante" as const,
     href: "/blog/innovation-membrane-oeuf",
-    title: "L'Innovation Révolutionnaire de la Membrane d'Œuf",
-    date: "15 Janvier 2024",
+    title: "10 astuces naturelles pour améliorer votre santé articulaire",
+    date: "15 Janvier 2025",
     read: "5 min",
     excerpt:
-      "Découvrez comment la membrane d'œuf transforme le monde des compléments alimentaires avec ses propriétés uniques et ses bénéfices cliniquement prouvés.",
-    label: "INNOVATION",
+      "Comment maintenir une mobilité articulaire optimale avec des solutions naturelles et des ingrédients innovants...",
+    label: "SANTÉ & BIEN-ÊTRE",
     labelColor: "#2eb2a4",
     badge: "🥚",
-  },
-  {
-    category: "marche" as const,
-    href: "/blog/tendances-2024",
-    title: "Les Tendances Compléments Alimentaires 2024",
-    date: "10 Janvier 2024",
-    read: "7 min",
-    excerpt:
-      "Analyse des nouvelles tendances du marché des compléments alimentaires : du naturel au personnalisé, découvrez ce qui va marquer 2024.",
-    label: "MARCHÉ",
-    labelColor: "#FF6B6B",
-    badge: "📈",
-  },
-  {
-    category: "sante" as const,
-    href: "/blog/mobilite-articulaire",
-    title: "Mobilité Articulaire : Solutions Naturelles",
-    date: "5 Janvier 2024",
-    read: "6 min",
-    excerpt:
-      "Comment maintenir une mobilité articulaire optimale avec des solutions naturelles et des ingrédients innovants comme la membrane d'œuf.",
-    label: "SANTÉ",
-    labelColor: "#90EE90",
-    badge: "🦴",
+    image: "/images/article-1.png",
   },
   {
     category: "technique" as const,
-    href: "/blog/guide-formulation",
-    title: "Guide de Formulation avec Reggenerate™",
-    date: "1 Janvier 2024",
+    href: "/blog/tendances-2024",
+    title: "La membrane d’oeuf, nouvelle révolution",
+    date: "15 Février 2025",
+    read: "3 min",
+    excerpt:
+      "Découvrez comment la membrane d'œuf transforme le monde des compléments alimentaires avec ses propriétés uniques...",
+    label: "EGGSPERTISE TECHNIQUE",
+    labelColor: "#FF6B6B",
+    badge: "📈",
+    image: "/images/article-2.png",
+  },
+  {
+    category: "marche" as const,
+    href: "/blog/mobilite-articulaire",
+    title: "Les Tendances Compléments Alimentaires 2024",
+    date: "15 Mars 2025",
     read: "8 min",
     excerpt:
-      "Conseils techniques et bonnes pratiques pour intégrer efficacement Reggenerate™ dans vos formulations.",
-    label: "TECHNIQUE",
-    labelColor: "#87CEEB",
-    badge: "🧪",
+      "Analyse des nouvelles tendances du marché : du naturel au personnalisé, découvrez ce qui va marquer 2024...",
+    label: "MARCHÉ & TENDANCES",
+    labelColor: "#90EE90",
+    badge: "🦴",
+    image: "/images/article-3.png",
   },
   {
     category: "sante" as const,
-    href: "/blog/beaute-nutricosmetique",
-    title: "Beauté de l'Intérieur : Nutricosmétique",
-    date: "28 Décembre 2023",
-    read: "4 min",
+    href: "/blog/guide-formulation",
+    title: "3 molécules indispensables pour une belle peau",
+    date: "15 Avril 2025",
+    read: "5 min",
     excerpt:
-      "Comment les compléments alimentaires révolutionnent la beauté en agissant de l'intérieur pour des résultats durables et naturels.",
-    label: "SANTÉ",
+      "Dès 25 ans, les réserves en collagène, acide hyaluronique et élastine diminuent, entraînant le vieillissement de la peau. Mais à quoi servent ces molécules et comment contrer ce phénomène ?",
+    label: "BEAUTÉ PEAU & CHEVEUX",
+    labelColor: "#87CEEB",
+    badge: "🧪",
+    image: "/images/article-4.png",
+  },
+  {
+    category: "innovation" as const,
+    href: "/blog/beaute-nutricosmetique",
+    title: "Ces 5 produits qui révolutionnent totalement le marché",
+    date: "15 Mai 2025",
+    read: "8 min",
+    excerpt:
+      "Dans cet océan de compléments alimentaires, cinq produits surgissent tel un raz-de-marée, déferlant avec une innovation qui fait grand bruit. Découvrez pourquoi ils captivent autant.",
+    label: "INNOVATIONS",
     labelColor: "#FF69B4",
     badge: "✨",
+    image: "/images/article-5.png",
   },
   {
     category: "technique" as const,
     href: "/blog/reglementation-2024",
-    title: "Réglementation Compléments Alimentaires 2024",
-    date: "20 Décembre 2023",
-    read: "6 min",
+    title: "Le Collagène ça marche vraiment ?",
+    date: "15 Juin 2025",
+    read: "8 min",
     excerpt:
-      "Mise à jour sur les nouvelles réglementations européennes et leurs impacts sur l'industrie des compléments alimentaires.",
-    label: "TECHNIQUE",
+      "Le collagène n’est pas efficace, le corps ne l’absorbe pas, c’est dangereux, c’est marketing...on répond à toutes les objections sur le collagène et on lève le voile sur cet ingrédient hyper tendance.",
+    label: "EGGSPERTISE TECHNIQUE",
     labelColor: "#8B4513",
     badge: "📋",
+    image: "/images/article-6.png",
   },
 ];
 
@@ -143,33 +149,28 @@ export default function BlogPage() {
       </section>
 
       {/* Articles grid */}
-      <section className="bg-[#fafafa] py-16">
+      <section className="bg-[#e2f6f4] py-16">
         <div className="mx-auto max-w-[1400px] px-6">
-          <div className="mb-12 text-center">
-            <h2 className="text-[2.5rem] font-bold text-[#1a1a1a]">Nos Derniers Articles</h2>
-            <p className="mx-auto max-w-[600px] text-[1.1rem] text-[#666]">
-              Expertise, innovation et actualités du monde des compléments alimentaires
-            </p>
-          </div>
+          
 
           <div className="mx-auto grid max-w-[1400px] grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
             {filtered.map((a) => (
               <article key={a.href} className="overflow-hidden rounded-2xl bg-white shadow-[0_4px_20px_rgba(0,0,0,0.1)] transition">
-                <div className="relative flex h-[200px] items-center justify-center"
-                  style={{ background: a.labelColor.includes("#FF") ? a.labelColor : undefined }}>
-                  <div className="text-[3rem]">{a.badge}</div>
-                  <div className="absolute right-4 top-4 rounded-[20px] bg-white/90 px-3 py-1 text-[0.8rem] font-semibold" style={{ color: a.labelColor }}>
+                <div className="relative h-[200px] w-full overflow-hidden">
+                  <Image src={a.image} alt={a.title} fill className="object-cover" />
+                  <div className="absolute right-4 top-4 rounded-[20px] bg-white/90 px-3 py-1 text-[0.8rem] font-semibold text-[#2eb2a4] border border-[#2eb2a4]">
                     {a.label}
                   </div>
                 </div>
                 <div className="p-6">
-                  <div className="mb-4 flex items-center gap-4 text-[0.9rem] text-[#666]">
+                  <h3 className="mb-3 text-[1.4rem] font-bold text-[#4e53a3]">{a.title}</h3>
+                  <div className="mb-4 flex items-center gap-4 text-[0.9rem] text-[#4e53a3]">
                     <span>{a.date}</span>
                     <span>•</span>
                     <span>{a.read} de lecture</span>
                   </div>
-                  <h3 className="mb-3 text-[1.4rem] font-bold text-[#1a1a1a]">{a.title}</h3>
-                  <p className="mb-6 text-[#666]">{a.excerpt}</p>
+                  
+                  <p className="mb-6 text-[#2eb2a4]">{a.excerpt}</p>
                   <div className="flex items-center justify-between">
                     <Link href={a.href} className="rounded bg-[#2eb2a4] px-4 py-2 font-semibold text-white">
                       Lire l&apos;article
