@@ -24,7 +24,7 @@ const articles = [
   },
   {
     category: "technique" as const,
-    href: "/blog/tendances-2024",
+    href: "/blog/membrane-nouvelle-revolution",
     title: "La membrane d’oeuf, nouvelle révolution",
     date: "15 Février 2025",
     read: "3 min",
@@ -37,7 +37,7 @@ const articles = [
   },
   {
     category: "marche" as const,
-    href: "/blog/mobilite-articulaire",
+    href: "/blog/tendances-2024",
     title: "Les Tendances Compléments Alimentaires 2024",
     date: "15 Mars 2025",
     read: "8 min",
@@ -49,8 +49,9 @@ const articles = [
     image: "/images/article-3.png",
   },
   {
+
     category: "beaute" as const,
-    href: "/blog/guide-formulation",
+    href: "/blog/molecules-indispensables-belle-peau",
     title: "3 molécules indispensables pour une belle peau",
     date: "15 Avril 2025",
     read: "5 min",
@@ -63,7 +64,7 @@ const articles = [
   },
   {
     category: "innovation" as const,
-    href: "/blog/beaute-nutricosmetique",
+    href: "/blog/produits-revolution-marche",
     title: "Ces 5 produits qui révolutionnent totalement le marché",
     date: "15 Mai 2025",
     read: "8 min",
@@ -76,7 +77,7 @@ const articles = [
   },
   {
     category: "technique" as const,
-    href: "/blog/reglementation-2024",
+    href: "/blog/collagene-marche-vraiment",
     title: "Le Collagène ça marche vraiment ?",
     date: "15 Juin 2025",
     read: "8 min",
