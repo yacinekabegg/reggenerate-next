@@ -2,6 +2,7 @@
 
 import { Footer } from "@/components/Footer";
 import Image from "next/image";
+import { ContactSection } from "@/components/ContactSection";
 
 export default function ClientsPage() {
   return (
@@ -670,68 +671,10 @@ export default function ClientsPage() {
         </div>
       </section>
 
-      {/* Contact */}
-      <section id="contact" className="bg-[#fafafa] py-16">
-        <div className="mx-auto max-w-[1200px] px-6">
-          <div className="mb-12 text-center">
-            <h2 className="text-[2.5rem] font-bold text-[#1a1a1a]">Rejoignez nos clients</h2>
-            <p className="mx-auto max-w-[600px] text-[#666]">
-              Vous souhaitez intégrer Reggenerate™ dans vos formulations ? Contactez notre équipe technique
-            </p>
-          </div>
-          <div className="grid grid-cols-1 gap-12 md:grid-cols-2">
-            <div className="rounded-2xl border border-[#e5e5e5] bg-white p-6">
-              <iframe
-                src="https://tally.so/embed/3lxroW?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1"
-                loading="lazy"
-                width="100%"
-                height={820}
-                frameBorder={0}
-                title="Registration form"
-              />
-            </div>
-            <div className="rounded-2xl border border-[#e5e5e5] bg-white p-6">
-              <h3 className="mb-4 text-[1.5rem] font-bold text-[#1a1a1a]">Contact de notre CEO - Yacine Kabeche</h3>
-              <div className="mb-8 flex flex-col gap-6">
-                <div className="flex items-center gap-3">
-                  <span className="text-[1.5rem]">📧</span>
-                  <div>
-                    <h4 className="mb-1 font-semibold text-[#1a1a1a]">Email</h4>
-                    <p className="m-0 text-[#666]">yacine.kabeche@circulegg.fr</p>
-                  </div>
-                </div>
-                <div className="flex items-center gap-3">
-                  <span className="text-[1.5rem]">📞</span>
-                  <div>
-                    <h4 className="mb-1 font-semibold text-[#1a1a1a]">Téléphone</h4>
-                    <p className="m-0 text-[#666]">+33684159719</p>
-                  </div>
-                </div>
-                <div className="flex items-center gap-3">
-                  <span className="text-[1.5rem]">🌍</span>
-                  <div>
-                    <h4 className="mb-1 font-semibold text-[#1a1a1a]">Adresses</h4>
-                    <p className="m-0 text-[#666]">Usine : 21 Rue Charles Lindbergh, 35150 Janzé<br />Bureau : 14 rue Soleillet, 75020 Paris</p>
-                  </div>
-                </div>
-              </div>
-              <div className="rounded bg-[#f8f9fa] p-4">
-                <h4 className="mb-2 font-semibold text-[#1a1a1a]">Délai de réponse</h4>
-                <p className="m-0 text-[#666]">Notre équipe vous répond sous 48h ouvrées sinon on vous doit un cadeau !</p>
-              </div>
-              <div className="mt-8 text-center">
-                <Image
-                  src="/images/Mon image ChatGPT.jpg"
-                  alt="Reggenerate - Image ChatGPT"
-                  width={1200}
-                  height={800}
-                  className="mx-auto h-auto w-full rounded-xl shadow-[0_5px_15px_rgba(0,0,0,0.1)]"
-                />
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+      <ContactSection
+        imageSrc="/images/circulegg-team.jpg"
+        imageAlt="Circul'Egg – Équipe"
+      />
       <Footer />
     </main>
   );
