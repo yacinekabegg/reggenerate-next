@@ -1,14 +1,14 @@
 import { BlogArticleLayout } from "@/components/BlogArticleLayout";
 
-export default function Tendances2024() {
+export default function MoleculesBellePeau() {
   return (
     <BlogArticleLayout
-      title="Les Tendances Compléments Alimentaires 2024"
-      categoryLabel="MARCHÉ & TENDANCES"
+      title="Le Collagène ça marche vraiment ?"
+      categoryLabel="EGGSPERTISE TECHNIQUE"
       categoryColor="#2eb2a4"
-      date="15 Mars 2025"
+      date="15 Juin 2025"
       readingTime="8 min"
-      coverImage="/images/article-3.png"
+      coverImage="/images/article-6.png"
     >
       <div className="py-10 text-center text-[#4e53a3]">
         <p className="text-[1.15rem] font-semibold">Article en cours de rédaction</p>

@@ -1,14 +1,14 @@
 import { BlogArticleLayout } from "@/components/BlogArticleLayout";
 
-export default function Tendances2024() {
+export default function MoleculesBellePeau() {
   return (
     <BlogArticleLayout
-      title="Les Tendances Compléments Alimentaires 2024"
-      categoryLabel="MARCHÉ & TENDANCES"
+      title="Ces 5 produits qui révolutionnent totalement le marché"
+      categoryLabel="INNOVATIONS"
       categoryColor="#2eb2a4"
-      date="15 Mars 2025"
+      date="15 Mai 2025"
       readingTime="8 min"
-      coverImage="/images/article-3.png"
+      coverImage="/images/article-5.png"
     >
       <div className="py-10 text-center text-[#4e53a3]">
         <p className="text-[1.15rem] font-semibold">Article en cours de rédaction</p>

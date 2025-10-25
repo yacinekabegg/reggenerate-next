@@ -1,14 +1,14 @@
 import { BlogArticleLayout } from "@/components/BlogArticleLayout";
 
-export default function Tendances2024() {
+export default function MembraneNewRevolution() {
   return (
     <BlogArticleLayout
-      title="Les Tendances Compléments Alimentaires 2024"
-      categoryLabel="MARCHÉ & TENDANCES"
+      title="La membrane d’oeuf, nouvelle révolution"
+      categoryLabel="EGGSPERTISE TECHNIQUE"
       categoryColor="#2eb2a4"
-      date="15 Mars 2025"
-      readingTime="8 min"
-      coverImage="/images/article-3.png"
+      date="15 Février 2025"
+      readingTime="3 min"
+      coverImage="/images/article-2.png"
     >
       <div className="py-10 text-center text-[#4e53a3]">
         <p className="text-[1.15rem] font-semibold">Article en cours de rédaction</p>
@@ -28,5 +28,4 @@ export default function Tendances2024() {
     </BlogArticleLayout>
   );
 }
-
 
