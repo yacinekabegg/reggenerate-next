@@ -17,13 +17,19 @@ import { PressMentionsSection } from "@/components/PressMentionsSection";
 import { NewsletterSection } from "@/components/NewsletterSection";
 import { Footer } from "@/components/Footer";
 
+// Feature flags for toggling sections on the homepage
+const SECTIONS_CONFIG = {
+  // Set to true to re-enable the testimonials section
+  showTestimonials: false,
+};
+
 export default function Home() {
   return (
     <>
       <Hero />
       <InnovationSection />
       <MarketTrendsSection/>
-      <TestimonialsSection/>
+      {SECTIONS_CONFIG.showTestimonials && <TestimonialsSection/>}
       <ProcessOverlaySection/>
       <CompositionSection/>
       <EggspertiseSection/>
