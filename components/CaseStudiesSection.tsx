@@ -48,10 +48,7 @@ export function CaseStudiesSection() {
           Que de produits eggceptionnels sur le marché ! Notre ingrédient transforme vos produits 😊
         </p>
 
-        <div
-          className="mx-auto mb-10 grid gap-10"
-          style={{ gridTemplateColumns: "repeat(auto-fit, minmax(480px, 1fr))", maxWidth: "1100px" }}
-        >
+        <div className="mx-auto mb-10 grid max-w-[1100px] grid-cols-1 gap-6 sm:grid-cols-2 md:gap-8">
           {caseStudies.map((product) => (
             <article
               key={product.title}
