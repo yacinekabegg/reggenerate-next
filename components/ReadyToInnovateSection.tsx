@@ -68,13 +68,31 @@ export function ReadyToInnovateSection() {
               </h3>
               <p className="mb-8 text-base leading-relaxed">{card.content}</p>
 
-              <Link
-                href={card.href}
-                className="inline-flex items-center justify-center gap-2 rounded-[8px] bg-[#2eb2a4] px-6 py-3 font-['League_Spartan','Roboto',Arial,sans-serif] text-sm font-semibold text-white transition hover:-translate-y-0.5 hover:shadow-[0_8px_24px_rgba(0,0,0,0.18)]"
-              >
-                <span>{card.emoji}</span>
-                {card.cta}
-              </Link>
+              {card.href === "#contact" ? (
+                <button
+                  data-tally-open="3lxroW"
+                  data-tally-layout="modal"
+                  data-tally-align-left="1"
+                  data-tally-hide-title="1"
+                  data-tally-overlay="1"
+                  data-tally-emoji-text="👋"
+                  data-tally-emoji-animation="wave"
+                  data-tally-auto-close="2000"
+                  data-tally-form-events-forwarding="1"
+                  className="inline-flex items-center justify-center gap-2 rounded-[8px] bg-[#2eb2a4] px-6 py-3 font-['League_Spartan','Roboto',Arial,sans-serif] text-sm font-semibold text-white transition hover:-translate-y-0.5 hover:shadow-[0_8px_24px_rgba(0,0,0,0.18)]"
+                >
+                  <span>{card.emoji}</span>
+                  {card.cta}
+                </button>
+              ) : (
+                <Link
+                  href={card.href}
+                  className="inline-flex items-center justify-center gap-2 rounded-[8px] bg-[#2eb2a4] px-6 py-3 font-['League_Spartan','Roboto',Arial,sans-serif] text-sm font-semibold text-white transition hover:-translate-y-0.5 hover:shadow-[0_8px_24px_rgba(0,0,0,0.18)]"
+                >
+                  <span>{card.emoji}</span>
+                  {card.cta}
+                </Link>
+              )}
             </article>
           ))}
         </div>

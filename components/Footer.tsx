@@ -1,16 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
 
-const usefulLinks = [
-  { label: "FAQ", href: "#faq" },
-  { label: "Contact", href: "#contact" },
-  { label: "Prendre rendez-vous", href: "#rdv" },
-  { label: "Echantillon", href: "#echantillon" },
-  { label: "Documentation", href: "#documentation" },
-  { label: "Devis", href: "#devis" },
-  { label: "Rejoindre l'aventure", href: "#rejoindre" },
-];
-
 const menuLinks = [
   { label: "Acccueil", href: "/" },
   { label: "Ingrédient", href: "/ingredient" },
@@ -49,21 +39,6 @@ export function Footer() {
             </div>
 
             <div className="flex gap-24 text-left">
-              <div>
-                <h3 className="font-['League_Spartan','Roboto',Arial,sans-serif] text-[1.5rem] font-bold uppercase">
-                  Lien utiles
-                </h3>
-                <ul className="mt-4 space-y-3 font-['Roboto',Arial,sans-serif] text-base leading-7">
-                  {usefulLinks.map((link) => (
-                    <li key={link.label}>
-                      <Link href={link.href} className="text-white transition hover:text-white/80">
-                        {link.label}
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-
               <div>
                 <h3 className="font-['League_Spartan','Roboto',Arial,sans-serif] text-[1.5rem] font-bold uppercase">
                   Menus

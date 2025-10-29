@@ -107,7 +107,18 @@ export function FAQSection() {
         </div>
 
         <div className="text-center">
-          <button className="rounded-[8px] border-none bg-[#4e53a3] px-8 py-3 font-['League_Spartan','Roboto',Arial,sans-serif] text-lg font-semibold text-white shadow-[0_10px_25px_rgba(78,83,163,0.2)] transition hover:-translate-y-1 hover:bg-[#2eb2a4] hover:shadow-[0_12px_28px_rgba(78,83,163,0.25)]">
+          <button
+            data-tally-open="3lxroW"
+            data-tally-layout="modal"
+            data-tally-align-left="1"
+            data-tally-hide-title="1"
+            data-tally-overlay="1"
+            data-tally-emoji-text="👋"
+            data-tally-emoji-animation="wave"
+            data-tally-auto-close="2000"
+            data-tally-form-events-forwarding="1"
+            className="rounded-[8px] border-none bg-[#4e53a3] px-8 py-3 font-['League_Spartan','Roboto',Arial,sans-serif] text-lg font-semibold text-white shadow-[0_10px_25px_rgba(78,83,163,0.2)] transition hover:-translate-y-1 hover:bg-[#2eb2a4] hover:shadow-[0_12px_28px_rgba(78,83,163,0.25)]"
+          >
             Voir la FAQ complète &gt;
           </button>
         </div>

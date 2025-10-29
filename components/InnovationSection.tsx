@@ -68,7 +68,7 @@ export function InnovationSection() {
             <div className="absolute inset-x-0 top-0 h-1 origin-center scale-x-0 bg-gradient-to-r from-[#4e53a3] to-[#2eb2a4] transition-transform duration-300 group-hover:scale-x-100" />
             <div className="mx-auto mb-8 flex h-20 w-20 items-center justify-center">
               <Image
-                src="/images/5.png"
+                src="/images/comprimé-violet.svg"
                 alt="Icône performance galénique"
                 width={72}
                 height={72}

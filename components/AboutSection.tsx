@@ -46,7 +46,9 @@ export function AboutSection() {
 
             <div className="mt-2">
               <Link
-                href="#contact"
+                href="https://circulegg.fr/notre-boussole/"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="inline-flex items-center justify-center rounded-[10px] bg-[#2eb2a4] px-8 py-3 font-['League_Spartan','Roboto',Arial,sans-serif] text-lg font-semibold text-white shadow-[0_8px_24px_rgba(46,178,164,0.25)] transition hover:-translate-y-1 hover:shadow-[0_12px_30px_rgba(46,178,164,0.3)]"
               >
                 Découvrez notre histoire et nos valeurs &gt;
@@ -68,18 +70,16 @@ export function AboutSection() {
             </p>
 
             <div className="overflow-hidden rounded-[12px] bg-black shadow-[0_8px_24px_rgba(0,0,0,0.15)]">
-              <div className="flex h-[300px] items-center justify-center bg-[#000]">
-                <button className="flex h-20 w-20 items-center justify-center rounded-full bg-white/90">
-                  <span className="ml-[6px] inline-block h-0 w-0 border-l-[24px] border-t-[14px] border-b-[14px] border-transparent border-l-[#2eb2a4]" />
-                </button>
-              </div>
-              <div className="flex items-center gap-4 bg-[#333] px-4 py-3 text-sm">
-                <span className="inline-block h-3 w-3 rounded-full bg-[#2eb2a4]" />
-                <span>0:00</span>
-                <div className="h-1 flex-1 rounded bg-[#555]" />
-                <span className="text-lg">🔊</span>
-                <span className="text-lg">⛶</span>
-                <span className="text-lg">⋯</span>
+              <div className="relative w-full" style={{ paddingBottom: "56.25%" }}>
+                <iframe
+                  className="absolute left-0 top-0 h-full w-full"
+                  src="https://www.youtube.com/embed/pLzMfItYkRs?si=-xWEqDoUumwK0-89&controls=0&start=37"
+                  title="YouTube video player"
+                  frameBorder={0}
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  referrerPolicy="strict-origin-when-cross-origin"
+                  allowFullScreen
+                />
               </div>
             </div>
           </div>

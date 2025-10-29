@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Roboto, League_Spartan } from "next/font/google";
+import Script from "next/script";
 import "./globals.css";
 import { Header } from "@/components/Header";
 
@@ -25,6 +26,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        <Script src="https://tally.so/widgets/embed.js" strategy="afterInteractive" />
+      </head>
       <body suppressHydrationWarning className={`${roboto.variable} ${leagueSpartan.variable} antialiased`}>
         <Header />
         {children}
