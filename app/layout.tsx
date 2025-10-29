@@ -15,7 +15,7 @@ const leagueSpartan = League_Spartan({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://circulegg.fr"),
+  metadataBase: new URL("https://reggenerate.circulegg.fr/"),
   title: "Reggenerate™ — La nouvelle génération de collagène végétarien.",
   description:
     "Premier ingrédient upcyclé issu de l’œuf, Reggenerate™ réunit collagène, acide hyaluronique et élastine pour la beauté et la mobilité.",
@@ -24,7 +24,7 @@ export const metadata: Metadata = {
     description:
       "Premier ingrédient upcyclé issu de l’œuf, Reggenerate™ réunit collagène, acide hyaluronique et élastine pour la beauté et la mobilité.",
     type: "website",
-    url: "https://circulegg.fr",
+    url: "https://reggenerate.circulegg.fr/",
     images: ["/images/blog-hero.png"],
   },
   twitter: {
