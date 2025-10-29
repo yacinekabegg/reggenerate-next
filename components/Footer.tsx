@@ -6,7 +6,6 @@ const menuLinks = [
   { label: "Ingrédient", href: "/ingredient" },
   { label: "Ready-to-Market", href: "/ready-to-market" },
   { label: "Nos Clients", href: "/clients" },
-  { label: "Notre Histoire", href: "#about" },
   { label: "Blog", href: "/blog" },
 ];
 

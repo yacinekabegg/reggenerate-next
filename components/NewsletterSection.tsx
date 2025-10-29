@@ -29,17 +29,16 @@ export function NewsletterSection() {
         </p>
 
         <div className="mx-auto flex max-w-[640px] flex-col gap-4 sm:flex-row">
-          <input
-            type="email"
-            value={email}
-            onChange={(event) => setEmail(event.target.value)}
-            placeholder="Email"
-            aria-label="Email"
-            className="h-[70px] flex-1 rounded-[8px] border-[3px] border-[#2eb2a4] px-5 text-xl text-gray-950 outline-none focus:ring-4 focus:ring-[#2eb2a4]/30"
+          <iframe
+            data-tally-src="https://tally.so/embed/woe4r5?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1&formEventsForwarding=1"
+            loading="lazy"
+            width="100%"
+            height="190"
+            frameBorder={0}
+            marginHeight={0}
+            marginWidth={0}
+            title="Inscription newsletter"
           />
-          <button className="h-[70px] rounded-[10px] bg-[#2eb2a4] px-8 text-xl font-extrabold text-white transition hover:-translate-y-1 hover:shadow-[0_12px_32px_rgba(46,178,164,0.35)]">
-            Je m’inscris
-          </button>
         </div>
       </div>
     </section>

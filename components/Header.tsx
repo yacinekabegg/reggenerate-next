@@ -9,7 +9,6 @@ const navItems = [
   { href: "/ingredient", label: "Ingrédient" },
   { href: "/ready-to-market", label: "Ready-to-Market" },
   { href: "/clients", label: "Nos Clients" },
-  { href: "/#about", label: "Notre Histoire" },
   { href: "/blog", label: "Blog" },
   { href: "/#contact", label: "Contact" },
 ];
