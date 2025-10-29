@@ -100,14 +100,14 @@ export function MarketTrendsSection() {
                   <button
                     type="button"
                     onClick={() => toggle(index)}
-                    className={`grid grid-cols-[minmax(0,1fr)_auto_auto] items-center gap-3 rounded-lg px-2 py-1 text-left transition-colors cursor-pointer focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#2eb2a4] max-md:grid-cols-[minmax(0,1fr)_auto]`}
+                    className={`grid grid-cols-[minmax(0,1fr)_auto_auto] items-center gap-3 rounded-lg py-1 text-left transition-colors cursor-pointer focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#2eb2a4] max-md:grid-cols-1 max-md:gap-2`}
                     aria-expanded={isOpen}
                   >
                     <h3 className="font-['League_Spartan','Roboto',Arial,sans-serif] text-xl font-extrabold uppercase leading-snug text-[#2eb2a4]">
                       {trend.title}
                     </h3>
                     <span
-                      className={`rounded-[10px] px-2 py-1 text-sm font-extrabold uppercase text-white ${trend.badgeClass}`}
+                      className={`rounded-[10px] px-2 py-1 text-sm font-extrabold uppercase text-white ${trend.badgeClass} max-md:mt-1 max-md:justify-self-start`}
                     >
                       {trend.badge}
                     </span>
