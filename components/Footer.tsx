@@ -9,6 +9,13 @@ const menuLinks = [
   { label: "Blog", href: "/blog" },
 ];
 
+const usefulLinks = [
+  // { label: "FAQ", href: "#faq" },
+  { label: "Mentions légales", href: "/mentions-legales" },
+  { label: "CGU", href: "/cgu" },
+  { label: "Politique de confidentialité", href: "/politique-de-confidentialite" },
+];
+
 export function Footer() {
   return (
     <footer className="bg-[#2eb2a4] py-8 pb-4 text-white">
@@ -52,12 +59,26 @@ export function Footer() {
                   ))}
                 </ul>
               </div>
+              <div>
+                <h3 className="font-['League_Spartan','Roboto',Arial,sans-serif] text-[1.5rem] font-bold uppercase">
+                  Liens utiles
+                </h3>
+                <ul className="mt-4 space-y-3 font-['Roboto',Arial,sans-serif] text-base leading-7">
+                  {usefulLinks.map((link) => (
+                    <li key={link.label}>
+                      <Link href={link.href} className="text-white transition hover:text-white/80">
+                        {link.label}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
             </div>
           </div>
         </div>
         <div className="mt-4 text-center self-center w-full">
           <p className="font-['Roboto',Arial,sans-serif] text-sm text-white/80">
-            © Circul&apos;Egg 2025 // Mentions légales et conditions d&apos;utilisations • Politique de confidentialité et politique cookies
+            © Circul&apos;Egg {new Date().getFullYear()}
           </p>
         </div>
       </div>
