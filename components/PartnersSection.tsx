@@ -13,7 +13,7 @@ type PartnerCard = {
 
 const partners: PartnerCard[] = [
   {
-    icon: "/images/comprimé-violet.svg",
+    icon: "/images/comprime-violet.svg",
     alt: "Façonnage multi-galénique",
     title: <>Façonnage multi-galénique</>,
     description:
