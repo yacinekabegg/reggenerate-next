@@ -18,10 +18,10 @@ const usefulLinks = [
 
 export function Footer() {
   return (
-    <footer className="bg-[#2eb2a4] py-8 pb-4 text-white">
+    <footer className="bg-[#2eb2a4] pt-0 sm:pt-8 pb-4 text-white">
       <div className="mx-auto max-w-[1400px] px-8">
         <div className="flex flex-col items-center gap-16 lg:flex-row lg:items-center lg:justify-between">
-          <div className="overflow-hidden rounded-[20px]">
+          <div className="hidden sm:block overflow-hidden rounded-[20px]">
             <Image
               src="/images/32.png"
               alt="Œuf super héros"
