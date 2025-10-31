@@ -25,7 +25,7 @@ export default function IngredientPage() {
 
   const tabButtonClass = (key: TabKey) =>
     [
-      "flex-1 px-6 py-4 text-[1.1rem] font-semibold transition-all border-b-4",
+      "flex-none md:flex-1 whitespace-nowrap px-4 sm:px-6 py-3 sm:py-4 text-[0.95rem] sm:text-[1.1rem] font-semibold transition-all border-b-4",
       key === activeTab
         ? "text-[#f3d86b] border-[#f3d86b]"
         : "text-[#2eb2a4] border-transparent hover:text-[#2eb2a4]/80",
@@ -117,12 +117,21 @@ export default function IngredientPage() {
       </section>
 
       {/* Tabs */}
-      <section className="bg-[#fafafa] py-12">
+      <section className="bg-[#fafafa] pt-12 pb-0 sm:pb-12">
         <div className="mx-auto max-w-[1200px] px-4 sm:px-6">
           <div className="mx-auto max-w-[1200px]">
-            <div className="mb-8 flex border-b-2 border-[#e5e5e5]">{
+            <div
+              className="mb-8 -mx-4 flex flex-nowrap items-stretch gap-2 overflow-x-auto border-b-2 border-[#e5e5e5] px-4 sm:mx-0 sm:px-0"
+              role="tablist"
+            >{
               tabs.map((t) => (
-                <button key={t.key} className={tabButtonClass(t.key)} onClick={() => setActiveTab(t.key)}>
+                <button
+                  key={t.key}
+                  className={tabButtonClass(t.key)}
+                  onClick={() => setActiveTab(t.key)}
+                  role="tab"
+                  aria-selected={activeTab === t.key}
+                >
                   {t.label}
                 </button>
               ))
@@ -136,46 +145,54 @@ export default function IngredientPage() {
                 </h2>
 
                 {/* Simple static bars (no canvas) */}
-                <div className="py-12">
-                  <div className="relative h-[400px]">
-                    {/* Y scale */}
-                    <div className="absolute left-0 top-0 flex h-[350px] flex-col justify-between text-[#2eb2a4]">
-                      {[25, 20, 15, 10, 5, 0].map((v) => (
-                        <span key={v}>{v}%</span>
-                      ))}
-                    </div>
-                    {/* Bars */}
-                    <div className="relative ml-[60px] h-[350px]">
-                      <div className="relative h-full px-8">
-                        <div className="absolute bottom-0 left-8 flex h-full items-end gap-16">
-                          {[
-                            { label: "Élastine", value: 25, color: "#2eb2a4", text: "25%" },
-                            { label: "Collagène", value: 22, color: "#4e53a3", text: "22%" },
-                            { label: "GAGs*", value: 4, color: "#f3d86b", text: "4%", dark: true },
-                            { label: "Acide hyaluronique", value: 3, color: "#e67e22", text: "3%" },
-                            { label: "Glucosamine", value: 2, color: "#666", text: "2%" },
-                          ].map((b) => (
-                            <div key={b.label} className="relative flex w-20 items-center justify-center rounded-t-md"
-                              style={{ height: `${Math.max(b.value * 14, 40)}px`, background: b.color }}>
-                              <span className={b.dark ? "text-[#333] font-semibold" : "text-white font-semibold"}>{b.text}</span>
-                            </div>
+                <div className="py-8 sm:py-12">
+                  {/* Horizontal scroll wrapper on small screens */}
+                  <div className="-mx-4 overflow-x-auto px-4 overscroll-x-contain">
+                    <div className="relative h-[320px] sm:h-[400px] min-w-[560px] sm:min-w-0">
+                      {/* Y scale */}
+                      <div className="absolute left-0 top-0 flex h-[280px] sm:h-[350px] flex-col justify-between text-[#2eb2a4] text-xs sm:text-base">
+                        {[25, 20, 15, 10, 5, 0].map((v) => (
+                          <span key={v}>{v}%</span>
+                        ))}
+                      </div>
+                      {/* Bars */}
+                      <div className="relative ml-[48px] sm:ml-[60px] h-[280px] sm:h-[350px]">
+                        <div className="relative h-full px-6 sm:px-8">
+                          <div className="absolute bottom-0 left-6 sm:left-8 flex h-full items-end gap-6 sm:gap-16">
+                            {[
+                              { label: "Élastine", value: 25, color: "#2eb2a4", text: "25%" },
+                              { label: "Collagène", value: 22, color: "#4e53a3", text: "22%" },
+                              { label: "GAGs*", value: 4, color: "#f3d86b", text: "4%", dark: true },
+                              { label: "Acide hyaluronique", value: 3, color: "#e67e22", text: "3%" },
+                              { label: "Glucosamine", value: 2, color: "#666", text: "2%" },
+                            ].map((b) => (
+                              <div
+                                key={b.label}
+                                className="relative flex w-14 sm:w-16 md:w-20 items-center justify-center rounded-t-md"
+                                style={{ height: `${Math.max(b.value * 14, 40)}px`, background: b.color }}
+                              >
+                                <span className={(b.dark ? "text-[#333]" : "text-white") + " text-[0.85rem] sm:text-base font-semibold"}>
+                                  {b.text}
+                                </span>
+                              </div>
+                            ))}
+                          </div>
+                        </div>
+                      </div>
+                      {/* Labels aligned with bars */}
+                      <div className="relative ml-[48px] sm:ml-[60px] mt-6">
+                        <div className="flex items-start justify-start gap-6 sm:gap-16 pl-6 sm:pl-8 text-center text-[#2eb2a4] text-xs sm:text-base">
+                          {["Élastine", "Collagène", "GAGs*", "Acide hyaluronique", "Glucosamine"].map((l) => (
+                            <span key={l} className="w-14 sm:w-16 md:w-20 font-semibold">
+                              {l}
+                            </span>
                           ))}
                         </div>
                       </div>
-                    </div>
-                    {/* Labels aligned with bars */}
-                    <div className="relative ml-[60px] mt-6">
-                      <div className="flex items-start justify-start gap-16 pl-8 text-center text-[#2eb2a4]">
-                        {["Élastine", "Collagène", "GAGs*", "Acide hyaluronique", "Glucosamine"].map((l) => (
-                          <span key={l} className="w-20 font-semibold">
-                            {l}
-                          </span>
-                        ))}
+                      <div className="mt-8 border-t border-[#e5e5e5] pt-6 text-left text-[#4e53a3]">
+                        <p className="text-sm sm:text-base font-medium">*Glucosaminoglycanes sulfatés : chondroitine, dermatane sulfate, kératane sulfatée</p>
+                        <p className="text-sm sm:text-base font-medium">Méthode de dosage validée et certifiée par l&apos;Université Bretagne Sud (UBS)</p>
                       </div>
-                    </div>
-                    <div className="mt-8 border-t border-[#e5e5e5] pt-6 text-left text-[#4e53a3]">
-                      <p className="font-medium">*Glucosaminoglycanes sulfatés : chondroitine, dermatane sulfate, kératane sulfatée</p>
-                      <p className="font-medium">Méthode de dosage validée et certifiée par l&apos;Université Bretagne Sud (UBS)</p>
                     </div>
                   </div>
                 </div>
@@ -492,7 +509,7 @@ export default function IngredientPage() {
                   </p>
                 </div>
 
-                {/* Éléments actifs du produits */}
+                {/* Éléments actifs du produit */}
                 <div className="relative mt-8 rounded-2xl border-2 border-[#4e53a3] bg-[#fafafa] p-5 pt-10 sm:p-6 sm:pt-12">
                   {/* Titre intégré à la bordure */}
                   <div className="absolute -top-4 left-6 right-4 z-10 flex items-center gap-3">
@@ -691,26 +708,26 @@ export default function IngredientPage() {
                   Certifications & Conformités
                 </h2>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
+                <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
                   {/* Casseries certifiées */}
-                  <div className="flex items-start md:h-[420px]">
+                  <div className="flex items-start justify-center md:h-[420px] md:justify-start">
                     <Image
                       src="/images/casseries-certifiees.png"
                       alt="Logos des casseries certifiées"
                       width={520}
                       height={420}
-                      className="block h-full w-auto max-w-[520px] object-contain object-top align-top"
+                      className="block h-auto w-full max-w-full sm:max-w-[520px] object-contain object-top"
                     />
                   </div>
 
                   {/* Produit certifié */}
-                  <div className="place-self-start !self-start">
+                  <div className="flex items-start justify-center md:h-[420px] md:justify-start">
                     <Image
                       src="/images/produit-certifie.png"
                       alt="Logos du produit certifié"
                       width={520}
                       height={420}
-                      className="block h-full w-auto max-w-[520px] object-contain !self-start object-top align-top"
+                      className="block h-auto w-full max-w-full sm:max-w-[520px] object-contain object-top"
                     />
                   </div>
                 </div>
