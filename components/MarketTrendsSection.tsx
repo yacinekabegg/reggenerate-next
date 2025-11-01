@@ -69,7 +69,7 @@ export function MarketTrendsSection() {
   };
 
   return (
-    <section id="tendances" className="bg-white py-24 text-[#2eb2a4]">
+    <section id="tendances" className="bg-white py-12 sm:py-24 text-[#2eb2a4]">
       <div className="mx-auto max-w-[1400px] px-6">
         <h2 className="text-center font-['League_Spartan','Roboto',Arial,sans-serif] text-4xl font-extrabold text-[#2eb2a4]">
           Répondez aux Tendances du <span className="text-[#f9df79]">Marché</span>

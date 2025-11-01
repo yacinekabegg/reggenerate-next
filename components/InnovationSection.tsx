@@ -28,7 +28,7 @@ export function InnovationSection() {
   }, []);
 
   return (
-    <section id="produit" className="bg-[#eaf6f4] py-24">
+    <section id="produit" className="bg-[#eaf6f4] py-12 sm:py-24">
       <div ref={containerRef} className="mx-auto max-w-[1400px] px-6">
         <div className="text-center">
           <h2 className="mb-6 font-['League_Spartan','Roboto',Arial,sans-serif] text-4xl font-extrabold text-[#4e53a3]">
@@ -108,9 +108,8 @@ export function InnovationSection() {
           <a
             ref={ctaRef}
             href="/ingredient"
-            className="inline-flex items-center justify-center gap-3 rounded-[10px] bg-[#4e53a3] px-6 py-3 text-center text-xl font-bold text-white shadow-[0_6px_18px_rgba(78,83,163,0.2)] transition hover:-translate-y-1 hover:shadow-[0_12px_30px_rgba(78,83,163,0.25)]"
+            className="inline-flex items-center justify-center gap-3 rounded-[10px] bg-[#4e53a3] px-6 py-3 text-center text-[0.9em] font-bold text-white shadow-[0_6px_18px_rgba(78,83,163,0.2)] transition hover:-translate-y-1 hover:shadow-[0_12px_30px_rgba(78,83,163,0.25)]"
           >
-            <span className="text-2xl">➡️</span>
             Accéder à la Page Notre Ingrédient &gt;
           </a>
         </div>
