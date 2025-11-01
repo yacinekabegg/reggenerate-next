@@ -3,7 +3,7 @@ import Image from "next/image";
 export function Hero() {
 
   return (
-    <section className="mt-4 flex min-h-[calc(100vh-64px)] overflow-hidden bg-white text-[#2eb2a4]">
+    <section className="mt-12 sm:mt-0 flex min-h-[calc(100vh-64px)] overflow-hidden bg-white text-[#2eb2a4]">
       <div className="grid w-full grid-cols-1 gap-6 pl-6 pr-0 lg:grid-cols-[minmax(640px,720px)_1fr] lg:items-stretch lg:gap-0 lg:pl-[clamp(24px,5vw,64px)] lg:pr-0">
         <div className="flex flex-col justify-center gap-4 max-lg:mx-auto max-lg:max-w-[720px] max-lg:px-6 lg:self-center lg:pl-0 lg:pr-[clamp(24px,4vw,56px)]">
           <div
@@ -46,11 +46,11 @@ export function Hero() {
           </a>
         </div>
 
-        <div className="flex h-full items-stretch justify-end px-0 lg:self-stretch lg:pl-[clamp(16px,3vw,48px)] lg:pr-0">
+        <div className="hidden sm:flex h-full items-stretch justify-end px-0 lg:self-stretch lg:pl-[clamp(16px,3vw,48px)] lg:pr-0">
           <div className="relative h-full w-full max-w-[640px] lg:max-w-none">
             <Image
               src="/images/hero.png"
-              alt="Placeholder visuel (remplacera les œufs)"
+              alt="Oeufs"
               fill
               sizes="(min-width: 1536px) 40vw, (min-width: 1280px) 45vw, (min-width: 1024px) 50vw, 100vw"
               className="object-cover object-right"
