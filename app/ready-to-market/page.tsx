@@ -346,7 +346,7 @@ export default function ReadyToMarket() {
           <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
             {/* Card 1 */}
             {(((formsFilterEmpty || activeForms.includes('gelules'))) && (benefitsFilterEmpty || beautyOnly)) && (
-            <div className="relative rounded-2xl border-2 border-[#2eb2a4] bg-white p-4">
+            <div className="relative rounded-2xl border-2 border-[#2eb2a4] bg-white p-4 mt-6">
               {/* Badges icônes en haut à gauche */}
               <div className="absolute -top-[3.8rem] -left-4 z-10 flex items-center">
                 {/* Wrapper dimensionné: augmente la taille en changeant size-16/20 */}
@@ -385,7 +385,7 @@ export default function ReadyToMarket() {
 
             {/* Card 2 */}
             {(((formsFilterEmpty || activeForms.includes('comprime'))) && (benefitsFilterEmpty || beautyOnly)) && (
-            <div className="relative rounded-2xl border-2 border-[#2eb2a4] bg-white p-4">
+            <div className="relative rounded-2xl border-2 border-[#2eb2a4] bg-white p-4 mt-6">
               {/* Badges icônes en haut à gauche */}
               <div className="absolute -top-[3.8rem] -left-4 z-10 flex items-center">
                 <span className="relative size-24">
@@ -423,7 +423,7 @@ export default function ReadyToMarket() {
 
             {/* Card 3 */}
             {(((formsFilterEmpty || activeForms.includes('poudre'))) && (benefitsFilterEmpty || beautyOnly)) && (
-            <div className="relative rounded-2xl border-2 border-[#2eb2a4] bg-white p-4">
+            <div className="relative rounded-2xl border-2 border-[#2eb2a4] bg-white p-4 mt-6">
               {/* Badges icônes en haut à gauche */}
               <div className="absolute -top-[3.8rem] -left-4 z-10 flex items-center">
                 <span className="relative size-24">
