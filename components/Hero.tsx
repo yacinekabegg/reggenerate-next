@@ -11,7 +11,7 @@ export function Hero() {
             className="inline-flex items-center gap-[10px] rounded-[25px] border-[1px] border-current px-[18px] py-[10px] font-bold uppercase tracking-[0.02em] text-[#2eb2a4] w-[25ch]"
           >
             <Image
-              src="/images/3.png"
+              src="https://res.cloudinary.com/dpc2uqmvg/image/upload/v1762018125/3_y4q1ww.png"
               alt="Icône innovation brevetée"
               width={3200}
               height={2400}
@@ -49,7 +49,7 @@ export function Hero() {
         <div className="hidden sm:flex h-full items-stretch justify-end px-0 lg:self-stretch lg:pl-[clamp(16px,3vw,48px)] lg:pr-0">
           <div className="relative h-full w-full max-w-[640px] lg:max-w-none">
             <Image
-              src="/images/hero.png"
+              src="https://res.cloudinary.com/dpc2uqmvg/image/upload/v1762017985/2_tdnld6.png"
               alt="Oeufs"
               fill
               sizes="(min-width: 1536px) 40vw, (min-width: 1280px) 45vw, (min-width: 1024px) 50vw, 100vw"

@@ -33,8 +33,8 @@ export function Header() {
       <div className="mx-auto flex h-16 w-full max-w-[1400px] items-center justify-between">
         <Link href="/" className="flex items-center gap-2">
           <Image
-            src="/images/1 (1).png"
-            alt="Reggenerate"
+            src="https://res.cloudinary.com/dpc2uqmvg/image/upload/v1762017356/1_1_tq6kgk.png"
+            alt="Reggenerate logo"
             width={140}
             height={28}
             priority
