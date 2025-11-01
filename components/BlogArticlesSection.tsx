@@ -2,39 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-
-const articles = [
-  {
-    title: "10 astuces naturelles pour améliorer votre santé articulaire",
-    excerpt:
-      "Comment maintenir une mobilité articulaire optimale avec des solutions naturelles et des ingrédients innovants...",
-    href: "#",
-    image: {
-      src: "https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=400&h=300&fit=crop&crop=center",
-      alt: "Santé articulaire",
-    },
-  },
-  {
-    title: "La membrane d'œuf, nouvelle révolution ?",
-    excerpt:
-      "Découvrez comment la membrane d'œuf transforme le monde des compléments alimentaires avec ses propriétés uniques...",
-    href: "#",
-    image: {
-      src: "https://images.unsplash.com/photo-1582722872445-44dc5f7e3c8f?w=400&h=300&fit=crop&crop=center",
-      alt: "Membrane d'œuf",
-    },
-  },
-  {
-    title: "Compléments alimentaires : les tendances 2025",
-    excerpt:
-      "Sourcing durable, ingrédients upcyclés, galéniques premium... Ce qui fera la différence sur les étals cette année.",
-    href: "#",
-    image: {
-      src: "https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=400&h=300&fit=crop&crop=center",
-      alt: "Compléments alimentaires",
-    },
-  },
-];
+import { blogArticles } from "@/lib/blogArticles";
 
 export function BlogArticlesSection() {
   return (
@@ -51,16 +19,16 @@ export function BlogArticlesSection() {
         </div>
 
         <div className="space-y-8">
-          {articles.map((article) => (
+          {blogArticles.slice(0, 3).map((article) => (
             <article
-              key={article.title}
+              key={article.href}
               className="rounded-[16px] border-2 border-[#4e53a33f] bg-white p-8 shadow-[0_6px_18px_rgba(78,83,163,0.08)]"
             >
               <div className="flex flex-col gap-6 md:flex-row md:items-start md:gap-8">
                 <div className="h-[150px] w-full overflow-hidden rounded-[12px] bg-[#f0f0f0] md:h-[150px] md:w-[200px]">
                   <Image
-                    src={article.image.src}
-                    alt={article.image.alt}
+                    src={article.image}
+                    alt={article.title}
                     width={400}
                     height={300}
                     className="h-full w-full object-cover"
