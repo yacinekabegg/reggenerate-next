@@ -20,9 +20,9 @@ export default function ReadyToMarket() {
   return (
     <main className="pt-16">
       {/* Hero */}
-      <section className="relative h-[380px] w-full md:h-[520px]">
+      <section className="relative h-[380px] w-full md:h-[520px] object-cover">
         <Image
-          src="/images/products.svg"
+          src="/images/hero-products.svg"
           alt="Produits Ready-to-Market"
           fill
           priority
@@ -37,15 +37,15 @@ export default function ReadyToMarket() {
               </span>
             </div>
           </div>
-          {/* Titre en overlay absolute */}
-          <h1 className="absolute left-1/2 -translate-x-1/2 bottom-24 sm:bottom-22 md:bottom-32 lg:bottom-28 lg:mb-2 z-10 text-center font-['League_Spartan',Arial,sans-serif] text-[1.6rem] sm:text-[1.9rem] md:text-[2.4rem] lg:text-[2.8rem] font-extrabold w-full">
+          {/* Titre en overlay absolute (desktop) */}
+          <h1 className="hidden md:block absolute left-1/2 -translate-x-1/2 bottom-24 sm:bottom-22 md:bottom-32 lg:bottom-28 lg:mb-2 z-10 text-center font-['League_Spartan',Arial,sans-serif] text-[1.6rem] sm:text-[1.9rem] md:text-[2.4rem] lg:text-[2.8rem] font-extrabold w-full">
             <span className="text-[#2eb2a4]">Notre gamme </span>
             <span className="text-[#2eb2a4]">EGG</span>
             <span className="text-[#f3d86b]">spress</span>
             <span className="text-[#2eb2a4]"> Launch</span>
           </h1>
-          {/* Texte descriptif en overlay absolute */}
-          <div className="absolute left-1/2 -translate-x-1/2 bottom-4 sm:bottom-4 md:bottom-8 z-10 w-full max-w-[1100px] px-4 sm:px-6">
+          {/* Texte descriptif en overlay absolute (desktop) */}
+          <div className="hidden md:block absolute left-1/2 -translate-x-1/2 bottom-4 sm:bottom-4 md:bottom-8 z-10 w-full max-w-[1100px] px-4 sm:px-6">
             <p className="text-center text-white text-[0.9rem] sm:text-[0.95rem] md:text-[1.05rem] leading-snug sm:leading-normal md:leading-relaxed drop-shadow-md">
               Nos eggspperts en formulation chez Circul&apos;Egg ont développé des formules intégrant Reggenerate™ en partenariat
               avec <span className="font-extrabold">126 façonniers</span> certifiés rigoureusement sélectionnés. Il n&apos;y a plus qu&apos;à commander votre formule
@@ -55,11 +55,25 @@ export default function ReadyToMarket() {
           
         </div>
       </section>
+      {/* Titre + texte sous l'image (mobile) */}
+      <div className="md:hidden px-6 py-4 text-center">
+        <h1 className="font-['League_Spartan',Arial,sans-serif] text-[1.9rem] font-extrabold">
+          <span className="text-[#2eb2a4]">Notre gamme </span>
+          <span className="text-[#2eb2a4]">EGG</span>
+          <span className="text-[#f3d86b]">spress</span>
+          <span className="text-[#2eb2a4]"> Launch</span>
+        </h1>
+        <p className="mt-2 font-['Roboto',Arial,sans-serif] text-[#2eb2a4] text-[0.95rem] leading-normal">
+          Nos eggspperts en formulation chez Circul&apos;Egg ont développé des formules intégrant Reggenerate™ en partenariat
+          avec <span className="font-extrabold">126 façonniers</span> certifiés rigoureusement sélectionnés. Il n&apos;y a plus qu&apos;à commander votre formule
+          préférée !
+        </p>
+      </div>
 
       {/* Choix du futur produit */}
       <section className="bg-white py-12">
         <div className="mx-auto w-full max-w-[1400px] px-6">
-          <h2 className="mb-8 text-center font-['League_Spartan',Arial,sans-serif] text-[2.2rem] md:text-[2.6rem] font-extrabold text-[#4e53a3]">
+          <h2 className="mb-8 text-center font-['League_Spartan',Arial,sans-serif] text-[1.5rem] md:text-[2.6rem] font-extrabold text-[#4e53a3]">
             De quoi rêvez‑vous pour votre futur produit ?
           </h2>
           {/* Ligne 1: formes galéniques */}
