@@ -37,7 +37,7 @@ export default function BlogPage() {
       <section className=" bg-white w-full">
         <div className="relative  h-[280px] sm:h-[360px] md:h-[420px] lg:h-[520px] w-full">
           <Image
-            src="/images/blog-hero.png"
+            src="/images/hero-blog.png"
             alt="Œuf cassé sur fond blanc"
             fill
             className="object-contain object-center"
@@ -46,9 +46,9 @@ export default function BlogPage() {
           {/* Badge aligné au container */}
           <div className="absolute inset-0">
             <div className="mx-auto max-w-[1400px] px-6 pt-6 flex justify-center items-center">
-              <div className="flex justify-center items-center h-10 w-fit gap-3 rounded-full border-2 border-[#2eb2a4] bg-white/95 px-4">
-                <Image src="/images/blog-icon.png" alt="Blog" width={32} height={32} className="h-8 w-8 object-contain" />
-                <span className="font-['League_Spartan',Arial,sans-serif] text-[0.95rem] leading-[32px] relative top-[1px] whitespace-nowrap font-extrabold tracking-wide text-[#2eb2a4]">
+              <div className="flex justify-center items-center h-8 sm:h-10 w-fit gap-1 sm:gap-3 rounded-full border border-[#2eb2a4] sm:border-2 bg-white/95 px-3 sm:px-4">
+                <Image src="/images/blog-icon.png" alt="Blog" width={32} height={32} className="h-6 w-6 sm:h-8 sm:w-8 object-contain" />
+                <span className="font-['League_Spartan',Arial,sans-serif] text-[0.8rem] sm:text-[0.95rem] leading-[28px] sm:leading-[32px] relative top-[1px] whitespace-nowrap font-extrabold tracking-wide text-[#2eb2a4]">
                   EXPERTISE & INNOVATION
                 </span>
               </div>
