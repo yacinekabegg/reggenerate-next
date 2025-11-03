@@ -8,9 +8,9 @@ export default function ClientsPage() {
   return (
     <main className="pt-16">
       {/* Hero */}
-      <section className="relative h-[380px] w-full md:h-[520px]">
+      <section className="relative h-[360px] w-full md:h-[520px]">
         <Image
-          src="/images/clients-hero.svg"
+          src="/images/hero-clients.svg"
           alt="Produits Ready-to-Market"
           fill
           priority
@@ -18,19 +18,19 @@ export default function ClientsPage() {
         {/* Badge aligné au container */}
         <div className="absolute inset-0">
           <div className="mx-auto max-w-[1400px] px-6 pt-6 flex justify-center">
-            <div className="flex w-fit items-center gap-2 rounded-full border-2 border-[#2eb2a4] bg-white/95 px-4 py-2">
-              <Image src="/images/clients-icon.png" alt="Flying pill" width={40} height={40} className="h-10 w-10 object-contain" />
-              <span className="font-['League_Spartan',Arial,sans-serif] text-[0.95rem] font-extrabold tracking-wide text-[#2eb2a4] mt-1">
+            <div className="flex w-fit items-center gap-1 sm:gap-2 rounded-full border border-[#2eb2a4] sm:border-2 bg-white/95 px-3 py-1.5 sm:px-4 sm:py-2">
+              <Image src="/images/rocket.png" alt="Rocket" width={40} height={40} className="h-8 w-8 sm:h-10 sm:w-10 object-contain" />
+              <span className="font-['League_Spartan',Arial,sans-serif] text-[0.8rem] sm:text-[0.95rem] font-extrabold tracking-normal sm:tracking-wide text-[#2eb2a4] whitespace-nowrap">
                 PRODUITS DÉJÀ SUR LE MARCHÉ
               </span>
             </div>
           </div>
-          {/* Titre en overlay absolute */}
-          <h1 className="absolute left-1/2 -translate-x-1/2 bottom-24 sm:bottom-22 md:bottom-32 lg:bottom-28 lg:mb-2 z-10 text-center font-['League_Spartan',Arial,sans-serif] text-[1.6rem] sm:text-[1.9rem] md:text-[2.4rem] lg:text-[2.8rem] font-extrabold w-full">
+          {/* Titre en overlay absolute (desktop) */}
+          <h1 className="hidden md:block absolute left-1/2 -translate-x-1/2 bottom-24 sm:bottom-22 md:bottom-32 lg:bottom-28 lg:mb-2 z-10 text-center font-['League_Spartan',Arial,sans-serif] text-[1.6rem] sm:text-[1.9rem] md:text-[2.4rem] lg:text-[2.8rem] font-extrabold w-full">
             <span className="text-[#2eb2a4]">Nos clients <span className="text-[#f3d86b]">EGG</span><span className="text-[#2eb2a4]">ceptionnels</span></span>
           </h1>
-          {/* Texte descriptif en overlay absolute */}
-          <div className="absolute left-1/2 -translate-x-1/2 bottom-4 sm:bottom-4 md:bottom-8 z-10 w-full max-w-[1100px] px-4 sm:px-6">
+          {/* Texte descriptif en overlay absolute (desktop) */}
+          <div className="hidden md:block absolute left-1/2 -translate-x-1/2 bottom-4 sm:bottom-4 md:bottom-8 z-10 w-full max-w-[1100px] px-4 sm:px-6">
             <p className="text-center text-white text-[0.9rem] sm:text-[0.95rem] md:text-[1.05rem] leading-snug sm:leading-normal md:leading-relaxed drop-shadow-md">
               Trouver le bon ingrédient, c’est un peu comme chercher l’âme sœur : il faut ce petit “plus” qui fait la différence. 71 marques ont déjà trouvé le bon ingrédient avec Reggenerate™. Chacune pour une raison différente — sa qualité, son brevet, sa facilité d’usage —mais toutes pour la même évidence : c’était le bon, au bon moment.
             </p>
@@ -38,10 +38,20 @@ export default function ClientsPage() {
         </div>
       </section>
 
+      {/* Titre + texte sous l'image (mobile) */}
+      <div className="md:hidden px-6 pb-4 text-center">
+        <h1 className="font-['League_Spartan',Arial,sans-serif] text-[1.9rem] font-extrabold">
+          <span className="text-[#2eb2a4]">Nos clients <span className="text-[#f3d86b]">EGG</span><span className="text-[#2eb2a4]">ceptionnels</span></span>
+        </h1>
+        <p className="mt-2 font-['Roboto',Arial,sans-serif] text-[#2eb2a4] text-[0.95rem] leading-normal">
+          Trouver le bon ingrédient, c’est un peu comme chercher l’âme sœur : il faut ce petit “plus” qui fait la différence. 71 marques ont déjà trouvé le bon ingrédient avec Reggenerate™. Chacune pour une raison différente — sa qualité, son brevet, sa facilité d’usage —mais toutes pour la même évidence : c’était le bon, au bon moment.
+        </p>
+      </div>
+
       {/* Zoom – titre + sous-titre */}
       <section className="bg-white py-16">
         <div className="mx-auto max-w-[1400px] px-6 text-center">
-          <h2 className="font-['League_Spartan','Roboto',Arial,sans-serif] text-[0.9rem] sm:text-[1.9rem] md:text-[2.4rem] lg:text-[2.8rem] font-extrabold leading-tight text-[#4e53a3]">
+          <h2 className="font-['League_Spartan','Roboto',Arial,sans-serif] text-[1.7rem] sm:text-[1.9rem] md:text-[2.4rem] lg:text-[2.8rem] font-extrabold leading-tight text-[#4e53a3]">
             Zoom sur les produits <span className="text-[#f3d86b]">pondus</span> par nos clients
           </h2>
           <p className="mt-2 text-[1.05rem] sm:text-[1.15rem] md:text-[1.25rem] leading-relaxed text-[#2eb2a4]">
@@ -76,7 +86,7 @@ export default function ClientsPage() {
       {/* Clients map */}
       <section className="bg-white pt-16 pb-4">
         <div className="mx-auto max-w-[1400px] px-6 text-center flex flex-col justify-center">
-          <h2 className="font-['League_Spartan','Roboto',Arial,sans-serif] text-[0.9rem] sm:text-[1.9rem] md:text-[2.4rem] lg:text-[2.8rem] font-extrabold leading-tight text-[#2eb2a4]">
+          <h2 className="font-['League_Spartan','Roboto',Arial,sans-serif] text-[1.7rem] sm:text-[1.9rem] md:text-[2.4rem] lg:text-[2.8rem] font-extrabold leading-tight text-[#2eb2a4]">
             En France mais aussi à l&apos;<span className="text-[#f3d86b]">Egg</span>sport ✈️
           </h2>
           <div className="mx-auto mt-6 w-full max-w-[800px]">
@@ -133,7 +143,7 @@ export default function ClientsPage() {
             </div>
 
             {/* Card 2 */}
-            <div className="relative rounded-2xl border-2 border-[#2eb2a4] bg-white p-4">
+            <div className="relative rounded-2xl border-2 border-[#2eb2a4] bg-white p-4 mt-6">
               {/* Badges icônes en haut à gauche */}
               <div className="absolute -top-[3.8rem] -left-4 z-10 flex items-center">
                 <span className="relative size-24">
@@ -170,7 +180,7 @@ export default function ClientsPage() {
             </div>
 
             {/* Card 3 */}
-            <div className="relative rounded-2xl border-2 border-[#2eb2a4] bg-white p-4">
+            <div className="relative rounded-2xl border-2 border-[#2eb2a4] bg-white p-4 mt-6">
               {/* Badges icônes en haut à gauche */}
               <div className="absolute -top-[3.8rem] -left-4 z-10 flex items-center">
                 <span className="relative size-24">
