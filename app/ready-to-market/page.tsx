@@ -30,9 +30,9 @@ export default function ReadyToMarket() {
         {/* Badge aligné au container */}
         <div className="absolute inset-0">
           <div className="mx-auto max-w-[1400px] px-6 pt-6 flex justify-center">
-            <div className="flex w-fit items-center gap-2 rounded-full border-2 border-[#2eb2a4] bg-white/95 px-4 py-2">
-              <Image src="/images/rocket.png" alt="Rocket" width={40} height={40} className="h-10 w-10 object-contain" />
-              <span className="font-['League_Spartan',Arial,sans-serif] text-[0.95rem] font-extrabold tracking-wide text-[#2eb2a4]">
+            <div className="flex w-fit items-center gap-1 sm:gap-2 rounded-full border border-[#2eb2a4] sm:border-2 bg-white/95 px-3 py-1.5 sm:px-4 sm:py-2">
+              <Image src="/images/rocket.png" alt="Rocket" width={40} height={40} className="h-8 w-8 sm:h-10 sm:w-10 object-contain" />
+              <span className="font-['League_Spartan',Arial,sans-serif] text-[0.8rem] sm:text-[0.95rem] font-extrabold tracking-normal sm:tracking-wide text-[#2eb2a4] whitespace-nowrap">
                 PRODUITS READY-TO-MARKET
               </span>
             </div>
@@ -56,7 +56,7 @@ export default function ReadyToMarket() {
         </div>
       </section>
       {/* Titre + texte sous l'image (mobile) */}
-      <div className="md:hidden px-6 py-4 text-center">
+      <div className="md:hidden px-6 pb-4 text-center">
         <h1 className="font-['League_Spartan',Arial,sans-serif] text-[1.9rem] font-extrabold">
           <span className="text-[#2eb2a4]">Notre gamme </span>
           <span className="text-[#2eb2a4]">EGG</span>
