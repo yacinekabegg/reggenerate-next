@@ -120,6 +120,22 @@ export default function ArticleSanteAstuces() {
           La prévention articulaire n’est pas une affaire de traitement, mais d’entretien. Grâce à une hygiène de vie naturelle et à des ingrédients innovants comme <strong>REGGENERATE®</strong>, il est possible de conjuguer performance, durabilité et naturalité au service du bien‑être articulaire.
         </p>
       </section>
+
+      {/* Pour aller plus loin */}
+      <section className="mt-8">
+        <h2 className="mb-3 text-[1.4rem] font-extrabold text-[#4e53a3]">🔗 Pour aller plus loin</h2>
+        <ul className="list-disc pl-6 text-[#4e53a3]">
+          <li>
+            <a href="/ingredient" className="underline decoration-[#4e53a3] underline-offset-2" title="Découvrir REGGENERATE®">Découvrir REGGENERATE®</a>
+          </li>
+          <li>
+            <a href="https://circulegg.fr/" className="underline decoration-[#4e53a3] underline-offset-2" title="En savoir plus sur Circul’Egg">En savoir plus sur Circul’Egg</a>
+          </li>
+          <li>
+            <a href="/blog/#contact" className="underline decoration-[#4e53a3] underline-offset-2" title="Contactez notre équipe">Contactez notre équipe</a>
+          </li>
+        </ul>
+      </section>
     </BlogArticleLayout>
   );
 }
