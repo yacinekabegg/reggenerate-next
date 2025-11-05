@@ -135,9 +135,14 @@ export default function ClientsPage() {
                 </div>
 
                 <div className="mt-4 rounded-xl p-3 text-center">
-                  <button className="rounded-full bg-[#2eb2a4] px-5 py-2 font-['League_Spartan',Arial,sans-serif] font-bold text-white transition hover:underline decoration-white underline-offset-2 decoration-2">
+                  <a
+                    href="https://www.valebio.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="rounded-full bg-[#2eb2a4] px-5 py-2 font-['League_Spartan',Arial,sans-serif] font-bold text-white transition hover:underline decoration-white underline-offset-2 decoration-2"
+                  >
                     Voir le produit
-                  </button>
+                  </a>
                 </div>
               </div>
             </div>
@@ -172,9 +177,14 @@ export default function ClientsPage() {
                 </div>
 
                 <div className="mt-4 rounded-xl p-3 text-center">
-                  <button className="rounded-full bg-[#2eb2a4] px-5 py-2 font-['League_Spartan',Arial,sans-serif] font-bold text-white transition hover:underline decoration-white underline-offset-2 decoration-2">
+                  <a
+                    href="https://www.oemine.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="rounded-full bg-[#2eb2a4] px-5 py-2 font-['League_Spartan',Arial,sans-serif] font-bold text-white transition hover:underline decoration-white underline-offset-2 decoration-2"
+                  >
                     Voir le produit
-                  </button>
+                  </a>
                 </div>
               </div>
             </div>
@@ -206,9 +216,14 @@ export default function ClientsPage() {
                 </div>
 
                 <div className="mt-4 p-3 text-center">
-                  <button className="rounded-full bg-[#2eb2a4] px-5 py-2 font-['League_Spartan',Arial,sans-serif] font-bold text-white transition hover:underline decoration-white underline-offset-2 decoration-2">
-                    Voir le produit 
-                  </button>
+                  <a
+                    href="https://www.epycure.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="rounded-full bg-[#2eb2a4] px-5 py-2 font-['League_Spartan',Arial,sans-serif] font-bold text-white transition hover:underline decoration-white underline-offset-2 decoration-2"
+                  >
+                    Voir le produit
+                  </a>
                 </div>
               </div>
             </div>
@@ -241,9 +256,14 @@ export default function ClientsPage() {
                 </div>
 
                 <div className="mt-4 p-3 text-center">
-                  <button className="rounded-full bg-[#2eb2a4] px-5 py-2 font-['League_Spartan',Arial,sans-serif] font-bold text-white transition hover:underline decoration-white underline-offset-2 decoration-2">
-                    Voir le produit 
-                  </button>
+                  <a
+                    href="https://www.nutrielement.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="rounded-full bg-[#2eb2a4] px-5 py-2 font-['League_Spartan',Arial,sans-serif] font-bold text-white transition hover:underline decoration-white underline-offset-2 decoration-2"
+                  >
+                    Voir le produit
+                  </a>
                 </div>
               </div>
             </div>
@@ -278,9 +298,14 @@ export default function ClientsPage() {
                 </div>
 
                 <div className="mt-4 p-3 text-center">
-                  <button className="rounded-full bg-[#2eb2a4] px-5 py-2 font-['League_Spartan',Arial,sans-serif] font-bold text-white transition hover:underline decoration-white underline-offset-2 decoration-2">
-                    Voir le produit 
-                  </button>
+                  <a
+                    href="https://www.siho.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="rounded-full bg-[#2eb2a4] px-5 py-2 font-['League_Spartan',Arial,sans-serif] font-bold text-white transition hover:underline decoration-white underline-offset-2 decoration-2"
+                  >
+                    Voir le produit
+                  </a>
                 </div>
               </div>
             </div>
@@ -315,9 +340,14 @@ export default function ClientsPage() {
                 </div>
 
                 <div className="mt-4 p-3 text-center">
-                  <button className="rounded-full bg-[#2eb2a4] px-5 py-2 font-['League_Spartan',Arial,sans-serif] font-bold text-white transition hover:underline decoration-white underline-offset-2 decoration-2">
-                    Voir le produit 
-                  </button>
+                  <a
+                    href="https://www.kotorpharma.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="rounded-full bg-[#2eb2a4] px-5 py-2 font-['League_Spartan',Arial,sans-serif] font-bold text-white transition hover:underline decoration-white underline-offset-2 decoration-2"
+                  >
+                    Voir le produit
+                  </a>
                 </div>
               </div>
             </div>
@@ -350,9 +380,14 @@ export default function ClientsPage() {
                 </div>
 
                 <div className="mt-4 p-3 text-center">
-                  <button className="rounded-full bg-[#2eb2a4] px-5 py-2 font-['League_Spartan',Arial,sans-serif] font-bold text-white transition hover:underline decoration-white underline-offset-2 decoration-2">
-                    Voir le produit 
-                  </button>
+                  <a
+                    href="https://www.supernature.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="rounded-full bg-[#2eb2a4] px-5 py-2 font-['League_Spartan',Arial,sans-serif] font-bold text-white transition hover:underline decoration-white underline-offset-2 decoration-2"
+                  >
+                    Voir le produit
+                  </a>
                 </div>
               </div>
             </div>
@@ -385,9 +420,14 @@ export default function ClientsPage() {
                 </div>
 
                 <div className="mt-4 p-3 text-center">
-                  <button className="rounded-full bg-[#2eb2a4] px-5 py-2 font-['League_Spartan',Arial,sans-serif] font-bold text-white transition hover:underline decoration-white underline-offset-2 decoration-2">
-                    Voir le produit 
-                  </button>
+                  <a
+                    href="https://www.supernature.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="rounded-full bg-[#2eb2a4] px-5 py-2 font-['League_Spartan',Arial,sans-serif] font-bold text-white transition hover:underline decoration-white underline-offset-2 decoration-2"
+                  >
+                    Voir le produit
+                  </a>
                 </div>
               </div>
             </div>
@@ -420,9 +460,14 @@ export default function ClientsPage() {
                 </div>
 
                 <div className="mt-4 p-3 text-center">
-                  <button className="rounded-full bg-[#2eb2a4] px-5 py-2 font-['League_Spartan',Arial,sans-serif] font-bold text-white transition hover:underline decoration-white underline-offset-2 decoration-2">
-                    Voir le produit 
-                  </button>
+                  <a
+                    href="https://www.lepivits.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="rounded-full bg-[#2eb2a4] px-5 py-2 font-['League_Spartan',Arial,sans-serif] font-bold text-white transition hover:underline decoration-white underline-offset-2 decoration-2"
+                  >
+                    Voir le produit
+                  </a>
                 </div>
               </div>
             </div>
