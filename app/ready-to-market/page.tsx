@@ -389,9 +389,9 @@ export default function ReadyToMarket() {
                 </div>
 
                 <div className="mt-4 rounded-xl p-3 text-center">
-                  <button className="rounded-full bg-[#2eb2a4] px-5 py-2 font-['League_Spartan',Arial,sans-serif] font-bold text-white">
+                  <a href="#contact" className="rounded-full bg-[#2eb2a4] px-5 py-2 font-['League_Spartan',Arial,sans-serif] font-bold text-white">
                     Demander un échantillon 🤩
-                  </button>
+                  </a>
                 </div>
               </div>
             </div>
@@ -427,9 +427,9 @@ export default function ReadyToMarket() {
                 </div>
 
                 <div className="mt-4 rounded-xl p-3 text-center">
-                  <button className="rounded-full bg-[#2eb2a4] px-5 py-2 font-['League_Spartan',Arial,sans-serif] font-bold text-white">
+                  <a href="#contact" className="rounded-full bg-[#2eb2a4] px-5 py-2 font-['League_Spartan',Arial,sans-serif] font-bold text-white">
                     Demander un échantillon 🤩
-                  </button>
+                  </a>
                 </div>
               </div>
             </div>
@@ -465,9 +465,9 @@ export default function ReadyToMarket() {
                 </div>
 
                 <div className="mt-4 p-3 text-center">
-                  <button className="rounded-full bg-[#2eb2a4] px-5 py-2 font-['League_Spartan',Arial,sans-serif] font-bold text-white">
+                  <a href="#contact" className="rounded-full bg-[#2eb2a4] px-5 py-2 font-['League_Spartan',Arial,sans-serif] font-bold text-white">
                     Demander un échantillon 🤩
-                  </button>
+                  </a>
                 </div>
               </div>
             </div>
@@ -504,9 +504,9 @@ export default function ReadyToMarket() {
                 </div>
 
                 <div className="mt-4 rounded-xl p-3 text-center">
-                  <button className="rounded-full bg-[#2eb2a4] px-5 py-2 font-['League_Spartan',Arial,sans-serif] font-bold text-white">
+                  <a href="#contact" className="rounded-full bg-[#2eb2a4] px-5 py-2 font-['League_Spartan',Arial,sans-serif] font-bold text-white">
                     Demander un échantillon 🤩
-                  </button>
+                  </a>
                 </div>
               </div>
             </div>
@@ -542,9 +542,9 @@ export default function ReadyToMarket() {
                 </div>
 
                 <div className="mt-4 rounded-xl p-3 text-center">
-                  <button className="rounded-full bg-[#2eb2a4] px-5 py-2 font-['League_Spartan',Arial,sans-serif] font-bold text-white">
+                  <a href="#contact" className="rounded-full bg-[#2eb2a4] px-5 py-2 font-['League_Spartan',Arial,sans-serif] font-bold text-white">
                     Demander un échantillon 🤩
-                  </button>
+                  </a>
                 </div>
               </div>
             </div>
@@ -580,9 +580,9 @@ export default function ReadyToMarket() {
                 </div>
 
                 <div className="mt-4 rounded-xl p-3 text-center">
-                  <button className="rounded-full bg-[#2eb2a4] px-5 py-2 font-['League_Spartan',Arial,sans-serif] font-bold text-white">
+                  <a href="#contact" className="rounded-full bg-[#2eb2a4] px-5 py-2 font-['League_Spartan',Arial,sans-serif] font-bold text-white">
                     Demander un échantillon 🤩
-                  </button>
+                  </a>
                 </div>
               </div>
             </div>
@@ -619,9 +619,9 @@ export default function ReadyToMarket() {
                 </div>
 
                 <div className="mt-4 rounded-xl p-3 text-center">
-                  <button className="rounded-full bg-[#2eb2a4] px-5 py-2 font-['League_Spartan',Arial,sans-serif] font-bold text-white">
+                  <a href="#contact" className="rounded-full bg-[#2eb2a4] px-5 py-2 font-['League_Spartan',Arial,sans-serif] font-bold text-white">
                     Demander un échantillon 🤩
-                  </button>
+                  </a>
                 </div>
               </div>
             </div>
@@ -657,9 +657,9 @@ export default function ReadyToMarket() {
                 </div>
 
                 <div className="mt-4 rounded-xl p-3 text-center">
-                  <button className="rounded-full bg-[#2eb2a4] px-5 py-2 font-['League_Spartan',Arial,sans-serif] font-bold text-white">
+                  <a href="#contact" className="rounded-full bg-[#2eb2a4] px-5 py-2 font-['League_Spartan',Arial,sans-serif] font-bold text-white">
                     Demander un échantillon 🤩
-                  </button>
+                  </a>
                 </div>
               </div>
             </div>
@@ -695,9 +695,9 @@ export default function ReadyToMarket() {
                 </div>
 
                 <div className="mt-4 rounded-xl p-3 text-center">
-                  <button className="rounded-full bg-[#2eb2a4] px-5 py-2 font-['League_Spartan',Arial,sans-serif] font-bold text-white">
+                  <a href="#contact" className="rounded-full bg-[#2eb2a4] px-5 py-2 font-['League_Spartan',Arial,sans-serif] font-bold text-white">
                     Demander un échantillon 🤩
-                  </button>
+                  </a>
                 </div>
               </div>
             </div>
@@ -734,9 +734,9 @@ export default function ReadyToMarket() {
                 </div>
 
                 <div className="mt-4 rounded-xl p-3 text-center">
-                  <button className="rounded-full bg-[#2eb2a4] px-5 py-2 font-['League_Spartan',Arial,sans-serif] font-bold text-white">
+                  <a href="#contact" className="rounded-full bg-[#2eb2a4] px-5 py-2 font-['League_Spartan',Arial,sans-serif] font-bold text-white">
                     Demander un échantillon 🤩
-                  </button>
+                  </a>
                 </div>
               </div>
             </div>
@@ -772,9 +772,9 @@ export default function ReadyToMarket() {
                 </div>
 
                 <div className="mt-4 rounded-xl p-3 text-center">
-                  <button className="rounded-full bg-[#2eb2a4] px-5 py-2 font-['League_Spartan',Arial,sans-serif] font-bold text-white">
+                  <a href="#contact" className="rounded-full bg-[#2eb2a4] px-5 py-2 font-['League_Spartan',Arial,sans-serif] font-bold text-white">
                     Demander un échantillon 🤩
-                  </button>
+                  </a>
                 </div>
               </div>
             </div>
