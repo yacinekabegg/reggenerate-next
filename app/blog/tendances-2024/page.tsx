@@ -1,4 +1,5 @@
 import { BlogArticleLayout } from "@/components/BlogArticleLayout";
+import Link from "next/link";
 
 export default function Tendances2024() {
   return (
@@ -169,7 +170,13 @@ export default function Tendances2024() {
             <a href="https://circulegg.fr/" className="underline decoration-[#4e53a3] underline-offset-2" title="En savoir plus sur Circul’Egg">En savoir plus sur Circul’Egg</a>
           </li>
           <li>
-            <a href="/blog/#contact" className="underline decoration-[#4e53a3] underline-offset-2" title="Contactez notre équipe">Contactez notre équipe</a>
+            <Link
+              href={{ pathname: "/blog/", hash: "contact" }}
+              className="underline decoration-[#4e53a3] underline-offset-2"
+              title="Contactez notre équipe"
+            >
+              Contactez notre équipe
+            </Link>
           </li>
         </ul>
       </section>
