@@ -125,7 +125,7 @@ export default function ClientsPage() {
               </div>
               <div className="mt-4">
                 <h3 className="font-['League_Spartan',Arial,sans-serif] text-[1.25rem] font-extrabold text-[#4e53a3] text-center">
-                  Collagène articulaire
+                  Collagène végétarien articulaire
                 </h3>
                 <p className="mb-4 font-['Roboto',Arial,sans-serif] italic text-[#2eb2a4] text-center">Valebio</p>
 
@@ -149,6 +149,46 @@ export default function ClientsPage() {
             </div>
 
             {/* Card 2 */}
+            <div className="relative rounded-2xl border-2 border-[#2eb2a4] bg-white p-4">
+              {/* Badges icônes en haut à gauche */}
+              <div className="absolute -top-[3.8rem] -left-4 z-10 flex items-center">
+                {/* Wrapper dimensionné: augmente la taille en changeant size-16/20 */}
+                <span className="relative size-24">
+                  <Image src="/images/pill.png" alt="Gélules" fill className="object-contain p-2" />
+                </span>
+                <span className="relative -ml-10 size-24">
+                  <Image src="/images/skin-beauty.png" alt="Beauté de la peau" fill className="object-contain p-2" />
+                </span>
+              </div>
+              <div className="relative h-[280px] w-[85%] mx-auto overflow-hidden rounded-xl mt-2">
+                <Image src="/images/collagene-beaute-valebio.svg" alt="Coquille de j'oeufnesse" fill className="object-cover" />
+              </div>
+              <div className="mt-4">
+                <h3 className="font-['League_Spartan',Arial,sans-serif] text-[1.25rem] font-extrabold text-[#4e53a3] text-center">
+                  Collagène végétarien beauté
+                </h3>
+                <p className="mb-4 font-['Roboto',Arial,sans-serif] italic text-[#2eb2a4] text-center">Valebio</p>
+
+                <div className="space-y-1 font-['Roboto',Arial,sans-serif] text-[#2eb2a4]">
+                  <p className="m-0"><span className="font-semibold text-[#4e53a3]">Galénique</span> : 60 gélules</p>
+                  <p className="m-0"><span className="font-semibold text-[#4e53a3]">Bienfaits</span> : Beauté de la peau</p>
+                  <p className="m-0"><span className="font-semibold text-[#4e53a3]">Formulation</span> : Reggenerate + acide hyaluronique + vitamine C</p>
+                </div>
+
+                <div className="mt-4 rounded-xl p-3 text-center">
+                  <a
+                    href="https://www.valebio.com/nos-produits/743-collagene-vegetarien-beaute-en-gelules.html"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="rounded-full bg-[#2eb2a4] px-5 py-2 font-['League_Spartan',Arial,sans-serif] font-bold text-white transition hover:underline decoration-white underline-offset-2 decoration-2"
+                  >
+                    Voir le produit
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            {/* Card 3 */}
             <div className="relative rounded-2xl border-2 border-[#2eb2a4] bg-white p-4 mt-6">
               {/* Badges icônes en haut à gauche */}
               <div className="absolute -top-[3.8rem] -left-4 z-10 flex items-center">
@@ -190,7 +230,7 @@ export default function ClientsPage() {
               </div>
             </div>
 
-            {/* Card 3 */}
+            {/* Card 4 */}
             <div className="relative rounded-2xl border-2 border-[#2eb2a4] bg-white p-4 mt-6">
               {/* Badges icônes en haut à gauche */}
               <div className="absolute -top-[3.8rem] -left-4 z-10 flex items-center">
@@ -229,7 +269,7 @@ export default function ClientsPage() {
               </div>
             </div>
 
-            {/* Card 4 */}
+            {/* Card 5 */}
             <div className="relative rounded-2xl border-2 border-[#2eb2a4] bg-white p-4 mt-6">
               {/* Badges icônes en haut à gauche */}
               <div className="absolute -top-[3.8rem] -left-4 z-10 flex items-center">
@@ -269,7 +309,7 @@ export default function ClientsPage() {
               </div>
             </div>
 
-            {/* Card 5 */}
+            {/* Card 6 */}
             <div className="relative rounded-2xl border-2 border-[#2eb2a4] bg-white p-4 mt-6">
               {/* Badges icônes en haut à gauche */}
               <div className="absolute -top-[3.8rem] -left-4 z-10 flex items-center">
@@ -311,7 +351,7 @@ export default function ClientsPage() {
               </div>
             </div>
 
-            {/* Card 6 */}
+            {/* Card 7 */}
             <div className="relative rounded-2xl border-2 border-[#2eb2a4] bg-white p-4 mt-6">
               {/* Badges icônes en haut à gauche */}
               <div className="absolute -top-[3.8rem] -left-4 z-10 flex items-center">
@@ -353,7 +393,7 @@ export default function ClientsPage() {
               </div>
             </div>
 
-            {/* Card 7 */}
+            {/* Card 8 */}
             <div className="relative rounded-2xl border-2 border-[#2eb2a4] bg-white p-4 mt-6">
               {/* Badges icônes en haut à gauche */}
               <div className="absolute -top-[3.8rem] -left-4 z-10 flex items-center">
@@ -393,7 +433,7 @@ export default function ClientsPage() {
               </div>
             </div>
 
-            {/* Card 8 */}
+            {/* Card 9 */}
             <div className="relative rounded-2xl border-2 border-[#2eb2a4] bg-white p-4 mt-6">
               {/* Badges icônes en haut à gauche */}
               <div className="absolute -top-[3.8rem] -left-4 z-10 flex items-center">
@@ -433,7 +473,7 @@ export default function ClientsPage() {
               </div>
             </div>
 
-            {/* Card 9 */}
+            {/* Card 10 */}
             <div className="relative rounded-2xl border-2 border-[#2eb2a4] bg-white p-4 mt-6">
               {/* Badges icônes en haut à gauche */}
               <div className="absolute -top-[3.8rem] -left-4 z-10 flex items-center">
@@ -473,7 +513,7 @@ export default function ClientsPage() {
               </div>
             </div>
 
-            {/* Card 10 */}
+            {/* Card 11 */}
             <div className="relative rounded-2xl border-2 border-[#2eb2a4] bg-white p-4 mt-6">
               {/* Badges icônes en haut à gauche */}
               <div className="absolute -top-[3.8rem] -left-4 z-10 flex items-center">
@@ -513,7 +553,7 @@ export default function ClientsPage() {
               </div>
             </div>
 
-            {/* Card 11 */}
+            {/* Card 12 */}
             <div className="relative rounded-2xl border-2 border-[#2eb2a4] bg-white p-4 mt-6">
               {/* Badges icônes en haut à gauche */}
               <div className="absolute -top-[3.8rem] -left-4 z-10 flex items-center">
@@ -553,7 +593,7 @@ export default function ClientsPage() {
               </div>
             </div>
 
-            {/* Card 12 */}
+            {/* Card 13 */}
             <div className="relative rounded-2xl border-2 border-[#2eb2a4] bg-white p-4 mt-6">
               {/* Badges icônes en haut à gauche */}
               <div className="absolute -top-[3.8rem] -left-4 z-10 flex items-center">
@@ -593,7 +633,7 @@ export default function ClientsPage() {
               </div>
             </div>
 
-            {/* Card 13 */}
+            {/* Card 14 */}
             <div className="relative rounded-2xl border-2 border-[#2eb2a4] bg-white p-4 mt-6">
               {/* Badges icônes en haut à gauche */}
               <div className="absolute -top-[3.8rem] -left-4 z-10 flex items-center">
@@ -633,7 +673,7 @@ export default function ClientsPage() {
               </div>
             </div>
 
-            {/* Card 14 */}
+            {/* Card 15 */}
             <div className="relative rounded-2xl border-2 border-[#2eb2a4] bg-white p-4 mt-6">
               {/* Badges icônes en haut à gauche */}
               <div className="absolute -top-[3.8rem] -left-4 z-10 flex items-center">
@@ -676,7 +716,7 @@ export default function ClientsPage() {
               </div>
             </div>
 
-            {/* Card 15 */}
+            {/* Card 16 */}
             <div className="relative rounded-2xl border-2 border-[#2eb2a4] bg-white p-4 mt-6">
               {/* Badges icônes en haut à gauche */}
               <div className="absolute -top-[3.8rem] -left-4 z-10 flex items-center">
@@ -716,7 +756,7 @@ export default function ClientsPage() {
               </div>
             </div>
 
-            {/* Card 16 */}
+            {/* Card 17 */}
             <div className="relative rounded-2xl border-2 border-[#2eb2a4] bg-white p-4 mt-6">
               {/* Badges icônes en haut à gauche */}
               <div className="absolute -top-[3.8rem] -left-4 z-10 flex items-center">
@@ -759,7 +799,7 @@ export default function ClientsPage() {
               </div>
             </div>
 
-            {/* Card 17 */}
+            {/* Card 18 */}
             <div className="relative rounded-2xl border-2 border-[#2eb2a4] bg-white p-4 mt-6">
               {/* Badges icônes en haut à gauche */}
               <div className="absolute -top-[3.8rem] -left-4 z-10 flex items-center">
@@ -799,7 +839,7 @@ export default function ClientsPage() {
               </div>
             </div>
 
-            {/* Card 18 */}
+            {/* Card 19 */}
             <div className="relative rounded-2xl border-2 border-[#2eb2a4] bg-white p-4 mt-6">
               {/* Badges icônes en haut à gauche */}
               <div className="absolute -top-[3.8rem] -left-4 z-10 flex items-center">
@@ -839,7 +879,7 @@ export default function ClientsPage() {
               </div>
             </div>
 
-            {/* Card 19 */}
+            {/* Card 20 */}
             <div className="relative rounded-2xl border-2 border-[#2eb2a4] bg-white p-4 mt-6">
               {/* Badges icônes en haut à gauche */}
               <div className="absolute -top-[3.8rem] -left-4 z-10 flex items-center">
@@ -879,7 +919,7 @@ export default function ClientsPage() {
               </div>
             </div>
 
-            {/* Card 20 */}
+            {/* Card 21 */}
             <div className="relative rounded-2xl border-2 border-[#2eb2a4] bg-white p-4 mt-6">
               {/* Badges icônes en haut à gauche */}
               <div className="absolute -top-[3.8rem] -left-4 z-10 flex items-center">
