@@ -136,7 +136,7 @@ export default function ClientsPage() {
 
                 <div className="mt-4 rounded-xl p-3 text-center">
                   <a
-                    href="https://www.valebio.com"
+                    href="https://www.valebio.com/nos-produits/745-collagene-vegetarien-articulaire-en-gelules.html?srsltid=AfmBOoo4QdA-VfsYKCBx7nl3fKBUtzucFfA_REUkhsU-HKUT6EtnqHcK"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="rounded-full bg-[#2eb2a4] px-5 py-2 font-['League_Spartan',Arial,sans-serif] font-bold text-white transition hover:underline decoration-white underline-offset-2 decoration-2"
@@ -178,7 +178,7 @@ export default function ClientsPage() {
 
                 <div className="mt-4 rounded-xl p-3 text-center">
                   <a
-                    href="https://www.oemine.com"
+                    href="https://oemine.fr/produit/collagene-vegetarien/"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="rounded-full bg-[#2eb2a4] px-5 py-2 font-['League_Spartan',Arial,sans-serif] font-bold text-white transition hover:underline decoration-white underline-offset-2 decoration-2"
@@ -207,7 +207,7 @@ export default function ClientsPage() {
                 <h3 className="font-['League_Spartan',Arial,sans-serif] text-[1.25rem] font-extrabold text-[#4e53a3] text-center">
                   Cure peau repulpée
                 </h3>
-                <p className="mb-4 font-['Roboto',Arial,sans-serif] italic text-[#2eb2a4] text-center">Epycure</p>
+                <p className="mb-4 font-['Roboto',Arial,sans-serif] italic text-[#2eb2a4] text-center">Epycure Laboratoire</p>
 
                 <div className="space-y-1 font-['Roboto',Arial,sans-serif] text-[#2eb2a4]">
                   <p className="m-0"><span className="font-semibold text-[#4e53a3]">Galénique</span> : Gélules</p>
@@ -217,7 +217,7 @@ export default function ClientsPage() {
 
                 <div className="mt-4 p-3 text-center">
                   <a
-                    href="https://www.epycure.com"
+                    href="https://epycure.com/products/cure-peau-repulpee"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="rounded-full bg-[#2eb2a4] px-5 py-2 font-['League_Spartan',Arial,sans-serif] font-bold text-white transition hover:underline decoration-white underline-offset-2 decoration-2"
@@ -257,7 +257,7 @@ export default function ClientsPage() {
 
                 <div className="mt-4 p-3 text-center">
                   <a
-                    href="https://www.nutrielement.com"
+                    href="https://www.nutrielement.com/products/hair-skin-nails-gelules"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="rounded-full bg-[#2eb2a4] px-5 py-2 font-['League_Spartan',Arial,sans-serif] font-bold text-white transition hover:underline decoration-white underline-offset-2 decoration-2"
@@ -299,7 +299,7 @@ export default function ClientsPage() {
 
                 <div className="mt-4 p-3 text-center">
                   <a
-                    href="https://www.siho.com"
+                    href="https://thesihoeffect.com/fr-ch/products/collagene-vegetarien-novolife?_pos=1&_psq=vegeta&_ss=e&_v=1.0"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="rounded-full bg-[#2eb2a4] px-5 py-2 font-['League_Spartan',Arial,sans-serif] font-bold text-white transition hover:underline decoration-white underline-offset-2 decoration-2"
@@ -341,7 +341,7 @@ export default function ClientsPage() {
 
                 <div className="mt-4 p-3 text-center">
                   <a
-                    href="https://www.kotorpharma.com"
+                    href="https://kotorpharma.com/produit/kotor-collagene/?srsltid=AfmBOopaL8uwuCUuXgGoyIKytksCoNUQR6sKzA9VFQdeUHm1G1JVYxx5"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="rounded-full bg-[#2eb2a4] px-5 py-2 font-['League_Spartan',Arial,sans-serif] font-bold text-white transition hover:underline decoration-white underline-offset-2 decoration-2"
@@ -381,7 +381,7 @@ export default function ClientsPage() {
 
                 <div className="mt-4 p-3 text-center">
                   <a
-                    href="https://www.supernature.com"
+                    href="https://www.supernature.paris/products/barre-collagene-matcha-chocolat?pr_prod_strat=e5_desc&pr_rec_id=68f870c10&pr_rec_pid=10515038437710&pr_ref_pid=10397196353870&pr_seq=uniform&variant=53170145624398"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="rounded-full bg-[#2eb2a4] px-5 py-2 font-['League_Spartan',Arial,sans-serif] font-bold text-white transition hover:underline decoration-white underline-offset-2 decoration-2"
@@ -421,7 +421,7 @@ export default function ClientsPage() {
 
                 <div className="mt-4 p-3 text-center">
                   <a
-                    href="https://www.supernature.com"
+                    href="https://www.supernature.paris/products/chai-latte-collagene-100g-supernature-x-la-main-noire?variant=52684636619086"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="rounded-full bg-[#2eb2a4] px-5 py-2 font-['League_Spartan',Arial,sans-serif] font-bold text-white transition hover:underline decoration-white underline-offset-2 decoration-2"
@@ -461,7 +461,7 @@ export default function ClientsPage() {
 
                 <div className="mt-4 p-3 text-center">
                   <a
-                    href="https://www.lepivits.com"
+                    href="https://lepivits.be/fr/nutra-complexes/155-dermavits-5430003465417.html"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="rounded-full bg-[#2eb2a4] px-5 py-2 font-['League_Spartan',Arial,sans-serif] font-bold text-white transition hover:underline decoration-white underline-offset-2 decoration-2"
@@ -500,9 +500,14 @@ export default function ClientsPage() {
                 </div>
 
                 <div className="mt-4 p-3 text-center">
-                  <button className="rounded-full bg-[#2eb2a4] px-5 py-2 font-['League_Spartan',Arial,sans-serif] font-bold text-white transition hover:underline decoration-white underline-offset-2 decoration-2">
-                    Voir le produit 
-                  </button>
+                  <a
+                    href="https://curcumaxx-france.com/boutique/gelules/curcumaxx-coquille-doeuf-curcuma-piluliers-60-gelules/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="rounded-full bg-[#2eb2a4] px-5 py-2 font-['League_Spartan',Arial,sans-serif] font-bold text-white transition hover:underline decoration-white underline-offset-2 decoration-2"
+                  >
+                    Voir le produit
+                  </a>
                 </div>
               </div>
             </div>
@@ -535,9 +540,14 @@ export default function ClientsPage() {
                 </div>
 
                 <div className="mt-4 p-3 text-center">
-                  <button className="rounded-full bg-[#2eb2a4] px-5 py-2 font-['League_Spartan',Arial,sans-serif] font-bold text-white transition hover:underline decoration-white underline-offset-2 decoration-2">
-                    Voir le produit 
-                  </button>
+                  <a
+                    href="https://www.byogenie-projet.com/mouvement-avec-collagene/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="rounded-full bg-[#2eb2a4] px-5 py-2 font-['League_Spartan',Arial,sans-serif] font-bold text-white transition hover:underline decoration-white underline-offset-2 decoration-2"
+                  >
+                    Voir le produit
+                  </a>
                 </div>
               </div>
             </div>
@@ -559,9 +569,9 @@ export default function ClientsPage() {
               </div>
               <div className="mt-4">
                 <h3 className="font-['League_Spartan',Arial,sans-serif] text-[1.25rem] font-extrabold text-[#4e53a3] text-center">
-                  C’est la Chic(k) Collagen Scrub Soap Set
+                  C’est la Chic(k) : Eggshell Membrane Collagen Scrub Soap Set
                 </h3>
-                <p className="mb-4 font-['Roboto',Arial,sans-serif] italic text-[#2eb2a4] text-center">Mouvement</p>
+                <p className="mb-4 font-['Roboto',Arial,sans-serif] italic text-[#2eb2a4] text-center">Vicky en france</p>
 
                 <div className="space-y-1 font-['Roboto',Arial,sans-serif] text-[#2eb2a4]">
                   <p className="m-0"><span className="font-semibold text-[#4e53a3]">Galénique</span> : Gommage</p>
@@ -570,9 +580,14 @@ export default function ClientsPage() {
                 </div>
 
                 <div className="mt-4 p-3 text-center">
-                  <button className="rounded-full bg-[#2eb2a4] px-5 py-2 font-['League_Spartan',Arial,sans-serif] font-bold text-white transition hover:underline decoration-white underline-offset-2 decoration-2">
-                    Voir le produit 
-                  </button>
+                  <a
+                    href="https://vickyenfrance.com/products/cest-la-chick"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="rounded-full bg-[#2eb2a4] px-5 py-2 font-['League_Spartan',Arial,sans-serif] font-bold text-white transition hover:underline decoration-white underline-offset-2 decoration-2"
+                  >
+                    Voir le produit
+                  </a>
                 </div>
               </div>
             </div>
@@ -605,9 +620,14 @@ export default function ClientsPage() {
                 </div>
 
                 <div className="mt-4 p-3 text-center">
-                  <button className="rounded-full bg-[#2eb2a4] px-5 py-2 font-['League_Spartan',Arial,sans-serif] font-bold text-white transition hover:underline decoration-white underline-offset-2 decoration-2">
-                    Voir le produit 
-                  </button>
+                  <a
+                    href="https://myarchie.co/products/vinaigrette-collagene?srsltid=AfmBOop5_D_OIqmEsZKJ_D_cTm_m6bMM3qivokhEKAHScr7JffRqkSX1"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="rounded-full bg-[#2eb2a4] px-5 py-2 font-['League_Spartan',Arial,sans-serif] font-bold text-white transition hover:underline decoration-white underline-offset-2 decoration-2"
+                  >
+                    Voir le produit
+                  </a>
                 </div>
               </div>
             </div>
@@ -628,13 +648,13 @@ export default function ClientsPage() {
                 </span>
               </div>
               <div className="relative h-[240px] w-[85%] mx-auto overflow-hidden rounded-xl mt-2">
-                <Image src="/images/mouvement-collagène+.svg" alt="Mouvement Collagène +" fill className="object-cover" />
+                <Image src="/images/mouvement-collagène+.svg" alt="N°2 Collagene +" fill className="object-cover" />
               </div>
               <div className="mt-4">
                 <h3 className="font-['League_Spartan',Arial,sans-serif] text-[1.25rem] font-extrabold text-[#4e53a3] text-center">
-                  Mouvement
+                  N°2 Collagene +
                 </h3>
-                <p className="mb-4 font-['Roboto',Arial,sans-serif] italic text-[#2eb2a4] text-center">Byogénie</p>
+                <p className="mb-4 font-['Roboto',Arial,sans-serif] italic text-[#2eb2a4] text-center">Equi Nutri Laboratoire</p>
 
                 <div className="space-y-1 font-['Roboto',Arial,sans-serif] text-[#2eb2a4]">
                   <p className="m-0"><span className="font-semibold text-[#4e53a3]">Galénique</span> : Gélules</p>
@@ -643,9 +663,14 @@ export default function ClientsPage() {
                 </div>
 
                 <div className="mt-4 p-3 text-center">
-                  <button className="rounded-full bg-[#2eb2a4] px-5 py-2 font-['League_Spartan',Arial,sans-serif] font-bold text-white transition hover:underline decoration-white underline-offset-2 decoration-2">
-                    Voir le produit 
-                  </button>
+                  <a
+                    href="https://www.equi-nutri.be/fr/produit/314/n2-artiflexx/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="rounded-full bg-[#2eb2a4] px-5 py-2 font-['League_Spartan',Arial,sans-serif] font-bold text-white transition hover:underline decoration-white underline-offset-2 decoration-2"
+                  >
+                    Voir le produit
+                  </a>
                 </div>
               </div>
             </div>
@@ -678,9 +703,14 @@ export default function ClientsPage() {
                 </div>
 
                 <div className="mt-4 p-3 text-center">
-                  <button className="rounded-full bg-[#2eb2a4] px-5 py-2 font-['League_Spartan',Arial,sans-serif] font-bold text-white transition hover:underline decoration-white underline-offset-2 decoration-2">
-                    Voir le produit 
-                  </button>
+                  <a
+                    href="https://www.therascience.com/fr_fr/suvimine-arthro-phy503.html?srsltid=AfmBOoq5v5rEEecPjlByjaxSAfqcmG1lGUoJhFtIGQNyqRpJOmqJ3axv"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="rounded-full bg-[#2eb2a4] px-5 py-2 font-['League_Spartan',Arial,sans-serif] font-bold text-white transition hover:underline decoration-white underline-offset-2 decoration-2"
+                  >
+                    Voir le produit
+                  </a>
                 </div>
               </div>
             </div>
@@ -716,9 +746,14 @@ export default function ClientsPage() {
                 </div>
 
                 <div className="mt-4 p-3 text-center">
-                  <button className="rounded-full bg-[#2eb2a4] px-5 py-2 font-['League_Spartan',Arial,sans-serif] font-bold text-white transition hover:underline decoration-white underline-offset-2 decoration-2">
-                    Voir le produit 
-                  </button>
+                  <a
+                    href="https://motima.fr/products/silinovea"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="rounded-full bg-[#2eb2a4] px-5 py-2 font-['League_Spartan',Arial,sans-serif] font-bold text-white transition hover:underline decoration-white underline-offset-2 decoration-2"
+                  >
+                    Voir le produit
+                  </a>
                 </div>
               </div>
             </div>
