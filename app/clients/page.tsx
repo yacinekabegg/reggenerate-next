@@ -24,6 +24,7 @@ export default function ClientsPage() {
                 PRODUITS DÉJÀ SUR LE MARCHÉ
               </span>
             </div>
+            
           </div>
           {/* Titre en overlay absolute (desktop) */}
           <h1 className="hidden md:block absolute left-1/2 -translate-x-1/2 bottom-24 sm:bottom-22 md:bottom-32 lg:bottom-28 lg:mb-2 z-10 text-center font-['League_Spartan',Arial,sans-serif] text-[1.6rem] sm:text-[1.9rem] md:text-[2.4rem] lg:text-[2.8rem] font-extrabold w-full">
@@ -748,6 +749,86 @@ export default function ClientsPage() {
                 <div className="mt-4 p-3 text-center">
                   <a
                     href="https://motima.fr/products/silinovea"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="rounded-full bg-[#2eb2a4] px-5 py-2 font-['League_Spartan',Arial,sans-serif] font-bold text-white transition hover:underline decoration-white underline-offset-2 decoration-2"
+                  >
+                    Voir le produit
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            {/* Card 17 */}
+            <div className="relative rounded-2xl border-2 border-[#2eb2a4] bg-white p-4 mt-6">
+              {/* Badges icônes en haut à gauche */}
+              <div className="absolute -top-[3.8rem] -left-4 z-10 flex items-center">
+                {/* Wrapper dimensionné: augmente la taille en changeant size-16/20 */}
+                <span className="relative size-24">
+                  <Image src="/images/gummies.png" alt="Gélules" fill className="object-contain p-2" />
+                </span>
+                <span className="relative -ml-10 size-24">
+                  <Image src="/images/skin-beauty.png" alt="Beauté de la peau" fill className="object-contain p-2" />
+                </span>
+              </div>
+              <div className="relative h-[240px] w-[85%] mx-auto overflow-hidden rounded-xl mt-2">
+                <Image src="/images/gummies-collagene.svg" alt="Silinovea du Laboratoire Motima" fill className="object-cover" />
+              </div>
+              <div className="mt-4">
+                <h3 className="font-['League_Spartan',Arial,sans-serif] text-[1.25rem] font-extrabold text-[#4e53a3] text-center">
+                  Mium Lab
+                </h3>
+                <p className="mb-4 font-['Roboto',Arial,sans-serif] italic text-[#2eb2a4] text-center">Gummies Collagène VG</p>
+
+                <div className="space-y-1 font-['Roboto',Arial,sans-serif] text-[#2eb2a4]">
+                  <p className="m-0"><span className="font-semibold text-[#4e53a3]">Galénique</span> : Gummies</p>
+                  <p className="m-0"><span className="font-semibold text-[#4e53a3]">Bienfaits</span> : Beauté de la peau</p>
+                  <p className="m-0"><span className="font-semibold text-[#4e53a3]">Formulation</span> : Collagène végétarien Reggenerate pour raffermir la peau </p>
+                </div>
+
+                <div className="mt-4 p-3 text-center">
+                  <a
+                    href="https://www.miumlab.com/products/gummies-collagene-vg?srsltid=AfmBOorjA-TyxTjphKz5lt-CXOYTTpX3Zys5tPHKJLhaSUH2YMR2csp2"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="rounded-full bg-[#2eb2a4] px-5 py-2 font-['League_Spartan',Arial,sans-serif] font-bold text-white transition hover:underline decoration-white underline-offset-2 decoration-2"
+                  >
+                    Voir le produit
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            {/* Card 18 */}
+            <div className="relative rounded-2xl border-2 border-[#2eb2a4] bg-white p-4 mt-6">
+              {/* Badges icônes en haut à gauche */}
+              <div className="absolute -top-[3.8rem] -left-4 z-10 flex items-center">
+                {/* Wrapper dimensionné: augmente la taille en changeant size-16/20 */}
+                <span className="relative size-24">
+                  <Image src="/images/pill.png" alt="Gélules" fill className="object-contain p-2" />
+                </span>
+                <span className="relative -ml-10 size-24">
+                  <Image src="/images/knuckle.png" alt="Santé des articulations" fill className="object-contain p-2" />
+                </span>
+              </div>
+              <div className="relative h-[240px] w-[85%] mx-auto overflow-hidden rounded-xl mt-2">
+                <Image src="/images/calcium-collagene.svg" alt="Silinovea du Laboratoire Motima" fill className="object-cover" />
+              </div>
+              <div className="mt-4">
+                <h3 className="font-['League_Spartan',Arial,sans-serif] text-[1.25rem] font-extrabold text-[#4e53a3] text-center">
+                  Roches Marines Laboratoire 
+                </h3>
+                <p className="mb-4 font-['Roboto',Arial,sans-serif] italic text-[#2eb2a4] text-center">Calcium marin + Collagène</p>
+
+                <div className="space-y-1 font-['Roboto',Arial,sans-serif] text-[#2eb2a4]">
+                  <p className="m-0"><span className="font-semibold text-[#4e53a3]">Galénique</span> : Gélules</p>
+                  <p className="m-0"><span className="font-semibold text-[#4e53a3]">Bienfaits</span> : Articulations</p>
+                  <p className="m-0"><span className="font-semibold text-[#4e53a3]">Formulation</span> : Complément alimentaire à base de calcium marin (lithothamne) et de collagène issu de membrane d’œuf française</p>
+                </div>
+
+                <div className="mt-4 p-3 text-center">
+                  <a
+                    href="https://roches-marines.fr/tous-nos-produits/105-95-calcium-marin-collagene.html"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="rounded-full bg-[#2eb2a4] px-5 py-2 font-['League_Spartan',Arial,sans-serif] font-bold text-white transition hover:underline decoration-white underline-offset-2 decoration-2"
