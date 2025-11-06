@@ -838,6 +838,86 @@ export default function ClientsPage() {
                 </div>
               </div>
             </div>
+
+            {/* Card 19 */}
+            <div className="relative rounded-2xl border-2 border-[#2eb2a4] bg-white p-4 mt-6">
+              {/* Badges icônes en haut à gauche */}
+              <div className="absolute -top-[3.8rem] -left-4 z-10 flex items-center">
+                {/* Wrapper dimensionné: augmente la taille en changeant size-16/20 */}
+                <span className="relative size-24">
+                  <Image src="/images/pill.png" alt="Gélules" fill className="object-contain p-2" />
+                </span>
+                <span className="relative -ml-10 size-24">
+                  <Image src="/images/knuckle.png" alt="Santé des articulations" fill className="object-contain p-2" />
+                </span>
+              </div>
+              <div className="relative h-[240px] w-[85%] mx-auto overflow-hidden rounded-xl mt-2">
+                <Image src="/images/arthro-health.svg" alt="Silinovea du Laboratoire Motima" fill className="object-cover" />
+              </div>
+              <div className="mt-4">
+                <h3 className="font-['League_Spartan',Arial,sans-serif] text-[1.25rem] font-extrabold text-[#4e53a3] text-center">
+                  Ilko nutrition
+                </h3>
+                <p className="mb-4 font-['Roboto',Arial,sans-serif] italic text-[#2eb2a4] text-center">Arthro Health </p>
+
+                <div className="space-y-1 font-['Roboto',Arial,sans-serif] text-[#2eb2a4]">
+                  <p className="m-0"><span className="font-semibold text-[#4e53a3]">Galénique</span> : Gélules</p>
+                  <p className="m-0"><span className="font-semibold text-[#4e53a3]">Bienfaits</span> : Articulations</p>
+                  <p className="m-0"><span className="font-semibold text-[#4e53a3]">Formulation</span> : Apporte aux muscles et articulations les nutriments nécessaires à leurs reconstructions</p>
+                </div>
+
+                <div className="mt-4 p-3 text-center">
+                  <a
+                    href="https://www.ilkonutrition.fr/products/arthro-health"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="rounded-full bg-[#2eb2a4] px-5 py-2 font-['League_Spartan',Arial,sans-serif] font-bold text-white transition hover:underline decoration-white underline-offset-2 decoration-2"
+                  >
+                    Voir le produit
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            {/* Card 20 */}
+            <div className="relative rounded-2xl border-2 border-[#2eb2a4] bg-white p-4 mt-6">
+              {/* Badges icônes en haut à gauche */}
+              <div className="absolute -top-[3.8rem] -left-4 z-10 flex items-center">
+                {/* Wrapper dimensionné: augmente la taille en changeant size-16/20 */}
+                <span className="relative size-24">
+                  <Image src="/images/pill.png" alt="Gélules" fill className="object-contain p-2" />
+                </span>
+                <span className="relative -ml-10 size-24">
+                  <Image src="/images/skin-beauty.png" alt="Beauté de la peau" fill className="object-contain p-2" />
+                </span>
+              </div>
+              <div className="relative h-[240px] w-[85%] mx-auto overflow-hidden rounded-xl mt-2">
+                <Image src="/images/collagene-veggie-renoflex.svg" alt="Silinovea du Laboratoire Motima" fill className="object-cover" />
+              </div>
+              <div className="mt-4">
+                <h3 className="font-['League_Spartan',Arial,sans-serif] text-[1.25rem] font-extrabold text-[#4e53a3] text-center">
+                  Lehning Laboratoire
+                </h3>
+                <p className="mb-4 font-['Roboto',Arial,sans-serif] italic text-[#2eb2a4] text-center">Rexoflex beauté</p>
+
+                <div className="space-y-1 font-['Roboto',Arial,sans-serif] text-[#2eb2a4]">
+                  <p className="m-0"><span className="font-semibold text-[#4e53a3]">Galénique</span> : Gélules</p>
+                  <p className="m-0"><span className="font-semibold text-[#4e53a3]">Bienfaits</span> : Beauté de la peau</p>
+                  <p className="m-0"><span className="font-semibold text-[#4e53a3]">Formulation</span> : Conçu pour améliorer la fermeté et l’élasticité de votre peau ainsi que la beauté de vos cheveux et ongles, il convient idéalement à un régime végétarien</p>
+                </div>
+
+                <div className="mt-4 p-3 text-center">
+                  <a
+                    href="https://www.lehning.com/produit/rexoflex-beaute"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="rounded-full bg-[#2eb2a4] px-5 py-2 font-['League_Spartan',Arial,sans-serif] font-bold text-white transition hover:underline decoration-white underline-offset-2 decoration-2"
+                  >
+                    Voir le produit
+                  </a>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
