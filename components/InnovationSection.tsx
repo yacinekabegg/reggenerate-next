@@ -1,35 +1,12 @@
 "use client";
 
 import Image from "next/image";
-import { useEffect, useRef } from "react";
 
 export function InnovationSection() {
-  const containerRef = useRef<HTMLDivElement | null>(null);
-  const cardRef = useRef<HTMLDivElement | null>(null);
-  const ctaRef = useRef<HTMLAnchorElement | null>(null);
-
-  useEffect(() => {
-    const sizeCta = () => {
-      const card = cardRef.current;
-      const btn = ctaRef.current;
-      const container = containerRef.current;
-      if (!card || !btn || !container) return;
-
-      const cardWidth = card.getBoundingClientRect().width;
-      const containerWidth = container.getBoundingClientRect().width;
-      let target = Math.round((cardWidth * 4) / 3);
-      target = Math.max(260, Math.min(target, containerWidth - 48));
-      btn.style.width = `${target}px`;
-    };
-
-    sizeCta();
-    window.addEventListener("resize", sizeCta);
-    return () => window.removeEventListener("resize", sizeCta);
-  }, []);
 
   return (
     <section id="produit" className="bg-[#eaf6f4] py-12 sm:py-24">
-      <div ref={containerRef} className="mx-auto max-w-[1400px] px-6">
+      <div className="mx-auto max-w-[1400px] px-6">
         <div className="text-center">
           <h2 className="mb-6 font-['League_Spartan','Roboto',Arial,sans-serif] text-4xl font-extrabold text-[#4e53a3]">
             Une Innovation au service de vos Projets
@@ -62,7 +39,6 @@ export function InnovationSection() {
           </div>
 
           <div
-            ref={cardRef}
             className="group relative overflow-hidden rounded-[20px] border-2 border-[#4e53a340] bg-white p-8 shadow-[0_6px_18px_rgba(78,83,163,0.08)] transition duration-300 hover:-translate-y-2 hover:shadow-[0_20px_40px_rgba(0,0,0,0.12)]"
           >
             <div className="absolute inset-x-0 top-0 h-1 origin-center scale-x-0 bg-gradient-to-r from-[#4e53a3] to-[#2eb2a4] transition-transform duration-300 group-hover:scale-x-100" />
@@ -106,9 +82,8 @@ export function InnovationSection() {
 
         <div className="mt-16 text-center">
           <a
-            ref={ctaRef}
             href="/ingredient"
-            className="inline-flex items-center justify-center gap-3 rounded-[10px] bg-[#4e53a3] px-6 py-3 text-center text-[0.9em] font-bold text-white shadow-[0_6px_18px_rgba(78,83,163,0.2)] transition hover:-translate-y-1 hover:shadow-[0_12px_30px_rgba(78,83,163,0.25)]"
+            className="inline-flex w-[320px] items-center justify-center gap-3 rounded-[10px] bg-[#4e53a3] px-6 py-3 text-center text-[0.9em] font-bold text-white shadow-[0_6px_18px_rgba(78,83,163,0.2)] transition hover:-translate-y-1 hover:shadow-[0_12px_30px_rgba(78,83,163,0.25)]"
           >
             Accéder à la Page Notre Ingrédient &gt;
           </a>
