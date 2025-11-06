@@ -519,26 +519,27 @@ export default function IngredientPage() {
                   </div>
 
                   {/* Chart */}
-                  <div className="mt-2 grid grid-cols-[230px_1fr] items-stretch gap-x-4">
-                    {/* Labels aligned per row */}
-                    <div className="relative h-[300px] py-4">
-                      <div className="flex h-full flex-col gap-2 text-right text-[0.95rem] font-medium text-[#2eb2a4]">
-                        <div className="flex h-12 items-center justify-end">Protéines (Kjeldahl)*</div>
-                        <div className="flex h-12 items-center justify-end">Collagène (Colorimétrie)*</div>
-                        <div className="flex h-12 items-center justify-end">Élastine (Colorimétrie)*</div>
-                        <div className="flex h-12 items-center justify-end">GAGs** totaux (USP26)*</div>
-                        <div className="flex h-12 items-center justify-end">Dont Acide hyaluronique (HPLC‑ECD)*</div>
+                  <div className="mt-2 overflow-x-auto">
+                    <div className="grid min-w-[640px] grid-cols-[230px_1fr] items-stretch gap-x-4">
+                      {/* Labels aligned per row */}
+                      <div className="relative h-[300px] py-4">
+                        <div className="flex h-full flex-col gap-2 text-right text-[0.95rem] font-medium text-[#2eb2a4]">
+                          <div className="flex h-12 items-center justify-end">Protéines (Kjeldahl)*</div>
+                          <div className="flex h-12 items-center justify-end">Collagène (Colorimétrie)*</div>
+                          <div className="flex h-12 items-center justify-end">Élastine (Colorimétrie)*</div>
+                          <div className="flex h-12 items-center justify-end">GAGs** totaux (USP26)*</div>
+                          <div className="flex h-12 items-center justify-end">Dont Acide hyaluronique (HPLC‑ECD)*</div>
+                        </div>
                       </div>
-                    </div>
 
-                    {/* Bars area with vertical gridlines */}
-                    <div className="relative">
-                      <div className="relative h-[300px] overflow-visible rounded-md bg-white p-4">
-                        {/* vertical gridlines every 20% aligned to inner padding */}
-                        <div className="pointer-events-none absolute left-4 right-4 top-4 bottom-4 rounded-md bg-[linear-gradient(to_right,rgba(78,83,163,0.15)_1px,transparent_1px)] [background-size:20%_100%]" />
+                      {/* Bars area with vertical gridlines */}
+                      <div className="relative">
+                        <div className="relative h-[300px] overflow-visible rounded-md bg-white p-4">
+                          {/* vertical gridlines every 20% aligned to inner padding */}
+                          <div className="pointer-events-none absolute left-4 right-4 top-4 bottom-4 rounded-md bg-[linear-gradient(to_right,rgba(78,83,163,0.15)_1px,transparent_1px)] [background-size:20%_100%]" />
 
-                        {/* Bars stack */}
-                        <div className="relative flex h-full flex-col gap-2">
+                          {/* Bars stack */}
+                          <div className="relative flex h-full flex-col gap-2">
                           {/* Proteins 80% */}
                           <div
                             className="relative h-12 cursor-default"
@@ -640,6 +641,7 @@ export default function IngredientPage() {
                               {t.label}
                             </span>
                           ))}
+                          </div>
                         </div>
                       </div>
                     </div>
