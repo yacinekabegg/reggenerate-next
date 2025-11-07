@@ -4,7 +4,7 @@ import { Footer } from "@/components/Footer";
 import Image from "next/image";
 import { ContactSection } from "@/components/ContactSection";
 import { clientProducts, type ClientProduct } from "@/lib/clientProducts";
-import { useEffect, useState } from "react";
+import { Suspense, useEffect, useState } from "react";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 
 export default function ClientsPage() {
@@ -79,6 +79,7 @@ export default function ClientsPage() {
   }, [page, pathname, router, searchParams]);
   
   return (
+    <Suspense fallback={null}>
     <main className="pt-16">
       {/* Hero */}
       <section className="relative h-[360px] w-full md:h-[520px]">
@@ -269,5 +270,6 @@ export default function ClientsPage() {
       />
       <Footer />
     </main>
+    </Suspense>
   );
 }
