@@ -75,7 +75,7 @@ function ClientsPageInner() {
       sp.set("page", String(page));
     }
     const q = sp.toString();
-    router.push(q ? `${pathname}?${q}` : pathname, { scroll: true });
+    router.push(q ? `${pathname}?${q}` : pathname, { scroll: false });
   }, [page, pathname, router, searchParams]);
   
   return (
