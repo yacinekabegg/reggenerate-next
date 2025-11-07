@@ -4,7 +4,6 @@ import Image from "next/image";
 import { useState } from "react";
 
 export function NewsletterSection() {
-  const [email, setEmail] = useState("");
 
   return (
     <section className="bg-white py-20">
