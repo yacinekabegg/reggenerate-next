@@ -33,7 +33,7 @@ export default function MentionsLegalesPage() {
                   <p><strong>Propriétaire</strong> : SAS Circul&#39;Egg – 46 rue de la cité moderne 92160 ANTONY</p>
                   <p><strong>SIRET</strong> : 883 118 408 00011</p>
                   <p><strong>Responsable publication</strong> : Yacine Kabeche - yacine.kabeche@circulegg.fr</p>
-                  <p><strong>Hébergeur</strong> : Automattic Inc. – 60 29th Street #343 94110 San Francisco (877) 273-3049</p>
+                  <p><strong>Hébergeur</strong> : GitHub Pages — GitHub, Inc., 88 Colin P. Kelly Jr St, San Francisco, CA 94107, USA</p>
                 </div>
               </section>
 
