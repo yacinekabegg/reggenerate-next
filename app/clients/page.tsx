@@ -17,7 +17,6 @@ export default function ClientsPage() {
   const searchParams = useSearchParams();
   const start = (page - 1) * pageSize + 1;
   const end = Math.min(totalCards, start + pageSize - 1);
-  const isVisible = (i: number) => i >= start && i <= end;
   const visibleProducts = clientProducts.slice(start - 1, end);
 
   const galeniqueIcon = (g: string) => {
