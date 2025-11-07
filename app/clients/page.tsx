@@ -7,7 +7,7 @@ import { clientProducts, type ClientProduct } from "@/lib/clientProducts";
 import { Suspense, useEffect, useState } from "react";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 
-export default function ClientsPage() {
+function ClientsPageInner() {
   const pageSize = 6;
   const totalCards = clientProducts.length;
   const totalPages = Math.ceil(totalCards / pageSize);
@@ -79,7 +79,6 @@ export default function ClientsPage() {
   }, [page, pathname, router, searchParams]);
   
   return (
-    <Suspense fallback={null}>
     <main className="pt-16">
       {/* Hero */}
       <section className="relative h-[360px] w-full md:h-[520px]">
@@ -270,6 +269,13 @@ export default function ClientsPage() {
       />
       <Footer />
     </main>
+  );
+}
+
+export default function ClientsPage() {
+  return (
+    <Suspense fallback={null}>
+      <ClientsPageInner />
     </Suspense>
   );
 }
