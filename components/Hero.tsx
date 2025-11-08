@@ -4,7 +4,7 @@ export function Hero() {
 
   return (
     <section className="mt-12 sm:mt-0 flex min-h-[calc(100vh-64px)] overflow-hidden bg-white text-[#2eb2a4]">
-      <div className="grid w-full grid-cols-1 gap-6 pl-6 pr-0 md:grid-cols-2 md:items-stretch md:pl-[clamp(20px,4vw,56px)] md:pr-0 lg:grid-cols-[minmax(640px,720px)_1fr] lg:items-stretch lg:gap-0 lg:pl-[clamp(24px,5vw,64px)] lg:pr-0">
+      <div className="grid w-full grid-cols-1 gap-6 md:grid-cols-2 md:items-stretch md:pl-[clamp(20px,4vw,56px)] md:pr-0 lg:grid-cols-[minmax(640px,720px)_1fr] lg:items-stretch lg:gap-0 lg:pl-[clamp(24px,5vw,64px)] lg:pr-0">
         <div className="flex flex-col justify-center gap-4 max-lg:mx-auto max-lg:max-w-[720px] max-lg:px-6 md:mx-0 md:px-0 md:self-center md:pr-[clamp(16px,3vw,40px)] lg:self-center lg:pl-0 lg:pr-[clamp(24px,4vw,56px)]">
           <div
             
