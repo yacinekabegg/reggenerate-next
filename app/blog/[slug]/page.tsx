@@ -1,4 +1,3 @@
-// app/blog/[slug]/page.tsx
 import { notFound } from "next/navigation";
 import { fetchPostBySlug, fetchAllSlugs } from "@/lib/airtable";
 import { BlogArticleLayout } from "@/components/BlogArticleLayout";
@@ -6,10 +5,14 @@ import { BlogArticleLayout } from "@/components/BlogArticleLayout";
 export const revalidate = 3600;
 export const dynamic = "force-static";
 
-type Props = { params: { slug: string } };
+export default async function PostPage({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}) {
+  const { slug } = await params;
 
-export default async function PostPage({ params }: Props) {
-  const post = await fetchPostBySlug(params.slug);
+  const post = await fetchPostBySlug(slug);
   if (!post) return notFound();
 
   return (
@@ -29,7 +32,7 @@ export default async function PostPage({ params }: Props) {
   );
 }
 
-export async function generateStaticParams() {
+export async function generateStaticParams(): Promise<Array<{ slug: string }>> {
   const slugs = await fetchAllSlugs();
   return slugs.map((slug) => ({ slug }));
 }
