@@ -20,11 +20,12 @@ export default function ReadyToMarket() {
   return (
     <main className="pt-16">
       {/* Hero */}
-      <section className="relative h-[380px] w-full md:h-[520px] object-cover">
+      <section className="relative h-[380px] w-full md:h-[520px]">
         <Image
           src="/images/hero-products.svg"
           alt="Produits Ready-to-Market"
           fill
+          className="object-fill w-full"
           priority
         />
         {/* Badge aligné au container */}

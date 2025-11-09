@@ -1,17 +1,25 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  output: "export", 
+  // output: "export",
   images: {
-    unoptimized: true,
+    unoptimized: true, 
     remotePatterns: [
       {
         protocol: "https",
         hostname: "images.unsplash.com",
       },
+      {
+        protocol: "https",
+        hostname: "v5.airtableusercontent.com",
+      },
+      {
+        protocol: "https",
+        hostname: "dl.airtable.com",
+      },
     ],
   },
-  trailingSlash: true
+  trailingSlash: true,
 };
 
 export default nextConfig;
