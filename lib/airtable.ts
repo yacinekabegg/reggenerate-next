@@ -3,9 +3,6 @@ import Airtable from "airtable";
 
 const { AIRTABLE_API_KEY, AIRTABLE_BASE_ID } = process.env;
 
-if (!AIRTABLE_API_KEY) throw new Error("Missing env AIRTABLE_API_KEY");
-if (!AIRTABLE_BASE_ID) throw new Error("Missing env AIRTABLE_BASE_ID");
-
 // Categories
 export type Category = "all" | "innovation" | "sante" | "marche" | "technique" | "beaute";
 
@@ -33,7 +30,14 @@ export type Post = {
   readMinutes?: number;
 };
 
-const base = new Airtable({ apiKey: AIRTABLE_API_KEY }).base(AIRTABLE_BASE_ID);
+function makeBase(): Airtable.Base | null {
+  if (!AIRTABLE_API_KEY || !AIRTABLE_BASE_ID) return null;
+  try {
+    return new Airtable({ apiKey: AIRTABLE_API_KEY }).base(AIRTABLE_BASE_ID);
+  } catch {
+    return null;
+  }
+}
 const TABLE = process.env.AIRTABLE_TABLE_NAME || "Posts";
 const VIEW  = process.env.AIRTABLE_VIEW_NAME || "PublishedView";
 
@@ -103,6 +107,8 @@ function decodeHtmlEntities(s: string): string {
 
 // ------- LIST (/blog) -------
 export async function fetchArticlesFromAirtable(): Promise<ArticleCard[]> {
+  const base = makeBase();
+  if (!base) return [];
   const records = await base(TABLE).select({ view: VIEW, pageSize: 100 }).all();
 
   return records.map((r) => {
@@ -134,6 +140,8 @@ export async function fetchArticlesFromAirtable(): Promise<ArticleCard[]> {
 
 // ------- ARTICLES (/blog/[slug]) -------
 export async function fetchPostBySlug(slug: string): Promise<Post | null> {
+  const base = makeBase();
+  if (!base) return null;
   const recs = await base(TABLE).select({
     view: VIEW,
     maxRecords: 1,
@@ -172,6 +180,8 @@ export async function fetchPostBySlug(slug: string): Promise<Post | null> {
 
 // ------- SLUGS (SSG) -------
 export async function fetchAllSlugs(): Promise<string[]> {
+  const base = makeBase();
+  if (!base) return [];
   const recs = await base(TABLE).select({ view: VIEW, fields: ["Slug"], pageSize: 100 }).all();
   return recs
     .map(r => (r.fields as Record<string, unknown>)["Slug"] as string)
