@@ -4,10 +4,10 @@ import React from "react";
 type BlogArticleLayoutProps = {
   title: string;
   categoryLabel: string;
-  categoryColor?: string; // hex or css color
+  categoryColor?: string; 
   date?: string;
-  readingTime?: string; // e.g. "5 min"
-  coverImage: string; // url to hero image
+  readingTime?: string; 
+  coverImage: string; 
   children: React.ReactNode;
   showFooter?: boolean;
 };
@@ -37,7 +37,6 @@ export function BlogArticleLayout({
             <span className="text-[0.9rem] font-bold">{categoryLabel}</span>
           </div>
         </div>
-        {/* <div className="absolute inset-0 bg-black/40" aria-hidden="true" /> */}
       </section>
 
       {/* Title + meta + content card */}
@@ -61,7 +60,53 @@ export function BlogArticleLayout({
               className="rounded-2xl bg-white p-8 shadow-[0_4px_20px_rgba(0,0,0,0.1)] border-2"
               style={{ borderColor: categoryColor }}
             >
-              {children}
+              {/* ✅ Wrapper typographique : applique le style aux balises HTML venant d’Airtable */}
+              <div
+                className="
+                  prose max-w-none
+                  text-[#4e53a3]
+
+                  /* TITRES */
+                  prose-headings:text-[#4e53a3]
+                  prose-headings:font-extrabold
+                  prose-h2:text-[1.5rem] prose-h2:font-extrabold prose-h2:mt-8 prose-h2:mb-4
+                  prose-h3:text-[1.25rem] prose-h3:font-bold prose-h3:mt-6 prose-h3:mb-2
+
+                  /* PARAGRAPHES — 0 MARGE */
+                  prose-p:text-[1.05rem]
+                  prose-p:leading-8
+                  prose-p:text-[#4e53a3]
+                  [&_p]:mt-0
+                  [&_p]:mb-0
+
+                  /* LISTES */
+                  prose-ul:pl-6 prose-ol:pl-6
+                  prose-li:my-2 prose-li:text-[#4e53a3]
+
+                  /* PUCE UL EN VIOLET */
+                  prose-ul:marker:text-[#4e53a3]
+
+                  /* NUMÉROS OL EN GRAS + VIOLET */
+                  [&_ol>li]:marker:text-[#4e53a3]
+                  [&_ol>li]:marker:font-extrabold
+
+                  /* STRONG */
+                  prose-strong:font-extrabold
+                  prose-strong:text-[#4e53a3]
+
+                  /* LIENS — MAINTENANT VIOLETS + UNDERLINE VIOLET */
+                  prose-a:text-[#4e53a3]
+                  prose-a:underline
+                  prose-a:decoration-[#4e53a3]
+                  prose-a:underline-offset-2
+                  hover:prose-a:text-[#2eb2a4] /* si tu veux hover violet foncé, je peux le changer */
+                  
+                  /* IMAGES */
+                  prose-img:rounded-2xl
+                "
+              >
+                {children}
+              </div>
             </div>
           </div>
         </article>
@@ -71,4 +116,3 @@ export function BlogArticleLayout({
     </main>
   );
 }
-
