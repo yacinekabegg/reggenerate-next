@@ -4,6 +4,7 @@ import { fetchPostBySlug, fetchAllSlugs } from "@/lib/airtable";
 import { BlogArticleLayout } from "@/components/BlogArticleLayout";
 
 export const dynamic = "force-static";
+export const dynamicParams = false; // seules les URLs listées par generateStaticParams seront générées
 
 export default async function PostPage({
   params,
