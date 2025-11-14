@@ -3,13 +3,15 @@ import { notFound } from "next/navigation";
 import { fetchPostBySlug, fetchAllSlugs } from "@/lib/airtable";
 import { BlogArticleLayout } from "@/components/BlogArticleLayout";
 
-export const revalidate = 3600;
 export const dynamic = "force-static";
 
-type Props = { params: { slug: string } };
-
-export default async function PostPage({ params }: Props) {
-  const post = await fetchPostBySlug(params.slug);
+export default async function PostPage({
+  params,
+}: {
+  params: Promise<{ slug: string }>
+}) {
+  const { slug } = await params;
+  const post = await fetchPostBySlug(slug);
   if (!post) return notFound();
 
   return (
