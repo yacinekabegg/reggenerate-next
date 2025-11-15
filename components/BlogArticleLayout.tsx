@@ -49,7 +49,7 @@ export function BlogArticleLayout({
             <p className="text-[#4e53a3]">
               {date}
               {date && readingTime ? " • " : ""}
-              {readingTime ? `${readingTime} de lecture` : ""}
+              {readingTime ? `${readingTime} min de lecture` : ""}
             </p>
           )}
         </div>
