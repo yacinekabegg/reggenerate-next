@@ -183,9 +183,9 @@ function ClientsPageInner() {
           <div className="grid grid-cols-1 space-y-16 md:space-y-0 md:grid-cols-3 md:gap-x-8 md:gap-y-12">
             {visibleProducts.map((p, i) => {
               const icons = iconsFor(p);
-              const imgH = p.tall ? "h-[280px]" : "h-[240px]";
+              const imgH = p.tall ? "h-[260px]" : "h-[260px]";
               return (
-                <div key={p.title + i} className="relative rounded-2xl border-2 border-[#2eb2a4] bg-white p-4">
+                <div key={p.title + i} className="relative flex flex-col rounded-2xl border-2 border-[#2eb2a4] bg-white p-4 h-[600px]">
                   <div className="absolute -top-[3.8rem] -left-4 z-10 flex items-center">
                     {icons.map((ic, idx) => (
                       <span key={ic.src + idx} className={"relative size-24" + (idx > 0 ? " -ml-10" : "") }>
@@ -193,10 +193,10 @@ function ClientsPageInner() {
                       </span>
                     ))}
                   </div>
-                  <div className={`relative ${imgH} w-[85%] mx-auto overflow-hidden rounded-xl mt-2`}>
+                  <div className={`relative ${imgH} w-[85%] mx-auto overflow-hidden rounded-xl mt-2 shrink-0`}>
                     <Image src={p.image} alt={p.imageAlt} fill className="object-cover" />
                   </div>
-                  <div className="mt-4">
+                  <div className="mt-4 flex flex-col h-full">
                     <h3 className="font-['League_Spartan',Arial,sans-serif] text-[1.25rem] font-extrabold text-[#4e53a3] text-center">{p.title}</h3>
                     <p className="mb-4 font-['Roboto',Arial,sans-serif] italic text-[#2eb2a4] text-center">{p.brand}</p>
                     <div className="space-y-1 font-['Roboto',Arial,sans-serif] text-[#2eb2a4]">
@@ -204,12 +204,12 @@ function ClientsPageInner() {
                       <p className="m-0"><span className="font-semibold text-[#4e53a3]">Bienfaits</span> : {p.bienfaits}</p>
                       <p className="m-0"><span className="font-semibold text-[#4e53a3]">Formulation</span> : {p.formulation}</p>
                     </div>
-                    <div className="mt-4 p-3 text-center">
+                    <div className="mt-auto p-3 text-center">
                       <a
                         href={p.href}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="rounded-full bg-[#2eb2a4] px-5 py-2 font-['League_Spartan',Arial,sans-serif] font-bold text-white transition hover:underline decoration-white underline-offset-2 decoration-2"
+                        className="rounded-full bg-[#2eb2a4] px-5 py-2 font-['League_Spartan',Arial,sans-serif] font-bold text-white transition hover:underline decoration-white underline-offset-2 decoration-2 cursor-pointer"
                       >
                         Voir le produit
                       </a>
