@@ -209,7 +209,7 @@ function ClientsPageInner() {
                         href={p.href}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="rounded-full bg-[#2eb2a4] px-5 py-2 font-['League_Spartan',Arial,sans-serif] font-bold text-white transition hover:underline decoration-white underline-offset-2 decoration-2 cursor-pointer"
+                        className="rounded-full bg-[#2eb2a4] px-5 py-3 font-['League_Spartan',Arial,sans-serif] font-bold text-white transition hover:underline decoration-white underline-offset-2 decoration-2 cursor-pointer"
                       >
                         Voir le produit
                       </a>
