@@ -22,7 +22,7 @@ export type Post = {
   slug: string;
   title: string;
   excerpt?: string;
-  html: string;               
+  html: string;
   categoryLabel: string;
   categoryColor?: string;
   coverUrl?: string;
@@ -38,14 +38,19 @@ function makeBase(): Airtable.Base | null {
     return null;
   }
 }
+
 const TABLE = process.env.AIRTABLE_TABLE_NAME || "Posts";
-const VIEW  = process.env.AIRTABLE_VIEW_NAME || "PublishedView";
+const VIEW = process.env.AIRTABLE_VIEW_NAME || "PublishedView";
 
 // ------- helpers -------
 function formatDateFR(d?: string | Date) {
   if (!d) return "";
   const date = typeof d === "string" ? new Date(d) : d;
-  return date.toLocaleDateString("fr-FR", { day: "2-digit", month: "short", year: "numeric" });
+  return date.toLocaleDateString("fr-FR", {
+    day: "2-digit",
+    month: "short",
+    year: "numeric",
+  });
 }
 
 function words(s: string) {
@@ -65,7 +70,8 @@ function singleSelectToString(val: unknown): string {
 function mapCategoryToSlug(val: unknown): Category {
   const raw = (typeof val === "string" ? val : singleSelectToString(val)).trim();
   const lower = raw
-    .normalize("NFD").replace(/[\u0300-\u036f]/g, "")
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
     .replace(/&/g, " et ")
     .toLowerCase();
 
@@ -109,25 +115,30 @@ function decodeHtmlEntities(s: string): string {
 export async function fetchArticlesFromAirtable(): Promise<ArticleCard[]> {
   const base = makeBase();
   if (!base) return [];
-  const records = await base(TABLE).select({ view: VIEW, pageSize: 100 }).all();
+
+  const records = await base(TABLE)
+    .select({ view: VIEW, pageSize: 100 })
+    .all();
 
   return records.map((r) => {
     const f = r.fields as Record<string, unknown>;
     const slug = (f["Slug"] as string) || "";
-    const coverArr = Array.isArray(f["CoverImage"]) ? (f["CoverImage"] as Array<{ url?: string }>) : [];
-    const cover = coverArr[0]?.url;
+
+    // ✅ cover locale basée sur le slug : public/blog-covers/{slug}.png
+    const coverPath = slug ? `blog-covers/${slug}.png` : "";
+    const cover = coverPath ? `/${coverPath}` : "/images/hero-blog.png";
 
     const label = (f["CategoryLabel"] as string) || "Article";
     const title = (f["Title"] as string) || "";
     const excerpt = (f["Excerpt"] as string) || "";
 
     const cat = mapCategoryToSlug(f["CategoryLabel"]);
-    const readMin = (f["ReadMinutes"] as number | undefined);
+    const readMin = f["ReadMinutes"] as number | undefined;
     const publishedAt = f["PublishedAt"] as string | Date | undefined;
 
     return {
       href: `/blog/${slug}`,
-      image: cover || "/images/hero-blog.png",
+      image: cover,
       label,
       title,
       date: formatDateFR(publishedAt),
@@ -142,11 +153,14 @@ export async function fetchArticlesFromAirtable(): Promise<ArticleCard[]> {
 export async function fetchPostBySlug(slug: string): Promise<Post | null> {
   const base = makeBase();
   if (!base) return null;
-  const recs = await base(TABLE).select({
-    view: VIEW,
-    maxRecords: 1,
-    filterByFormula: `{Slug} = "${slug}"`,
-  }).all();
+
+  const recs = await base(TABLE)
+    .select({
+      view: VIEW,
+      maxRecords: 1,
+      filterByFormula: `{Slug} = "${slug}"`,
+    })
+    .all();
 
   if (!recs.length) return null;
   const r = recs[0];
@@ -156,20 +170,22 @@ export async function fetchPostBySlug(slug: string): Promise<Post | null> {
   // 🔒 On considère TOUT comme du HTML (et on décode si nécessaire)
   const html = decodeHtmlEntities(rawContent);
 
-  const coverArr = Array.isArray(f["CoverImage"]) ? (f["CoverImage"] as Array<{ url?: string }>) : [];
-  const cover = coverArr[0]?.url;
+  // ✅ cover locale basée sur le slug : public/blog-covers/{slug}.png
+  const coverPath = slug ? `blog-covers/${slug}.png` : "";
+  const cover = coverPath ? `/${coverPath}` : "/images/hero-blog.png";
 
   const explicitRead = Number(f["ReadMinutes"]);
-  const computedRead = Number.isFinite(explicitRead) && explicitRead > 0
-    ? explicitRead
-    : Math.max(1, Math.round(words(rawContent) / 200));
+  const computedRead =
+    Number.isFinite(explicitRead) && explicitRead > 0
+      ? explicitRead
+      : Math.max(1, Math.round(words(rawContent) / 200));
 
   return {
     id: r.id,
     slug,
     title: (f["Title"] as string) || "",
     excerpt: (f["Excerpt"] as string) || "",
-    html, 
+    html,
     categoryLabel: (f["CategoryLabel"] as string) || "Article",
     categoryColor: (f["CategoryColor"] as string) || "#2eb2a4",
     coverUrl: cover,
@@ -182,8 +198,12 @@ export async function fetchPostBySlug(slug: string): Promise<Post | null> {
 export async function fetchAllSlugs(): Promise<string[]> {
   const base = makeBase();
   if (!base) return [];
-  const recs = await base(TABLE).select({ view: VIEW, fields: ["Slug"], pageSize: 100 }).all();
+
+  const recs = await base(TABLE)
+    .select({ view: VIEW, fields: ["Slug"], pageSize: 100 })
+    .all();
+
   return recs
-    .map(r => (r.fields as Record<string, unknown>)["Slug"] as string)
+    .map((r) => (r.fields as Record<string, unknown>)["Slug"] as string)
     .filter(Boolean);
 }
