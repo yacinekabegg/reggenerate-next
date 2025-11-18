@@ -47,11 +47,12 @@ async function syncImages() {
     })
     .all();
 
-  const activeSlugs = new Set<string>();
+  // Ensemble des slugs actifs (pour le nettoyage)
+  const activeSlugs = new Set();
 
   // 2) On télécharge / met à jour les images pour chaque slug actif
   for (const rec of records) {
-    const fields = rec.fields as Record<string, unknown>;
+    const fields = rec.fields;
     const slug = fields["Slug"];
 
     if (!slug || typeof slug !== "string") {
@@ -61,13 +62,13 @@ async function syncImages() {
 
     activeSlugs.add(slug);
 
-    const attachments = fields["CoverImage"] as Array<{ url?: string }> | undefined;
-    if (!Array.isArray(attachments) || !attachments[0]?.url) {
+    const attachments = fields["CoverImage"];
+    if (!Array.isArray(attachments) || !attachments[0] || !attachments[0].url) {
       console.log(`⚠️ No CoverImage for slug=${slug}`);
       continue;
     }
 
-    const imgUrl = attachments[0].url as string;
+    const imgUrl = attachments[0].url;
     const dest = path.join(OUTPUT_DIR, `${slug}.png`);
 
     try {
