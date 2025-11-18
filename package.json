@@ -4,12 +4,14 @@
   "private": true,
   "scripts": {
     "dev": "TAILWIND_DISABLE_OXIDE=1 next dev --turbopack",
-    "build": "TAILWIND_DISABLE_OXIDE=1 next build",
+    "sync:covers": "node scripts/sync-airtable-images.mjs",
+    "build": "TAILWIND_DISABLE_OXIDE=1 npm run sync:covers && next build",
     "start": "TAILWIND_DISABLE_OXIDE=1 next start",
     "lint": "eslint"
   },
   "dependencies": {
     "airtable": "^0.12.2",
+    "dotenv": "^17.2.3",
     "next": "15.5.4",
     "react": "19.1.0",
     "react-dom": "19.1.0"
