@@ -29,7 +29,7 @@ const testimonials = [
       "Reggenerate s’est imposé comme l'un de nos ingrédients phares. Aussi bien sur notre produit articulaire que sur notre produit beauté — tous deux déjà dans le top 10 de nos ventes alors qu’ils ont été lancé courant 2025. Il répond exactement à l’attente de nos clients : une solution qui réunit les molécules clés recherchées sur ces segments, comme le collagène et l’acide hyaluronique, tout en étant enfin disponible dans une galénique moderne et agréable.",
     name: "Louis-Benoit HUG",
     role: "CEO de Valébio",
-    logo: "/images/valébiologo.jpg",
+    logo: "/images/logovalebio.jpeg",
   },
 ];
 
