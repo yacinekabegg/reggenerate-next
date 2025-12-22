@@ -5,27 +5,31 @@ import Image from "next/image";
 const testimonials = [
   {
     quote:
-      "Reggenerate nous a permis de proposer à nos clients une alternative au collagène marin en accord avec nos valeurs. Le produit est aujourd'hui notre best-seller.",
-    name: "Caroline Chaussat",
-    role: "Responsable R&D",
-    metric: "+X% DE VENTES",
+      "Grâce à l'actif Reggenerate, nous avons pu créer un produit Peau vraiment efficace sous forme de gummies. Son dosage s'adapte parfaitement à cette galénique, ce qui nous a permis d'obtenir une texture idéale et une efficacité prouvée, sans compromis sur le goût !",
+    name: "David Gueunoun",
+    role: "Fondateur et CEO de Mium Lab",
+    logo: "/images/mllogo.png",
+  },
+  {
+    quote:
+      "La collaboration avec Circul’Egg s’est révélée extrêmement fluide grâce à une équipe très réactive et engagée. Leur ingrédient, Reggenerate®, apporte une vraie valeur ajoutée sur le plan du bien-être, tout en restant compétitif. Leur disponibilité et leur capacité à accompagner chaque étape du projet font de Circul’Egg bien plus qu’un fournisseur : un partenaire de confiance.",
+    name: "Stéphane LEHNING",
+    role: "Président des Laboratoires Lehning",
+    logo: "/images/lehninglogo.jpg",
+  },
+  {
+    quote:
+      "Lorsqu’on a découvert le concept du collagène d’œuf, on a tout de suite adoré l’idée.\n\nAu-delà du produit, je souligne que l’équipe Circul’Egg est tout simplement adorable et disponible, et il était tout aussi important pour nous de partager des valeurs communes.\n\nAujourd’hui, nos clients adorent notre collagène végétarien Oemine et, à travers leurs témoignages, nous constatons à quel point il leur fait du bien !",
+    name: "Docteur Paul Dupont",
+    role: "Fondateur de Oemine",
     logo: "/images/oemine-logo-xxl-min.png",
   },
   {
     quote:
-      "Nous cherchions depuis longtemps un collagène innovant qui puisse rentrer dans 2 gélules et non pas 10. Reggenerate nous a permis de nous différencier dans ce secteur où la concurrence est rude.",
-    name: "Hélène Blum",
-    role: "Chef de projet R&D",
-    metric: "+X% DE VENTES",
-    logo: "/images/oemine-logo-xxl-min.png",
-  },
-  {
-    quote:
-      "Enfin un collagène qui n'a pas le goût de poisson et qui m'a permis de développer des barres à la fois saines et gourmandes ! J'aime beaucoup l'idée d'utiliser un ingrédient végétarien upcyclé et cela plaît beaucoup à mes clients.",
-    name: "Catherine Kluger",
-    role: "CEO",
-    metric: "+X% DE VENTES",
-    logo: "/images/oemine-logo-xxl-min.png",
+      "Reggenerate s’est imposé comme l'un de nos ingrédients phares. Aussi bien sur notre produit articulaire que sur notre produit beauté — tous deux déjà dans le top 10 de nos ventes alors qu’ils ont été lancé courant 2025. Il répond exactement à l’attente de nos clients : une solution qui réunit les molécules clés recherchées sur ces segments, comme le collagène et l’acide hyaluronique, tout en étant enfin disponible dans une galénique moderne et agréable.",
+    name: "Louis-Benoit HUG",
+    role: "CEO de Valébio",
+    logo: "/images/valébiologo.jpg",
   },
 ];
 
@@ -40,48 +44,46 @@ export function TestimonialsSection() {
           Découvrez ce que nos partenaires B2B disent de nos produits
         </p>
 
-        <div
-          className="grid gap-8"
-          style={{
-            gridTemplateColumns: "repeat(auto-fit, minmax(380px, 1fr))",
-          }}
-        >
-          {testimonials.map((testimonial) => (
-            <article
-              key={testimonial.name}
-              className="group relative overflow-visible rounded-[20px] border-2 border-[#4e53a3] bg-white p-10 shadow-[0_4px_20px_rgba(0,0,0,0.08)] transition hover:-translate-y-1.5 hover:shadow-[0_10px_30px_rgba(0,0,0,0.12)]"
-            >
-              <span className="pointer-events-none absolute left-6 top-4 font-serif text-5xl leading-none text-[#d1d5db] opacity-70">
-                &quot;
-              </span>
+        <div className="relative mt-10 overflow-hidden">
+          <div className="testimonials-marquee flex gap-8">
+            {[...Array(2)].map((_, loopIndex) => (
+              <div key={loopIndex} className="flex gap-8">
+                {testimonials.map((testimonial) => (
+                  <article
+                    key={`${testimonial.name}-${loopIndex}`}
+                    className="group relative w-[320px] flex-shrink-0 overflow-visible rounded-[20px] border-2 border-[#4e53a3] bg-white p-5 shadow-[0_4px_16px_rgba(0,0,0,0.08)] transition hover:-translate-y-1.5 hover:shadow-[0_10px_24px_rgba(0,0,0,0.12)] md:w-[360px]"
+                  >
+                    <span className="pointer-events-none absolute left-6 top-4 font-serif text-5xl leading-none text-[#d1d5db] opacity-70">
+                      &quot;
+                    </span>
 
-              <div className="absolute right-6 top-6 h-[107px] w-[200px]">
-                <Image
-                  src={testimonial.logo}
-                  alt="Logo entreprise"
-                  width={200}
-                  height={107}
-                  className="h-full w-full object-contain"
-                />
-              </div>
+                    <div className="mb-4 h-[60px] w-[150px] ml-auto">
+                      <Image
+                        src={testimonial.logo}
+                        alt={`Logo de ${testimonial.name}`}
+                        width={150}
+                        height={60}
+                        className="h-full w-full object-contain"
+                      />
+                    </div>
 
-              <div className="relative z-[2] mb-8 mt-8 text-base leading-relaxed text-[#374151] lg:pr-[220px]">
-                “{testimonial.quote}”
-              </div>
+                    <div className="relative z-[2] mb-4 text-xs leading-relaxed text-[#374151] md:text-sm">
+                      “{testimonial.quote}”
+                    </div>
 
-              <div className="flex items-end justify-between gap-4">
-                <div className="flex flex-col">
-                  <h4 className="text-base font-semibold text-[#374151]">
-                    {testimonial.name}
-                  </h4>
-                  <span className="text-sm text-[#374151]">{testimonial.role}</span>
-                </div>
-                <div className="whitespace-nowrap rounded-lg border-2 border-[#2eb2a4] px-4 py-2 text-xs font-semibold text-[#2eb2a4]">
-                  {testimonial.metric}
-                </div>
+                    <div className="flex flex-col">
+                      <h4 className="text-xs font-semibold text-[#374151] md:text-sm">
+                        {testimonial.name}
+                      </h4>
+                      <span className="text-[11px] text-[#374151] md:text-xs">
+                        {testimonial.role}
+                      </span>
+                    </div>
+                  </article>
+                ))}
               </div>
-            </article>
-          ))}
+            ))}
+          </div>
         </div>
 
         <div className="mt-12 text-center">
@@ -100,6 +102,24 @@ export function TestimonialsSection() {
             Prendre rendez-vous &gt;
           </button>
         </div>
+
+        <style jsx>{`
+          .testimonials-marquee {
+            animation: testimonials-scroll-left 35s linear infinite;
+            will-change: transform;
+          }
+          .testimonials-marquee:hover {
+            animation-play-state: paused;
+          }
+          @keyframes testimonials-scroll-left {
+            from {
+              transform: translateX(0);
+            }
+            to {
+              transform: translateX(-50%);
+            }
+          }
+        `}</style>
       </div>
     </section>
   );

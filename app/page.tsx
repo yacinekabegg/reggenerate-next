@@ -20,7 +20,7 @@ import { Footer } from "@/components/Footer";
 // Feature flags for toggling sections on the homepage
 const SECTIONS_CONFIG = {
   // Set to true to re-enable the testimonials section
-  showTestimonials: false,
+  showTestimonials: true,
 };
 
 export default function Home() {
