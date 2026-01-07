@@ -79,14 +79,16 @@ jobs:
       - name: Install dependencies
         run: ${{ steps.detect-package-manager.outputs.manager }} ${{ steps.detect-package-manager.outputs.command }}
 
-      # 🔄 Sync des images Airtable avant le build
-      - name: Sync Airtable covers
+      # 🔄 Sync des images Airtable (blog + clients) avant le build
+      - name: Sync Airtable images
         env:
           AIRTABLE_API_KEY: ${{ secrets.AIRTABLE_API_KEY }}
           AIRTABLE_BASE_ID: ${{ secrets.AIRTABLE_BASE_ID }}
           AIRTABLE_TABLE_NAME: ${{ secrets.AIRTABLE_TABLE_NAME }}
           AIRTABLE_VIEW_NAME: ${{ secrets.AIRTABLE_VIEW_NAME }}
-        run: npm run sync:covers
+          AIRTABLE_CLIENTS_TABLE_NAME: ${{ secrets.AIRTABLE_CLIENTS_TABLE_NAME }}
+          AIRTABLE_CLIENTS_VIEW_NAME: ${{ secrets.AIRTABLE_CLIENTS_VIEW_NAME }}
+        run: node scripts/sync-airtable-images.mjs
 
       - name: Build with Next.js
         env:
@@ -95,6 +97,8 @@ jobs:
           AIRTABLE_BASE_ID: ${{ secrets.AIRTABLE_BASE_ID }}
           AIRTABLE_TABLE_NAME: ${{ secrets.AIRTABLE_TABLE_NAME }}
           AIRTABLE_VIEW_NAME: ${{ secrets.AIRTABLE_VIEW_NAME }}
+          AIRTABLE_CLIENTS_TABLE_NAME: ${{ secrets.AIRTABLE_CLIENTS_TABLE_NAME }}
+          AIRTABLE_CLIENTS_VIEW_NAME: ${{ secrets.AIRTABLE_CLIENTS_VIEW_NAME }}
         run: npm run build
 
       - name: Upload artifact
