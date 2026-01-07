@@ -31,6 +31,16 @@ jobs:
       - name: Install deps
         run: npm ci
 
+      - name: Sync Airtable images
+        run: node scripts/sync-airtable-images.mjs
+        env:
+          AIRTABLE_API_KEY: ${{ secrets.AIRTABLE_API_KEY }}
+          AIRTABLE_BASE_ID: ${{ secrets.AIRTABLE_BASE_ID }}
+          AIRTABLE_TABLE_NAME: ${{ secrets.AIRTABLE_TABLE_NAME }}
+          AIRTABLE_VIEW_NAME: ${{ secrets.AIRTABLE_VIEW_NAME }}
+          AIRTABLE_CLIENTS_TABLE_NAME: ${{ secrets.AIRTABLE_CLIENTS_TABLE_NAME }}
+          AIRTABLE_CLIENTS_VIEW_NAME: ${{ secrets.AIRTABLE_CLIENTS_VIEW_NAME }}
+
       - name: Build (Next static export)
         run: npm run build
         # nécessite output: "export" dans next.config.js -> génère ./out
