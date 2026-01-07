@@ -1,3 +1,5 @@
+import Airtable from "airtable";
+
 export type ClientProduct = {
   title: string;
   brand: string;
@@ -10,13 +12,69 @@ export type ClientProduct = {
   href: string;
 };
 
+const { AIRTABLE_API_KEY, AIRTABLE_BASE_ID } = process.env;
+const CLIENTS_TABLE = process.env.AIRTABLE_CLIENTS_TABLE_NAME || "ClientsProductsPublished";
+const CLIENTS_VIEW = process.env.AIRTABLE_CLIENTS_VIEW_NAME || "Grid view";
+const CLIENTS_IMAGE_DIR = "clients-products";
+const SUPPORTED_IMAGE_EXTS = [".png", ".jpg", ".jpeg", ".webp", ".gif", ".svg"];
+
+function makeBase(): Airtable.Base | null {
+  if (!AIRTABLE_API_KEY || !AIRTABLE_BASE_ID) return null;
+  try {
+    return new Airtable({ apiKey: AIRTABLE_API_KEY }).base(AIRTABLE_BASE_ID);
+  } catch {
+    return null;
+  }
+}
+
+function isTruthy(val: unknown): boolean {
+  if (typeof val === "boolean") return val;
+  if (typeof val === "number") return val === 1;
+  if (typeof val === "string") {
+    const normalized = val.trim().toLowerCase();
+    return normalized === "1" || normalized === "true" || normalized === "oui" || normalized === "on";
+  }
+  return false;
+}
+
+function toString(val: unknown): string {
+  if (typeof val === "string") return val;
+  if (typeof val === "number") return String(val);
+  if (val && typeof val === "object" && "name" in (val as Record<string, unknown>)) {
+    return ((val as { name?: string }).name ?? "") as string;
+  }
+  return "";
+}
+
+function extractExtension(filename?: string): string {
+  if (!filename) return ".png";
+  const cleaned = filename.split("?")[0] ?? filename;
+  const dot = cleaned.lastIndexOf(".");
+  if (dot === -1) return ".png";
+  const ext = cleaned.slice(dot).toLowerCase();
+  return SUPPORTED_IMAGE_EXTS.includes(ext) ? ext : ".png";
+}
+
+type AttachmentField = { url?: string; filename?: string };
+
+function getAttachmentInfo(val: unknown): { url: string; ext: string } | null {
+  if (!Array.isArray(val) || !val[0]) return null;
+  const first = val[0] as AttachmentField;
+  if (!first?.url) return null;
+  const ext = extractExtension(first.filename || first.url);
+  return { url: first.url, ext };
+}
+
+function getLocalImagePath(recordId: string, ext = ".png") {
+  return `/${CLIENTS_IMAGE_DIR}/${recordId}${ext}`;
+}
+
 export const clientProducts: ClientProduct[] = [
   {
     title: "Collagène végétarien articulaire",
     brand: "Valebio",
     image: "/images/collagène-articulaire.svg",
     imageAlt: "Coquille de j'oeufnesse",
-    tall: true,
     galenique: "Gélules",
     bienfaits: "Articulations",
     formulation: "Reggenerate + acide hyaluronique + curcuma vitamine C",
@@ -317,3 +375,51 @@ export const clientProducts: ClientProduct[] = [
   },
 ];
 
+export async function fetchClientProductsFromAirtable(): Promise<ClientProduct[]> {
+  const base = makeBase();
+  if (!base) return clientProducts;
+
+  try {
+    const records = await base(CLIENTS_TABLE)
+      .select({
+        view: CLIENTS_VIEW,
+        pageSize: 100,
+      })
+      .all();
+
+    const mapped = records
+      .map((rec) => {
+        const fields = rec.fields as Record<string, unknown>;
+        if (!isTruthy(fields["Active"])) return null;
+
+        const title = toString(fields["Title"]).trim();
+        const brand = toString(fields["Brand"]).trim();
+        const galenique = toString(fields["Galenique"]).trim();
+        const bienfaits = toString(fields["Bienfaits"]).trim();
+        const formulation = toString(fields["Formulation"]).trim();
+        const href = toString(fields["Href"]).trim();
+        const imageAltRaw = toString(fields["ImageAlt"]).trim();
+        const attachment = getAttachmentInfo(fields["Image"]);
+
+        const imageAlt = imageAltRaw || [title, brand].filter(Boolean).join(" — ") || "Produit Reggenerate";
+        const image = attachment ? getLocalImagePath(rec.id, attachment.ext) : "/images/hero-clients.svg";
+
+        return {
+          title: title || brand || "Produit Reggenerate",
+          brand: brand || "Reggenerate",
+          image,
+          imageAlt,
+          galenique: galenique || "—",
+          bienfaits: bienfaits || "",
+          formulation: formulation || "",
+          href: href || "#",
+        };
+      })
+      .filter((p): p is ClientProduct => Boolean(p));
+
+    return mapped.length ? mapped : clientProducts;
+  } catch (err) {
+    console.error("Failed to fetch client products from Airtable:", err);
+    return clientProducts;
+  }
+}
