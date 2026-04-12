@@ -46,9 +46,22 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <head>
+        <head>
         <Script src="https://tally.so/widgets/embed.js" strategy="afterInteractive" />
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-T9CJYYZRKY"
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-T9CJYYZRKY');
+          `}
+        </Script>
       </head>
+
       <body suppressHydrationWarning className={`${roboto.variable} ${leagueSpartan.variable} antialiased`}>
         <Header />
         {children}
