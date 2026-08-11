@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { Roboto, League_Spartan } from "next/font/google";
 import Script from "next/script";
 import "./globals.css";
-import { Header } from "@/components/Header";
 
 const roboto = Roboto({
   variable: "--font-roboto",
@@ -47,6 +46,10 @@ export default function RootLayout({
   return (
     <html lang="en">
         <head>
+        <link
+          rel="stylesheet"
+          href="https://api.fontshare.com/v2/css?f[]=clash-display@500,600,700&display=swap"
+        />
         <Script src="https://tally.so/widgets/embed.js" strategy="afterInteractive" />
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-T9CJYYZRKY"
@@ -63,7 +66,6 @@ export default function RootLayout({
       </head>
 
       <body suppressHydrationWarning className={`${roboto.variable} ${leagueSpartan.variable} antialiased`}>
-        <Header />
         {children}
       </body>
     </html>

@@ -7,6 +7,257 @@
   --foreground: #171717;
   --font-heading: var(--font-league-spartan);
   --font-body: var(--font-roboto);
+
+  /* --- Redesign (Circul'Egg design system) tokens, scoped to .redesign --- */
+  --font-display: "Clash Display", "Trebuchet MS", "Segoe UI", sans-serif;
+}
+
+/* Circul'Egg design-system tokens — scoped under .redesign so the legacy
+   site (which reuses --font-body/--font-heading above) is unaffected. */
+.redesign {
+  --cream: #f7f4eb;
+  --ink: #1b1f1e;
+  --body-ink: #4d5453;
+  --muted: #8a8f8d;
+  --white: #ffffff;
+  --teal: #2eb2a4;
+  --teal-deep: #1f8e83;
+  --teal-dark: #23867b;
+  --orange: #f19a2a;
+  --orange-deep: #d17a0e;
+  --yellow: #f2c94c;
+  --gold: #e1c23c;
+  --line: #e8e2d2;
+  --on-teal: #ffffff;
+  --on-teal-muted: #dcf1ee;
+  --shadow-card: 0 2px 8px rgba(40, 30, 10, 0.06);
+  --shadow-raise: 0 8px 24px rgba(40, 30, 10, 0.1);
+  --highlighter: linear-gradient(
+    transparent 56%,
+    var(--yellow) 56%,
+    var(--yellow) 92%,
+    transparent 92%
+  );
+  --egg-radius: 50% 50% 50% 50% / 62% 62% 38% 38%;
+  --page-max: 1200px;
+
+  /* Fluid type scale — from the design system's typography.css */
+  --fs-display-xl: clamp(40px, 5vw, 64px);
+  --fs-display-lg: clamp(34px, 4.4vw, 56px);
+  --fs-display-md: clamp(28px, 3.2vw, 40px);
+  --fs-title: 23px;
+  --fs-kpi: clamp(56px, 6.6vw, 92px);
+  --fs-divnum: clamp(120px, 16vw, 180px);
+  --fs-lede: clamp(18px, 1.5vw, 22px);
+  --fs-body: 17px;
+  --fs-small: 16px;
+  --fs-label: 14px;
+  --fs-micro: 13px;
+
+  font-family: var(--font-body), Helvetica, Arial, sans-serif;
+  background: var(--cream);
+  color: var(--ink);
+}
+
+/* [data-reveal] elements start visible by default (no-JS fallback) — the
+   ScrollReveal component (components/redesign/ScrollReveal.tsx) sets the
+   hidden starting styles and transition imperatively, then reveals each
+   element via IntersectionObserver as it actually scrolls into view. */
+
+.redesign footer input::placeholder {
+  color: rgba(255, 255, 255, 0.6);
+}
+.redesign footer input:focus {
+  border-color: var(--yellow) !important;
+  background: rgba(255, 255, 255, 0.12) !important;
+}
+
+.redesign .mq {
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent);
+  mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent);
+}
+.redesign .mq-track {
+  display: flex;
+  align-items: center;
+  width: max-content;
+  will-change: transform;
+}
+@keyframes redesign-mq-scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+.redesign .mq-track.a {
+  animation: redesign-mq-scroll 70s linear infinite;
+}
+.redesign .mq-track.b {
+  animation: redesign-mq-scroll 88s linear infinite;
+}
+.redesign .mq:hover .mq-track {
+  animation-play-state: paused;
+}
+@media (prefers-reduced-motion: reduce) {
+  .redesign .mq-track {
+    animation: none;
+  }
+}
+
+.redesign .hover-lift {
+  transition: transform 0.2s cubic-bezier(0.22, 0.61, 0.36, 1), box-shadow 0.2s cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+.redesign .hover-lift:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-raise);
+}
+@media (hover: none) {
+  .redesign .hover-lift:hover {
+    transform: none;
+    box-shadow: var(--shadow-card);
+  }
+}
+
+.redesign .hover-zoom-frame {
+  overflow: hidden;
+}
+.redesign .hover-zoom-frame img {
+  transition: transform 0.4s cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+.redesign .hover-zoom-frame:hover img {
+  transform: scale(1.05);
+}
+@media (hover: none) {
+  .redesign .hover-zoom-frame:hover img {
+    transform: none;
+  }
+}
+
+/* Card-fan: hovering the group spreads each stacked image apart along its
+   own --fan-x/--fan-y offset, like fanning a hand of playing cards. */
+.redesign .fan-group .fan-item {
+  transition: transform 0.3s cubic-bezier(0.22, 0.61, 0.36, 1), box-shadow 0.3s cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+.redesign .fan-group:hover .fan-item {
+  transform: translate(var(--fan-x, 0), var(--fan-y, 0));
+  box-shadow: var(--shadow-raise);
+}
+@media (hover: none) {
+  .redesign .fan-group:hover .fan-item {
+    transform: none;
+  }
+}
+
+@media (max-width: 900px) {
+  .redesign .sh-band {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+  .redesign .sh-prod {
+    grid-template-columns: 1fr !important;
+  }
+  .redesign .sh-index > div {
+    grid-template-columns: 1fr !important;
+    gap: 10px !important;
+  }
+  .redesign .clay-3 {
+    grid-template-columns: 1fr !important;
+  }
+  .redesign .yacine {
+    grid-template-columns: 1fr !important;
+  }
+  .redesign .yacine > *:first-child {
+    min-height: 280px !important;
+  }
+}
+
+@media (max-width: 900px) {
+  .redesign .clin-cols {
+    grid-template-columns: 1fr !important;
+    gap: 28px !important;
+  }
+  .redesign .clin-band {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+}
+
+@media (max-width: 900px) {
+  .redesign .ft-top {
+    grid-template-columns: 1fr 1fr !important;
+  }
+  .redesign .ft-top > div:first-child {
+    grid-column: 1 / -1;
+  }
+}
+@media (max-width: 560px) {
+  .redesign .ft-top {
+    grid-template-columns: 1fr !important;
+  }
+  .redesign .ft-bottom {
+    flex-direction: column;
+    align-items: flex-start !important;
+  }
+}
+
+.redesign .article-prose {
+  font-family: var(--font-body);
+  font-size: 17px;
+  line-height: 1.75;
+  color: var(--body-ink);
+}
+.redesign .article-prose > :first-child {
+  margin-top: 0;
+}
+.redesign .article-prose h2 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: clamp(24px, 2.4vw, 30px);
+  line-height: 1.2;
+  letter-spacing: -0.015em;
+  color: var(--ink);
+  margin: 40px 0 16px;
+}
+.redesign .article-prose h3 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: clamp(19px, 1.8vw, 22px);
+  line-height: 1.25;
+  color: var(--ink);
+  margin: 32px 0 12px;
+}
+.redesign .article-prose p {
+  margin: 0 0 20px;
+}
+.redesign .article-prose ul,
+.redesign .article-prose ol {
+  margin: 0 0 20px;
+  padding-left: 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.redesign .article-prose li::marker {
+  color: var(--teal-deep);
+  font-weight: 700;
+}
+.redesign .article-prose strong {
+  font-weight: 700;
+  color: var(--ink);
+}
+.redesign .article-prose a {
+  color: var(--teal-deep);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+.redesign .article-prose a:hover {
+  color: var(--teal-dark);
+}
+.redesign .article-prose img {
+  border-radius: 16px;
+  width: 100%;
+  height: auto;
+  margin: 24px 0;
 }
 
 html {
