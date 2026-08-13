@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Image from "next/image";
 import { Button } from "../Button";
+import { Highlight } from "../Highlight";
 import {
   readyToMarketProducts,
   type RTMForm,
@@ -139,7 +140,7 @@ export function ProductCatalog() {
             maxWidth: "22ch",
           }}
         >
-          De quoi rêvez-vous pour votre futur produit ?
+          De quoi rêvez-vous pour votre <Highlight>futur produit</Highlight> ?
         </h2>
 
         <div style={{ marginTop: "40px", display: "flex", flexDirection: "column", gap: "18px", alignItems: "center" }}>

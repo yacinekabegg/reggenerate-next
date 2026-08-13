@@ -31,7 +31,9 @@ export function RtmHero() {
             maxWidth: "18ch",
           }}
         >
-          Notre gamme <Accent>EGGspress Launch</Accent>.
+          Notre gamme
+          <br />
+          <Accent>EGGspress Launch</Accent>.
         </h1>
         <p
           style={{
