@@ -18,7 +18,7 @@ export default async function PostPage({
   const post = await fetchPostBySlug(slug);
   if (!post) return notFound();
 
-  const path = `/blog/${slug}/`;
+  const path = `/blog/${slug}`;
 
   return (
     <>
@@ -57,7 +57,7 @@ export async function generateMetadata({
   const { slug } = await params;
   const post = await fetchPostBySlug(slug);
   if (!post) return {};
-  const path = `/blog/${slug}/`;
+  const path = `/blog/${slug}`;
   const description = post.excerpt || undefined;
   return pageMetadata(
     { title: `${post.title} | Reggenerate™`, description: description ?? "", path },

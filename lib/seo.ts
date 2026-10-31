@@ -5,6 +5,8 @@
 
 import type { Metadata } from "next";
 
+// Adresses sans "/" final : en ligne, GitHub Pages sert /ingredient (200)
+// et renvoie 404 sur /ingredient/. Ne pas ajouter de "/" aux chemins ci-dessous.
 export const SITE_URL = "https://reggenerate.circulegg.fr";
 export const BRAND = "Reggenerate™";
 
@@ -25,40 +27,40 @@ export const PAGES = {
     title: "Membrane d'œuf : composition, bienfaits, études | Reggenerate™",
     description:
       "Composition, bienfaits pour la peau et les articulations, 16 études scientifiques, spécifications et qualité de Reggenerate™, membrane de coquille d'œuf native.",
-    path: "/ingredient/",
+    path: "/ingredient",
   },
   readyToMarket: {
     title: "Compléments en marque blanche à la membrane d'œuf | Reggenerate™",
     description:
       "Notre gamme EGGspress Launch : des formules prêtes à lancer à base de Reggenerate™, en gélules, comprimés, poudres, gummies et barres.",
-    path: "/ready-to-market/",
+    path: "/ready-to-market",
   },
   clients: {
     title: "Marques et produits à la membrane d'œuf | Reggenerate™",
     description:
       "Les marques de compléments alimentaires qui formulent avec Reggenerate™, membrane de coquille d'œuf : gélules, gummies, poudres et barres.",
-    path: "/clients/",
+    path: "/clients",
   },
   blog: {
     title: "Blog membrane d'œuf, collagène et formulation | Reggenerate™",
     description:
       "Expertise technique, innovations, marché et tendances, beauté et santé : les articles Reggenerate™ sur la membrane d'œuf et les compléments alimentaires.",
-    path: "/blog/",
+    path: "/blog",
   },
   mentionsLegales: {
     title: "Mentions légales | Reggenerate™",
     description: "Informations légales relatives au site Reggenerate™ de Circul'Egg.",
-    path: "/mentions-legales/",
+    path: "/mentions-legales",
   },
   cgu: {
     title: "Conditions générales d'utilisation | Reggenerate™",
     description: "Règles d'utilisation du site Reggenerate™ et responsabilités.",
-    path: "/cgu/",
+    path: "/cgu",
   },
   confidentialite: {
     title: "Politique de confidentialité | Reggenerate™",
     description: "Transparence sur la collecte et l'usage de vos données sur le site Reggenerate™.",
-    path: "/politique-de-confidentialite/",
+    path: "/politique-de-confidentialite",
   },
 } satisfies Record<string, PageSeo>;
 
@@ -150,7 +152,7 @@ export const productJsonLd = {
     "Reggenerate™ est le 1er ingrédient upcyclé issu de l'œuf et tout-en-1 qui regroupe en une seule dose tous les ingrédients indispensables pour la beauté de la peau et la santé des articulations : collagène, acide hyaluronique, élastine, glucosamine, chondroïtine. Sa versatilité et sa faible posologie permettent une intégration dans toutes les galéniques pour s'adapter à tous les besoins.",
   brand: { "@type": "Brand", name: BRAND },
   manufacturer: { "@id": "https://circulegg.fr/#organization" },
-  url: `${SITE_URL}/ingredient/`,
+  url: `${SITE_URL}/ingredient`,
   image: `${SITE_URL}/images/blog-hero.png`,
 };
 

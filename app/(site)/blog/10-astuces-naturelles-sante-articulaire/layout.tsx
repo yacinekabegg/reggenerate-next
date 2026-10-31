@@ -3,7 +3,7 @@ import { JsonLd } from "@/components/JsonLd";
 import { STATIC_BLOG_ARTICLES, articleJsonLd, pageMetadata } from "@/lib/seo";
 
 const article = STATIC_BLOG_ARTICLES[0];
-const path = `/blog/${article.slug}/`;
+const path = `/blog/${article.slug}`;
 
 export const metadata: Metadata = pageMetadata(
   { title: `${article.title} | Reggenerate™`, description: article.description, path },
