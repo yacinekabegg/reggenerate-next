@@ -1,4 +1,7 @@
 import { Footer } from "@/components/Footer";
+import { PAGES, pageMetadata } from "@/lib/seo";
+
+export const metadata = pageMetadata(PAGES.cgu);
 
 export default function CGUPage() {
   return (

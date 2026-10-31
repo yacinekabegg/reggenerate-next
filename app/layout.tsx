@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { Roboto, League_Spartan } from "next/font/google";
 import Script from "next/script";
 import "./globals.css";
+import { JsonLd } from "@/components/JsonLd";
+import { organizationJsonLd, websiteJsonLd } from "@/lib/seo";
 
 const roboto = Roboto({
   variable: "--font-roboto",
@@ -44,7 +46,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="fr">
         <head>
         <link
           rel="stylesheet"
@@ -66,6 +68,7 @@ export default function RootLayout({
       </head>
 
       <body suppressHydrationWarning className={`${roboto.variable} ${leagueSpartan.variable} antialiased`}>
+        <JsonLd data={[organizationJsonLd, websiteJsonLd]} />
         {children}
       </body>
     </html>

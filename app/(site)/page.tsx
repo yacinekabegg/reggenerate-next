@@ -16,6 +16,10 @@ import { BlogArticlesSection } from "@/components/BlogArticlesSection";
 import { PressMentionsSection } from "@/components/PressMentionsSection";
 import { NewsletterSection } from "@/components/NewsletterSection";
 import { Footer } from "@/components/Footer";
+import { JsonLd } from "@/components/JsonLd";
+import { PAGES, pageMetadata, productJsonLd, faqJsonLd } from "@/lib/seo";
+
+export const metadata = pageMetadata(PAGES.home);
 
 // Feature flags for toggling sections on the homepage
 const SECTIONS_CONFIG = {
@@ -26,6 +30,7 @@ const SECTIONS_CONFIG = {
 export default function Home() {
   return (
     <>
+      <JsonLd data={[productJsonLd, faqJsonLd]} />
       <Hero />
       <InnovationSection />
       <MarketTrendsSection/>

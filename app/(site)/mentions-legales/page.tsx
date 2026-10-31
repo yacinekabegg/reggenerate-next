@@ -1,4 +1,7 @@
 import { Footer } from "@/components/Footer";
+import { PAGES, pageMetadata } from "@/lib/seo";
+
+export const metadata = pageMetadata(PAGES.mentionsLegales);
 
 export default function MentionsLegalesPage() {
   return (
