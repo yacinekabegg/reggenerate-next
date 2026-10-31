@@ -106,6 +106,10 @@ jobs:
           AIRTABLE_CLIENTS_VIEW_NAME: ${{ secrets.AIRTABLE_CLIENTS_VIEW_NAME }}
         run: npm run build
 
+      # Anciennes pages traduites par Weglot (/en, /de...) : redirection vers le français
+      - name: Redirections des anciennes langues
+        run: node scripts/lang-redirects.mjs
+
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
