@@ -35,5 +35,6 @@ export default async function PostNouveauPage({ params }: { params: Promise<{ sl
 
 export async function generateStaticParams() {
   const slugs = await fetchAllSlugs();
+  if (!slugs.length) return [{ slug: "aucun-article" }];
   return slugs.map((slug) => ({ slug }));
 }

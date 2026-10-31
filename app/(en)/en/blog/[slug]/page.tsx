@@ -90,5 +90,8 @@ export async function generateMetadata({
 
 export async function generateStaticParams() {
   const slugs = await fetchAllSlugs("en");
+  // Export statique : Next refuse une liste vide. Tant qu'aucun article n'est
+  // publié dans cette langue, on génère une seule page « introuvable ».
+  if (!slugs.length) return [{ slug: "aucun-article" }];
   return slugs.map((slug) => ({ slug }));
 }
