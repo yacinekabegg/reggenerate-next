@@ -138,8 +138,8 @@ export default function IngredientPage() {
             }</div>
 
             {/* Composition */}
-            {activeTab === "composition" && (
-              <div className="mx-auto max-w-[900px] text-center">
+            {(
+              <div hidden={activeTab !== "composition"} className="mx-auto max-w-[900px] text-center">
                 <h2 className="mb-12 font-['League_Spartan',Arial,sans-serif] text-[2.5rem] font-semibold text-[#4e53a3]">
                   Une synergie de molécules bioactives reconnues...
                 </h2>
@@ -202,8 +202,8 @@ export default function IngredientPage() {
             )}
 
             {/* Bienfaits */}
-            {activeTab === "bienfaits" && (
-              <div className="mx-auto max-w-[900px]">
+            {(
+              <div hidden={activeTab !== "bienfaits"} className="mx-auto max-w-[900px]">
                 <div className="mb-12 text-center">
                   <h2 className="font-['League_Spartan',Arial,sans-serif] text-[2.5rem] font-semibold text-[#4e53a3]">
                     ....Pour des bienfaits décuplés sur la
@@ -212,21 +212,20 @@ export default function IngredientPage() {
                     <button className="mx-2 underline text-[#2eb2a4]" onClick={() => setBenefitView("articulations")}>articulations</button>
                   </h2>
                 </div>
-                {benefitView === "peau" ? (
-                  <div className="text-center">
+                <>
+                  <div hidden={benefitView !== "peau"} className="text-center">
                     <Image src="/images/schema-peau-bienfaits.png" alt="Schéma des bienfaits sur la peau" width={900} height={600} className="mx-auto h-auto w-full rounded-2xl shadow-[0_5px_15px_rgba(0,0,0,0.06)]" />
                   </div>
-                ) : (
-                  <div className="text-center">
+                  <div hidden={benefitView !== "articulations"} className="text-center">
                     <Image src="/images/bienfaits-articulations.png" alt="Schéma des bienfaits sur les articulations (temporaire)" width={900} height={600} className="mx-auto h-auto w-full rounded-2xl shadow-[0_5px_15px_rgba(0,0,0,0.06)]" />
                   </div>
-                )}
+                </>
               </div>
             )}
 
             {/* Science */}
-            {activeTab === "science" && (
-              <div className="mx-auto max-w-[1100px] text-center">
+            {(
+              <div hidden={activeTab !== "science"} className="mx-auto max-w-[1100px] text-center">
                 <h2 className="mb-2 font-['League_Spartan',Arial,sans-serif] text-[2.5rem] font-bold text-[#4e53a3]">
                   16 études scientifiques
                 </h2>
@@ -436,8 +435,8 @@ export default function IngredientPage() {
             )}
 
             {/* Sourcing */}
-            {activeTab === "sourcing" && (
-              <div className="mx-auto max-w-[1200px] px-4 sm:px-6">
+            {(
+              <div hidden={activeTab !== "sourcing"} className="mx-auto max-w-[1200px] px-4 sm:px-6">
                 <Image
                   src="/images/sourcing.png"
                   alt="Sourcing - chaîne d'approvisionnement Circul'egg"
@@ -493,8 +492,8 @@ export default function IngredientPage() {
             )}
 
             {/* Specifications */}
-            {activeTab === "specifications" && (
-              <div className="mx-auto max-w-[1100px] px-4 sm:px-6">
+            {(
+              <div hidden={activeTab !== "specifications"} className="mx-auto max-w-[1100px] px-4 sm:px-6">
                 <div className="relative rounded-2xl border-2 border-[#4e53a3] bg-[#fafafa] p-5 pt-10 sm:p-6 sm:pt-12">
                   {/* Titre intégré à la bordure */}
                   <div className="absolute -top-4 left-6 right-4 z-10 flex items-center gap-3">
@@ -704,8 +703,8 @@ export default function IngredientPage() {
             )}
 
             {/* Qualité */}
-            {activeTab === "qualite" && (
-              <div className="mx-auto max-w-[1100px] px-4 sm:px-6 text-center">
+            {(
+              <div hidden={activeTab !== "qualite"} className="mx-auto max-w-[1100px] px-4 sm:px-6 text-center">
                 <h2 className="mb-8 font-['League_Spartan',Arial,sans-serif] text-[2.2rem] font-extrabold text-[#4e53a3]">
                   Certifications & Conformités
                 </h2>

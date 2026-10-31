@@ -99,7 +99,7 @@ export function FAQSection() {
                 </button>
 
                 <div className={`overflow-hidden bg-[#f8f9fa] px-8 transition-all ${isOpen ? "py-6" : "max-h-0 py-0"}`}>
-                  {isOpen && faq.answer}
+                  {faq.answer}
                 </div>
               </div>
             );
