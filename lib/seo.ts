@@ -18,13 +18,13 @@ type PageSeo = {
 
 export const PAGES = {
   home: {
-    title: "Collagène végétarien de membrane d'œuf | Reggenerate™",
+    title: "Ingrédient articulations, peau et cheveux | Reggenerate™ membrane d'œuf",
     description:
-      "Reggenerate™, 1er ingrédient upcyclé issu de l'œuf : collagène, acide hyaluronique, élastine, glucosamine et chondroïtine en une seule dose, pour toutes les galéniques.",
+      "Reggenerate™, membrane d'œuf : collagène, élastine, acide hyaluronique, glucosamine, chondroïtine en 300 mg. Pour vos formules articulations, peau, cheveux.",
     path: "/",
   },
   ingredient: {
-    title: "Membrane d'œuf : composition, bienfaits, études | Reggenerate™",
+    title: "Membrane d'œuf native : composition, études, qualité | Reggenerate™",
     description:
       "Composition, bienfaits pour la peau et les articulations, 16 études scientifiques, spécifications et qualité de Reggenerate™, membrane de coquille d'œuf native.",
     path: "/ingredient",

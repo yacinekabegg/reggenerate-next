@@ -44,6 +44,11 @@ function makeBase(): Airtable.Base | null {
 const TABLE = process.env.AIRTABLE_TABLE_NAME || "Posts";
 const VIEW = process.env.AIRTABLE_VIEW_NAME || "PublishedView";
 
+// Publication programmée : un article actif n'apparaît qu'à partir de sa date
+// "PublishedAt" (ou tout de suite s'il n'en a pas). Le site étant reconstruit
+// chaque matin, il suffit de cocher "Active" et de mettre une date future.
+const SCHEDULED = "OR({PublishedAt} = BLANK(), NOT(IS_AFTER({PublishedAt}, TODAY())))";
+
 // ------- helpers -------
 function formatDateFR(d?: string | Date) {
   if (!d) return "";
@@ -119,7 +124,7 @@ export async function fetchArticlesFromAirtable(): Promise<ArticleCard[]> {
   if (!base) return [];
 
   const records = await base(TABLE)
-    .select({ view: VIEW, pageSize: 100 })
+    .select({ view: VIEW, pageSize: 100, filterByFormula: SCHEDULED })
     .all();
 
   return records.map((r) => {
@@ -160,7 +165,7 @@ export async function fetchPostBySlug(slug: string): Promise<Post | null> {
     .select({
       view: VIEW,
       maxRecords: 1,
-      filterByFormula: `{Slug} = "${slug}"`,
+      filterByFormula: `AND({Slug} = "${slug}", ${SCHEDULED})`,
     })
     .all();
 
@@ -203,7 +208,7 @@ export async function fetchAllSlugs(): Promise<string[]> {
   if (!base) return [];
 
   const recs = await base(TABLE)
-    .select({ view: VIEW, fields: ["Slug"], pageSize: 100 })
+    .select({ view: VIEW, fields: ["Slug"], pageSize: 100, filterByFormula: SCHEDULED })
     .all();
 
   return recs
