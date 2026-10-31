@@ -222,6 +222,15 @@ export const organizationJsonLd = {
   url: "https://circulegg.fr",
   logo: `${SITE_URL}/icon.png`,
   email: "yacine.kabeche@circulegg.fr",
+  // Adresse de l'usine, telle qu'affichée dans le bloc contact du site.
+  address: {
+    "@type": "PostalAddress",
+    streetAddress: "21 Rue Charles Lindbergh",
+    postalCode: "35150",
+    addressLocality: "Janzé",
+    addressRegion: "Bretagne",
+    addressCountry: "FR",
+  },
   sameAs: ["https://circulegg.fr", SITE_URL],
   brand: { "@id": `${SITE_URL}/#reggenerate` },
 };
