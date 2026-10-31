@@ -12,6 +12,11 @@ on:
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
+  # Reconstruction quotidienne : publie les nouveaux articles Airtable (case Active)
+  # et met à jour le sitemap sans intervention. 05:17 UTC = 06:17 à Paris l'hiver.
+  schedule:
+    - cron: "17 5 * * *"
+
 # Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
 permissions:
   contents: read
