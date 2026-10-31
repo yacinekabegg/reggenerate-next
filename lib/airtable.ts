@@ -1,4 +1,6 @@
 import "server-only";
+import fs from "fs";
+import path from "path";
 import Airtable from "airtable";
 
 const { AIRTABLE_API_KEY, AIRTABLE_BASE_ID } = process.env;
@@ -48,6 +50,28 @@ const VIEW = process.env.AIRTABLE_VIEW_NAME || "PublishedView";
 // "PublishedAt" (ou tout de suite s'il n'en a pas). Le site étant reconstruit
 // chaque matin, il suffit de cocher "Active" et de mettre une date future.
 const SCHEDULED = "OR({PublishedAt} = BLANK(), NOT(IS_AFTER({PublishedAt}, TODAY())))";
+
+
+// Couverture : public/blog-covers/{slug}.png si l'image a été synchronisée depuis
+// Airtable, sinon image générique (évite une image cassée sur les articles sans couverture).
+const DEFAULT_COVER = "/images/hero-blog.png";
+function coverFor(slug: string): string {
+  if (!slug) return DEFAULT_COVER;
+  const file = path.join(process.cwd(), "public", "blog-covers", `${slug}.png`);
+  return fs.existsSync(file) ? `/blog-covers/${slug}.png` : DEFAULT_COVER;
+}
+
+// Auteur affiché et déclaré aux moteurs : les articles publiés à partir du
+// 1er novembre 2026 sont signés par Chloé Vernet ; les plus anciens restent
+// attribués à Circul'Egg.
+export const ARTICLE_AUTHOR = {
+  name: "Chloé Vernet",
+  jobTitle: "Sales & Marketing Manager",
+};
+const AUTHOR_FROM = "2026-11-01";
+export function authorFor(publishedAtISO?: string) {
+  return publishedAtISO && publishedAtISO >= AUTHOR_FROM ? ARTICLE_AUTHOR : undefined;
+}
 
 // ------- helpers -------
 function formatDateFR(d?: string | Date) {
@@ -131,9 +155,7 @@ export async function fetchArticlesFromAirtable(): Promise<ArticleCard[]> {
     const f = r.fields as Record<string, unknown>;
     const slug = (f["Slug"] as string) || "";
 
-    // ✅ cover locale basée sur le slug : public/blog-covers/{slug}.png
-    const coverPath = slug ? `blog-covers/${slug}.png` : "";
-    const cover = coverPath ? `/${coverPath}` : "/images/hero-blog.png";
+    const cover = coverFor(slug);
 
     const label = (f["CategoryLabel"] as string) || "Article";
     const title = (f["Title"] as string) || "";
@@ -177,9 +199,7 @@ export async function fetchPostBySlug(slug: string): Promise<Post | null> {
   // 🔒 On considère TOUT comme du HTML (et on décode si nécessaire)
   const html = decodeHtmlEntities(rawContent);
 
-  // ✅ cover locale basée sur le slug : public/blog-covers/{slug}.png
-  const coverPath = slug ? `blog-covers/${slug}.png` : "";
-  const cover = coverPath ? `/${coverPath}` : "/images/hero-blog.png";
+  const cover = coverFor(slug);
 
   const explicitRead = Number(f["ReadMinutes"]);
   const computedRead =
@@ -214,4 +234,30 @@ export async function fetchAllSlugs(): Promise<string[]> {
   return recs
     .map((r) => (r.fields as Record<string, unknown>)["Slug"] as string)
     .filter(Boolean);
+}
+
+// ------- MÉTA DES ARTICLES PUBLIÉS (sitemap, llms.txt) -------
+export type PublishedMeta = { slug: string; title: string; excerpt: string; publishedAtISO?: string };
+export async function fetchPublishedMeta(): Promise<PublishedMeta[]> {
+  const base = makeBase();
+  if (!base) return [];
+  const recs = await base(TABLE)
+    .select({
+      view: VIEW,
+      fields: ["Slug", "Title", "Excerpt", "PublishedAt"],
+      pageSize: 100,
+      filterByFormula: SCHEDULED,
+    })
+    .all();
+  return recs
+    .map((r) => {
+      const f = r.fields as Record<string, unknown>;
+      return {
+        slug: (f["Slug"] as string) || "",
+        title: (f["Title"] as string) || "",
+        excerpt: (f["Excerpt"] as string) || "",
+        publishedAtISO: typeof f["PublishedAt"] === "string" ? (f["PublishedAt"] as string) : undefined,
+      };
+    })
+    .filter((p) => p.slug);
 }

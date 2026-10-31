@@ -10,6 +10,10 @@ import type { Metadata } from "next";
 export const SITE_URL = "https://reggenerate.circulegg.fr";
 export const BRAND = "Reggenerate™";
 
+// Date de dernière mise à jour des pages fixes du site (pour le sitemap).
+// À changer quand le contenu d'une page principale change.
+export const SITE_UPDATED = "2026-10-31";
+
 type PageSeo = {
   title: string;
   description: string;
@@ -193,6 +197,7 @@ export function articleJsonLd(a: {
   path: string;
   image?: string;
   datePublished?: string;
+  author?: { name: string; jobTitle: string };
 }) {
   return {
     "@context": "https://schema.org",
@@ -203,9 +208,63 @@ export function articleJsonLd(a: {
     mainEntityOfPage: `${SITE_URL}${a.path}`,
     image: a.image ? `${SITE_URL}${a.image}` : undefined,
     datePublished: a.datePublished,
+    dateModified: a.datePublished,
     inLanguage: "fr-FR",
-    author: { "@id": "https://circulegg.fr/#organization" },
+    author: a.author
+      ? {
+          "@type": "Person",
+          name: a.author.name,
+          jobTitle: a.author.jobTitle,
+          worksFor: { "@id": "https://circulegg.fr/#organization" },
+        }
+      : { "@id": "https://circulegg.fr/#organization" },
     publisher: { "@id": "https://circulegg.fr/#organization" },
     about: { "@id": `${SITE_URL}/#reggenerate` },
+  };
+}
+
+// Fil d'Ariane Accueil > Blog > Article, pour Google.
+export function breadcrumbJsonLd(title: string, path: string) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Accueil", item: `${SITE_URL}/` },
+      { "@type": "ListItem", position: 2, name: "Blog", item: `${SITE_URL}/blog` },
+      { "@type": "ListItem", position: 3, name: title, item: `${SITE_URL}${path}` },
+    ],
+  };
+}
+
+// FAQ d'un article : extraite automatiquement de la section « Questions
+// fréquentes » du contenu Airtable (paires h3 question / paragraphes réponse).
+// Ne renvoie rien si l'article n'a pas cette section.
+function stripTags(html: string) {
+  return html
+    .replace(/<[^>]+>/g, "")
+    .replace(/&nbsp;/g, " ")
+    .replace(/\s+/g, " ")
+    .trim();
+}
+export function faqJsonLdFromHtml(html: string) {
+  const m = html.match(/<h2[^>]*>\s*Questions fréquentes\s*<\/h2>([\s\S]*)$/i);
+  if (!m) return undefined;
+  const section = m[1].split(/<h2[^>]*>/i)[0];
+  const parts = section.split(/<h3[^>]*>/i).slice(1);
+  const qa = parts
+    .map((part) => {
+      const [q, rest = ""] = part.split(/<\/h3>/i);
+      return { q: stripTags(q), a: stripTags(rest) };
+    })
+    .filter((x) => x.q && x.a);
+  if (!qa.length) return undefined;
+  return {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: qa.map((x) => ({
+      "@type": "Question",
+      name: x.q,
+      acceptedAnswer: { "@type": "Answer", text: x.a },
+    })),
   };
 }
