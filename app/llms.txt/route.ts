@@ -83,7 +83,7 @@ La membrane d'œuf contient naturellement de la glucosamine et de la chondroïti
 La membrane d'œuf n'a pas d'allégation de santé autorisée dans l'Union européenne. Les marques l'associent à un nutriment autorisé, par exemple la vitamine C (formation normale de collagène pour la fonction normale des cartilages ou de la peau) ou le manganèse (formation normale des tissus conjonctifs).
 
 ### Quelles garanties qualité ?
-Reggenerate® est accompagnée de certifications ISO 22000 et HACCP, d'un goût neutre et de fiches techniques et certificats d'analyse sur demande. Plus de 60 marques et 71 produits formulés l'utilisent déjà : ${SITE_URL}/clients
+Reggenerate® est accompagnée de certifications ISO 22000 et HACCP, d'un goût neutre et de fiches techniques et certificats d'analyse sur demande. 71 marques l'utilisent déjà : ${SITE_URL}/clients
 
 ### Peut-on lancer un produit rapidement ?
 Oui : la gamme EGGspress Launch propose des formules prêtes à lancer à base de Reggenerate®, en gélules, comprimés, poudres, gummies et barres : ${SITE_URL}/ready-to-market
@@ -125,7 +125,7 @@ Eggshell membrane naturally contains glucosamine and chondroitin in a shellfish-
 Eggshell membrane has no authorized health claim in the European Union. Brands pair it with an authorized nutrient, for example vitamin C (normal collagen formation for the normal function of cartilage or skin) or manganese (normal formation of connective tissue).
 
 #### What quality guarantees?
-Reggenerate® comes with ISO 22000 and HACCP certifications, a neutral taste, and technical data sheets and certificates of analysis on request. More than 60 brands and 71 formulated products already use it: ${SITE_URL}/en/clients
+Reggenerate® comes with ISO 22000 and HACCP certifications, a neutral taste, and technical data sheets and certificates of analysis on request. 71 brands already use it: ${SITE_URL}/en/clients
 
 #### Can a product be launched quickly?
 Yes: the EGGspress Launch range offers ready-to-launch formulas based on Reggenerate®, in capsules, tablets, powders, gummies and bars: ${SITE_URL}/en/ready-to-market
