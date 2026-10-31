@@ -17,6 +17,7 @@ import { PressMentionsSection } from "@/components/en/PressMentionsSection";
 import { NewsletterSection } from "@/components/en/NewsletterSection";
 import { Footer } from "@/components/en/Footer";
 import { JsonLd } from "@/components/JsonLd";
+import { fetchLatestArticles } from "@/lib/airtable";
 import { PAGES_EN, pageMetadataEn, productJsonLdEn, faqJsonLdEn } from "@/lib/seo";
 
 export const metadata = pageMetadataEn(PAGES_EN.home);
@@ -26,7 +27,14 @@ const SECTIONS_CONFIG = {
   showTestimonials: true,
 };
 
-export default function HomeEn() {
+export default async function HomeEn() {
+  // Trois derniers articles publiés, pour le bloc « articles » de l'accueil
+  const latest = (await fetchLatestArticles("en", 3)).map((a) => ({
+    href: a.href,
+    title: a.title,
+    excerpt: a.excerpt,
+    image: a.image,
+  }));
   return (
     <>
       <JsonLd data={[productJsonLdEn, faqJsonLdEn]} />
@@ -44,7 +52,7 @@ export default function HomeEn() {
       <AboutSection />
       <QualityAssuranceSection />
       <FAQSection />
-      <BlogArticlesSection />
+      <BlogArticlesSection articles={latest} />
       <PressMentionsSection />
       <NewsletterSection />
       <Footer />

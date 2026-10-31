@@ -36,7 +36,10 @@ const blogArticles: BlogArticlePreview[] = [
   },
 ];
 
-export function BlogArticlesSection() {
+// Latest published English articles (Airtable), completed if needed by the
+// previews above so that three cards are always shown.
+export function BlogArticlesSection({ articles = [] }: { articles?: BlogArticlePreview[] }) {
+  const list = [...articles, ...blogArticles].slice(0, 3);
   return (
     <section className="bg-white py-24">
       <div className="mx-auto max-w-[1200px] px-6">
@@ -51,7 +54,7 @@ export function BlogArticlesSection() {
         </div>
 
         <div className="space-y-8">
-          {blogArticles.slice(0, 3).map((article) => (
+          {list.map((article) => (
             <article
               key={article.title}
               className="rounded-[16px] border-2 border-[#4e53a33f] bg-white p-8 shadow-[0_6px_18px_rgba(78,83,163,0.08)]"

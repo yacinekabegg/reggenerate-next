@@ -52,9 +52,9 @@ export default function BlogPageClient({ articles }: { articles: ArticleCard[] }
             <div className="mx-auto max-w-[1400px] px-6 pt-6 flex justify-center items-center">
               <div className="flex justify-center items-center h-8 sm:h-10 w-fit gap-1 sm:gap-3 rounded-full border border-[#2eb2a4] sm:border-2 bg-white/95 px-3 sm:px-4">
                 <Image src="/images/blog-icon.png" alt="Blog" width={32} height={32} className="h-6 w-6 sm:h-8 sm:w-8 object-contain" />
-                <span className="font-['League_Spartan',Arial,sans-serif] text-[0.8rem] sm:text-[0.95rem] leading-[28px] sm:leading-[32px] relative top-[1px] whitespace-nowrap font-extrabold tracking-wide text-[#2eb2a4]">
+                <h1 className="font-['League_Spartan',Arial,sans-serif] text-[0.8rem] sm:text-[0.95rem] leading-[28px] sm:leading-[32px] relative top-[1px] whitespace-nowrap font-extrabold tracking-wide text-[#2eb2a4]">
                   EXPERTISE & INNOVATION
-                </span>
+                </h1>
               </div>
             </div>
           </div>
