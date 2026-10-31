@@ -133,8 +133,8 @@ export default function ClientsPageClient({ products }: { products: ClientProduc
         <div className="mx-auto max-w-[1200px] px-6">
           <div className="grid grid-cols-2 gap-10 text-center sm:grid-cols-2 lg:grid-cols-4">
             {[
-              { v: "71", l: "Marques partenaires" },
-              { v: "71+", l: "Produits formulés" },
+              { v: "71+", l: "Marques partenaires" },
+              { v: "108+", l: "Produits formulés" },
               { v: "15+", l: "Pays d’eggsport" },
               { v: "100%", l: "satisfaction client" },
             ].map((s) => (

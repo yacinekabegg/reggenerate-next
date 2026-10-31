@@ -222,8 +222,8 @@ export default function ClientsPageClient({ products }: { products: ClientProduc
         <div className="mx-auto max-w-[1200px] px-6">
           <div className="grid grid-cols-2 gap-10 text-center sm:grid-cols-2 lg:grid-cols-4">
             {[
-              { v: "71", l: "Partner brands" },
-              { v: "71+", l: "Products formulated" },
+              { v: "71+", l: "Partner brands" },
+              { v: "108+", l: "Products formulated" },
               { v: "15+", l: "Eggsport countries" },
               { v: "100%", l: "customer satisfaction" },
             ].map((s) => (
