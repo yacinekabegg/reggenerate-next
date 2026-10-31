@@ -1,10 +1,10 @@
 // app/blog/[slug]/page.tsx
 import { notFound } from "next/navigation";
-import { fetchPostBySlug, fetchAllSlugs } from "@/lib/airtable";
+import { fetchPostBySlug, fetchAllSlugs, authorFor } from "@/lib/airtable";
 import { BlogArticleLayout } from "@/components/BlogArticleLayout";
 import type { Metadata } from "next";
 import { JsonLd } from "@/components/JsonLd";
-import { articleJsonLd, pageMetadata } from "@/lib/seo";
+import { articleJsonLd, breadcrumbJsonLd, faqJsonLdFromHtml, pageMetadata } from "@/lib/seo";
 
 export const dynamic = "force-static";
 export const dynamicParams = false; // seules les URLs listées par generateStaticParams seront générées
@@ -19,24 +19,31 @@ export default async function PostPage({
   if (!post) return notFound();
 
   const path = `/blog/${slug}`;
+  const author = authorFor(post.publishedAtISO);
+  const faq = faqJsonLdFromHtml(post.html);
+  const structured: object[] = [
+    articleJsonLd({
+      title: post.title,
+      description: post.excerpt,
+      path,
+      image: post.coverUrl,
+      datePublished: post.publishedAtISO,
+      author,
+    }),
+    breadcrumbJsonLd(post.title, path),
+  ];
+  if (faq) structured.push(faq);
 
   return (
     <>
-    <JsonLd
-      data={articleJsonLd({
-        title: post.title,
-        description: post.excerpt,
-        path,
-        image: post.coverUrl,
-        datePublished: post.publishedAtISO,
-      })}
-    />
+    <JsonLd data={structured} />
     <BlogArticleLayout
       title={post.title}
       categoryLabel={post.categoryLabel}
       categoryColor={post.categoryColor}
       date={post.publishedAt}
       readingTime={post.readMinutes ? `${post.readMinutes}` : undefined}
+      author={author ? `${author.name}, ${author.jobTitle} chez Circul'Egg` : undefined}
       coverImage={post.coverUrl || "/images/hero-blog.png"}
     >
       <div

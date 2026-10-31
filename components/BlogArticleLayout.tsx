@@ -7,6 +7,7 @@ type BlogArticleLayoutProps = {
   categoryColor?: string; 
   date?: string;
   readingTime?: string; 
+  author?: string;
   coverImage: string; 
   children: React.ReactNode;
   showFooter?: boolean;
@@ -18,6 +19,7 @@ export function BlogArticleLayout({
   categoryColor = "#2eb2a4",
   date,
   readingTime,
+  author,
   coverImage,
   children,
   showFooter = true,
@@ -52,6 +54,7 @@ export function BlogArticleLayout({
               {readingTime ? `${readingTime} min de lecture` : ""}
             </p>
           )}
+          {author && <p className="text-[#4e53a3]">Par {author}</p>}
         </div>
 
         <article className="py-8">
