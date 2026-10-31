@@ -134,7 +134,7 @@ export default function ArticleSanteAstuces() {
           </li>
           <li>
             <Link
-              href={{ pathname: "/blog/", hash: "contact" }}
+              href={{ pathname: "/blog", hash: "contact" }}
               className="underline decoration-[#4e53a3] underline-offset-2"
               title="Contactez notre équipe"
             >

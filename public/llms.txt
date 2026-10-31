@@ -15,10 +15,10 @@ Reggenerate™ est un ingrédient B2B de Circul'Egg (https://circulegg.fr), dest
 ## Pages
 
 - [Accueil](https://reggenerate.circulegg.fr/) : présentation de Reggenerate™
-- [L'ingrédient](https://reggenerate.circulegg.fr/ingredient/) : composition, bienfaits, études scientifiques, sourcing, spécifications, qualité
-- [Ready-to-market](https://reggenerate.circulegg.fr/ready-to-market/) : gamme EGGspress Launch, formules prêtes à lancer
-- [Nos clients](https://reggenerate.circulegg.fr/clients/) : produits des marques qui formulent avec Reggenerate™
-- [Blog](https://reggenerate.circulegg.fr/blog/) : articles sur la membrane d'œuf, le collagène et les compléments alimentaires
+- [L'ingrédient](https://reggenerate.circulegg.fr/ingredient) : composition, bienfaits, études scientifiques, sourcing, spécifications, qualité
+- [Ready-to-market](https://reggenerate.circulegg.fr/ready-to-market) : gamme EGGspress Launch, formules prêtes à lancer
+- [Nos clients](https://reggenerate.circulegg.fr/clients) : produits des marques qui formulent avec Reggenerate™
+- [Blog](https://reggenerate.circulegg.fr/blog) : articles sur la membrane d'œuf, le collagène et les compléments alimentaires
 
 ## Contact
 

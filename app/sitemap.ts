@@ -30,13 +30,13 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       priority: p.path === "/" ? 1 : 0.8,
     })),
     ...STATIC_BLOG_ARTICLES.map((a) => ({
-      url: `${SITE_URL}/blog/${a.slug}/`,
+      url: `${SITE_URL}/blog/${a.slug}`,
       lastModified: new Date(a.datePublished),
       changeFrequency: "monthly" as const,
       priority: 0.6,
     })),
     ...blogSlugs.map((slug) => ({
-      url: `${SITE_URL}/blog/${slug}/`,
+      url: `${SITE_URL}/blog/${slug}`,
       lastModified: now,
       changeFrequency: "monthly" as const,
       priority: 0.7,
