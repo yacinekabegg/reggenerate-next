@@ -4,7 +4,15 @@ import Image from "next/image";
 import Link from "next/link";
 import { blogArticles } from "@/lib/blogArticles";
 
-export function BlogArticlesSection() {
+export type ArticlePreview = { href: string; title: string; excerpt: string; image: string };
+
+// Derniers articles publiés (Airtable), complétés au besoin par les anciens
+// articles du site pour toujours afficher trois cartes.
+export function BlogArticlesSection({ articles = [] }: { articles?: ArticlePreview[] }) {
+  const seen = new Set<string>();
+  const list = [...articles, ...blogArticles]
+    .filter((a) => (seen.has(a.href) ? false : (seen.add(a.href), true)))
+    .slice(0, 3);
   return (
     <section className="bg-white py-24">
       <div className="mx-auto max-w-[1200px] px-6">
@@ -19,7 +27,7 @@ export function BlogArticlesSection() {
         </div>
 
         <div className="space-y-8">
-          {blogArticles.slice(0, 3).map((article) => (
+          {list.map((article) => (
             <article
               key={article.href}
               className="rounded-[16px] border-2 border-[#4e53a33f] bg-white p-8 shadow-[0_6px_18px_rgba(78,83,163,0.08)]"

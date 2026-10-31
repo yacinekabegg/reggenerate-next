@@ -100,9 +100,9 @@ export default function IngredientPage() {
       <section className="bg-[#e8f4f8] py-12">
         <div className="mx-auto max-w-[1200px] px-8">
           <div className="max-w-[800px]">
-            <h2 className="font-['League_Spartan',Arial,sans-serif] text-[2.5rem] font-bold text-[#4e53a3]">
+            <h1 className="font-['League_Spartan',Arial,sans-serif] text-[2.5rem] font-bold text-[#4e53a3]">
               Reggenerate<sup className="text-[0.6em]">™</sup>
-            </h2>
+            </h1>
             <p className="mb-6 font-['Roboto',Arial,sans-serif] text-[1.1rem] italic text-[#4e53a3]">[rɪˈdʒɛnəreɪt]</p>
             <h3 className="font-['League_Spartan',Arial,sans-serif] text-[1.5rem] font-semibold text-[#2eb2a4]">
               Marque de Circul&apos;Egg

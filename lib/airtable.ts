@@ -17,6 +17,8 @@ export type ArticleCard = {
   read: string;
   excerpt: string;
   category: Category;
+  /** Date ISO de publication (tri des derniers articles) */
+  publishedAtISO?: string;
 };
 
 export type Post = {
@@ -193,7 +195,7 @@ export async function fetchArticlesFromAirtable(lang: Lang = "fr"): Promise<Arti
   if (!base) {
     if (!MOCK) return [];
     const m = MOCK_POSTS[lang];
-    return [{ href: blogPath(lang, m.slug), image: DEFAULT_COVER, label: m.categoryLabel, title: m.title, date: m.publishedAt || "", read: "3 min", excerpt: m.excerpt || "", category: "technique" }];
+    return [{ href: blogPath(lang, m.slug), image: DEFAULT_COVER, label: m.categoryLabel, title: m.title, date: m.publishedAt || "", read: "3 min", excerpt: m.excerpt || "", category: "technique", publishedAtISO: m.publishedAtISO }];
   }
 
   const records = await base(TABLE)
@@ -223,8 +225,22 @@ export async function fetchArticlesFromAirtable(lang: Lang = "fr"): Promise<Arti
       read: readMin ? `${readMin} min` : "4 min",
       excerpt,
       category: cat,
+      publishedAtISO: typeof publishedAt === "string" ? publishedAt : undefined,
     };
   });
+}
+
+/** Les n derniers articles publiés (bloc « articles » de l'accueil). */
+export async function fetchLatestArticles(lang: Lang = "fr", n = 3): Promise<ArticleCard[]> {
+  try {
+    const all = await fetchArticlesFromAirtable(lang);
+    return all
+      .filter((a) => a.publishedAtISO)
+      .sort((a, b) => (b.publishedAtISO || "").localeCompare(a.publishedAtISO || ""))
+      .slice(0, n);
+  } catch {
+    return [];
+  }
 }
 
 // ------- ARTICLES (/blog/[slug]) -------
