@@ -27,6 +27,8 @@ export type Post = {
   categoryColor?: string;
   coverUrl?: string;
   publishedAt?: string;
+  /** Date ISO brute (AAAA-MM-JJ), pour les données structurées */
+  publishedAtISO?: string;
   readMinutes?: number;
 };
 
@@ -190,6 +192,7 @@ export async function fetchPostBySlug(slug: string): Promise<Post | null> {
     categoryColor: (f["CategoryColor"] as string) || "#2eb2a4",
     coverUrl: cover,
     publishedAt: formatDateFR(f["PublishedAt"] as string | Date | undefined),
+    publishedAtISO: typeof f["PublishedAt"] === "string" ? (f["PublishedAt"] as string) : undefined,
     readMinutes: computedRead,
   };
 }

@@ -2,6 +2,9 @@
 import { notFound } from "next/navigation";
 import { fetchPostBySlug, fetchAllSlugs } from "@/lib/airtable";
 import { BlogArticleLayout } from "@/components/BlogArticleLayout";
+import type { Metadata } from "next";
+import { JsonLd } from "@/components/JsonLd";
+import { articleJsonLd, pageMetadata } from "@/lib/seo";
 
 export const dynamic = "force-static";
 export const dynamicParams = false; // seules les URLs listées par generateStaticParams seront générées
@@ -15,7 +18,19 @@ export default async function PostPage({
   const post = await fetchPostBySlug(slug);
   if (!post) return notFound();
 
+  const path = `/blog/${slug}/`;
+
   return (
+    <>
+    <JsonLd
+      data={articleJsonLd({
+        title: post.title,
+        description: post.excerpt,
+        path,
+        image: post.coverUrl,
+        datePublished: post.publishedAtISO,
+      })}
+    />
     <BlogArticleLayout
       title={post.title}
       categoryLabel={post.categoryLabel}
@@ -29,6 +44,34 @@ export default async function PostPage({
         dangerouslySetInnerHTML={{ __html: post.html }}
       />
     </BlogArticleLayout>
+    </>
+  );
+}
+
+// Title, description et canonical propres à chaque article, tirés des champs Airtable.
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}): Promise<Metadata> {
+  const { slug } = await params;
+  const post = await fetchPostBySlug(slug);
+  if (!post) return {};
+  const path = `/blog/${slug}/`;
+  const description = post.excerpt || undefined;
+  return pageMetadata(
+    { title: `${post.title} | Reggenerate™`, description: description ?? "", path },
+    {
+      description,
+      openGraph: {
+        title: post.title,
+        description,
+        url: path,
+        type: "article",
+        publishedTime: post.publishedAtISO,
+        images: post.coverUrl ? [post.coverUrl] : ["/images/blog-hero.png"],
+      },
+    },
   );
 }
 
