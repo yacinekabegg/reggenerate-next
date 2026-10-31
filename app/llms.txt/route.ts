@@ -31,12 +31,36 @@ Reggenerate™ est un ingrédient B2B de Circul'Egg (https://circulegg.fr), dest
 const CONTACT = `- Circul'Egg : https://circulegg.fr
 - yacine.kabeche@circulegg.fr`;
 
+// Résumé en anglais, pour les requêtes en anglais (site traduit sous /en).
+const INTRO_EN = `## English version
+
+> Reggenerate™ is the first upcycled, all-in-one ingredient from the egg that brings together in a single dose every essential ingredient for skin beauty and joint health: collagen, hyaluronic acid, elastin, glucosamine, chondroitin. Its versatility and low dosage allow it to be integrated into any dosage form.
+
+- Ingredient: eggshell membrane, in its native, non-hydrolyzed form.
+- Naturally present actives: collagen (types I, V and X), elastin, hyaluronic acid, glucosamine, chondroitin, GAGs.
+- Dose: 300 mg per day.
+- Dosage forms: capsules, tablets, powders, gummies, bars.
+- Supplier: Circul'Egg, a French company based in Janzé (Brittany).
+- Positioning: ingredient for joint, skin and hair dietary supplements.
+
+### Pages (English)
+
+- [Home](https://reggenerate.circulegg.fr/en)
+- [The ingredient](https://reggenerate.circulegg.fr/en/ingredient): composition, benefits, scientific studies, sourcing, specifications, quality
+- [Ready-to-market](https://reggenerate.circulegg.fr/en/ready-to-market): EGGspress Launch range, ready-to-launch formulas
+- [Our clients](https://reggenerate.circulegg.fr/en/clients): products from the brands formulating with Reggenerate™
+- [Blog](https://reggenerate.circulegg.fr/en/blog): articles on eggshell membrane, collagen and dietary supplements
+
+### Articles (English)`;
+
 export async function GET() {
   let posts: { slug: string; title: string; excerpt: string }[] = [];
+  let postsEn: { slug: string; title: string; excerpt: string }[] = [];
   try {
-    posts = await fetchPublishedMeta();
+    [posts, postsEn] = await Promise.all([fetchPublishedMeta("fr"), fetchPublishedMeta("en")]);
   } catch {
     posts = [];
+    postsEn = [];
   }
   const all = [
     ...posts.filter((p) => !DRAFT_BLOG_SLUGS.includes(p.slug)),
@@ -47,12 +71,20 @@ export async function GET() {
     .filter((p) => (seen.has(p.slug) ? false : (seen.add(p.slug), true)))
     .map((p) => `- [${p.title}](${SITE_URL}/blog/${p.slug})${p.excerpt ? ` : ${p.excerpt}` : ""}`);
 
+  const linesEn = postsEn.map(
+    (p) => `- [${p.title}](${SITE_URL}/en/blog/${p.slug})${p.excerpt ? `: ${p.excerpt}` : ""}`,
+  );
+
   const body = [
     INTRO.trim(),
     "",
     "## Articles",
     "",
     ...lines,
+    "",
+    INTRO_EN.trim(),
+    "",
+    ...linesEn,
     "",
     "## Contact",
     "",

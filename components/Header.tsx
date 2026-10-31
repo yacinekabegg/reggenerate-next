@@ -2,19 +2,75 @@
 
 import Link from "next/link";
 import Image from "next/image";
+import { usePathname } from "next/navigation";
 import { useState, useEffect } from "react";
 
-const navItems = [
-  { href: "/", label: "Accueil" },
-  { href: "/ingredient", label: "Ingrédient" },
-  { href: "/ready-to-market", label: "Ready-to-Market" },
-  { href: "/clients", label: "Nos Clients" },
-  { href: "/blog", label: "Blog" },
-  { href: "/#contact", label: "Contact" },
-];
+type Locale = "fr" | "en";
 
-export function Header() {
+const NAV: Record<Locale, { href: string; label: string }[]> = {
+  fr: [
+    { href: "/", label: "Accueil" },
+    { href: "/ingredient", label: "Ingrédient" },
+    { href: "/ready-to-market", label: "Ready-to-Market" },
+    { href: "/clients", label: "Nos Clients" },
+    { href: "/blog", label: "Blog" },
+    { href: "/#contact", label: "Contact" },
+  ],
+  en: [
+    { href: "/en", label: "Home" },
+    { href: "/en/ingredient", label: "Ingredient" },
+    { href: "/en/ready-to-market", label: "Ready-to-Market" },
+    { href: "/en/clients", label: "Our Clients" },
+    { href: "/en/blog", label: "Blog" },
+    { href: "/en#contact", label: "Contact" },
+  ],
+};
+
+// Lien vers la même page dans l'autre langue. Par défaut, on ajoute ou retire
+// le préfixe /en ; pour un article de blog (slug différent selon la langue), on
+// lit la balise hreflang posée dans l'en-tête de la page, sinon on renvoie vers
+// la liste des articles.
+function defaultAltPath(locale: Locale, pathname: string) {
+  if (locale === "en") {
+    const rest = pathname.replace(/^\/en(?=\/|$)/, "") || "/";
+    return rest.startsWith("/blog/") ? "/blog" : rest;
+  }
+  if (pathname.startsWith("/blog/")) return "/en/blog";
+  return pathname === "/" ? "/en" : `/en${pathname}`;
+}
+
+export function Header({ locale = "fr" }: { locale?: Locale }) {
   const [open, setOpen] = useState(false);
+  const pathname = usePathname() || "/";
+  const navItems = NAV[locale];
+  const other: Locale = locale === "fr" ? "en" : "fr";
+  const [altHref, setAltHref] = useState(() => defaultAltPath(locale, pathname));
+
+  useEffect(() => {
+    const link = document.querySelector<HTMLLinkElement>(`link[rel="alternate"][hreflang="${other}"]`);
+    const fromHead = link?.getAttribute("href");
+    if (fromHead) {
+      try {
+        setAltHref(new URL(fromHead, window.location.href).pathname);
+        return;
+      } catch {
+        // adresse invalide : on garde le repli
+      }
+    }
+    setAltHref(defaultAltPath(locale, pathname));
+  }, [locale, other, pathname]);
+
+  const switcher = (
+    <a
+      href={altHref}
+      hrefLang={other}
+      lang={other}
+      aria-label={locale === "fr" ? "Switch to English" : "Passer en français"}
+      className="rounded-full border border-white/60 px-3 py-1 text-xs font-bold uppercase tracking-wide text-white hover:bg-white/10"
+    >
+      {other.toUpperCase()}
+    </a>
+  );
 
   useEffect(() => {
     // Lock body scroll when menu is open
@@ -31,7 +87,7 @@ export function Header() {
   return (
     <header className="fixed inset-x-0 top-0 z-50 border-b border-white/20 bg-[#2eb2a4] px-6">
       <div className="mx-auto flex h-16 w-full max-w-[1400px] items-center justify-between">
-        <Link href="/" className="flex items-center gap-2">
+        <Link href={locale === "en" ? "/en" : "/"} className="flex items-center gap-2">
           <Image
             src="https://res.cloudinary.com/dpc2uqmvg/image/upload/v1762017356/1_1_tq6kgk.png"
             alt="Reggenerate logo"
@@ -49,12 +105,13 @@ export function Header() {
               {item.label}
             </Link>
           ))}
+          {switcher}
         </nav>
 
         {/* Mobile hamburger */}
         <button
           type="button"
-          aria-label="Ouvrir le menu"
+          aria-label={locale === "en" ? "Open menu" : "Ouvrir le menu"}
           aria-expanded={open}
           aria-controls="mobile-menu"
           onClick={() => setOpen((v) => !v)}
@@ -90,6 +147,7 @@ export function Header() {
               {item.label}
             </Link>
           ))}
+          <div className="px-3 py-2">{switcher}</div>
         </nav>
       </div>
     </header>

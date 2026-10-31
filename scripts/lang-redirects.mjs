@@ -3,7 +3,10 @@
 // visitées, répondraient en 404. On génère pour chacune une page de
 // redirection immédiate vers la page française équivalente, avec l'URL
 // canonique française, pour transmettre le trafic et le référencement.
-// À supprimer le jour où de vraies versions traduites seront publiées.
+// Le site anglais (/en) existe désormais : ses vraies pages ne sont jamais
+// écrasées (on saute toute adresse dont une version .html ou /index.html
+// existe déjà). Seules les anciennes adresses /en sans équivalent anglais
+// (vieux articles) sont redirigées vers la page française.
 import fs from "fs";
 import path from "path";
 
@@ -32,18 +35,21 @@ function write(rel, target) {
   fs.writeFileSync(file, page(target));
 }
 
+// Une vraie page existe-t-elle déjà, sous l'une ou l'autre forme ?
+function exists(base) {
+  return fs.existsSync(path.join(OUT, `${base}.html`)) || fs.existsSync(path.join(OUT, base, "index.html"));
+}
+
 let n = 0;
 for (const lang of LANGS) {
   for (const p of paths) {
+    if (p.startsWith("/en/") || p === "/en") continue; // pages anglaises : pas des cibles
     const target = `${SITE}${p}`;
     const clean = p.replace(/\/$/, "");
-    if (clean === "") {
-      write(`${lang}.html`, target);
-      write(`${lang}/index.html`, target);
-    } else {
-      write(`${lang}${clean}.html`, target);
-      write(`${lang}${clean}/index.html`, target);
-    }
+    const base = clean === "" ? lang : `${lang}${clean}`;
+    if (exists(base)) continue; // vraie page traduite : on ne touche à rien
+    write(`${base}.html`, target);
+    write(`${base}/index.html`, target);
     n++;
   }
 }

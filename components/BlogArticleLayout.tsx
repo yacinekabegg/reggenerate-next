@@ -1,4 +1,5 @@
 import { Footer } from "@/components/Footer";
+import { Footer as FooterEn } from "@/components/en/Footer";
 import React from "react";
 
 type BlogArticleLayoutProps = {
@@ -11,6 +12,8 @@ type BlogArticleLayoutProps = {
   coverImage: string; 
   children: React.ReactNode;
   showFooter?: boolean;
+  /** Langue de la page : libellés (« min de lecture », « Par ») et pied de page */
+  locale?: "fr" | "en";
 };
 
 export function BlogArticleLayout({
@@ -23,7 +26,9 @@ export function BlogArticleLayout({
   coverImage,
   children,
   showFooter = true,
+  locale = "fr",
 }: BlogArticleLayoutProps) {
+  const en = locale === "en";
   return (
     <main className="pt-16">
       {/* Hero image with category badge */}
@@ -51,10 +56,10 @@ export function BlogArticleLayout({
             <p className="text-[#4e53a3]">
               {date}
               {date && readingTime ? " • " : ""}
-              {readingTime ? `${readingTime} min de lecture` : ""}
+              {readingTime ? (en ? `${readingTime} min read` : `${readingTime} min de lecture`) : ""}
             </p>
           )}
-          {author && <p className="text-[#4e53a3]">Par {author}</p>}
+          {author && <p className="text-[#4e53a3]">{en ? "By" : "Par"} {author}</p>}
         </div>
 
         <article className="py-8">
@@ -115,7 +120,7 @@ export function BlogArticleLayout({
         </article>
       </section>
 
-      {showFooter && <Footer />}
+      {showFooter && (en ? <FooterEn /> : <Footer />)}
     </main>
   );
 }
