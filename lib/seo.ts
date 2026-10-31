@@ -12,12 +12,14 @@ export const BRAND = "Reggenerate™";
 
 // Date de dernière mise à jour des pages fixes du site (pour le sitemap).
 // À changer quand le contenu d'une page principale change.
-export const SITE_UPDATED = "2026-10-31";
+export const SITE_UPDATED = "2026-11-01";
 
 type PageSeo = {
   title: string;
   description: string;
   path: string;
+  /** Chemin de la même page dans l'autre langue (balises hreflang) */
+  alt?: string;
 };
 
 export const PAGES = {
@@ -26,60 +28,140 @@ export const PAGES = {
     description:
       "Reggenerate™, membrane d'œuf : collagène, élastine, acide hyaluronique, glucosamine, chondroïtine en 300 mg. Pour vos formules articulations, peau, cheveux.",
     path: "/",
+    alt: "/en",
   },
   ingredient: {
     title: "Membrane d'œuf native : composition, études, qualité | Reggenerate™",
     description:
       "Composition, bienfaits pour la peau et les articulations, 16 études scientifiques, spécifications et qualité de Reggenerate™, membrane de coquille d'œuf native.",
     path: "/ingredient",
+    alt: "/en/ingredient",
   },
   readyToMarket: {
     title: "Compléments en marque blanche à la membrane d'œuf | Reggenerate™",
     description:
       "Notre gamme EGGspress Launch : des formules prêtes à lancer à base de Reggenerate™, en gélules, comprimés, poudres, gummies et barres.",
     path: "/ready-to-market",
+    alt: "/en/ready-to-market",
   },
   clients: {
     title: "Marques et produits à la membrane d'œuf | Reggenerate™",
     description:
       "Les marques de compléments alimentaires qui formulent avec Reggenerate™, membrane de coquille d'œuf : gélules, gummies, poudres et barres.",
     path: "/clients",
+    alt: "/en/clients",
   },
   blog: {
     title: "Blog membrane d'œuf, collagène et formulation | Reggenerate™",
     description:
       "Expertise technique, innovations, marché et tendances, beauté et santé : les articles Reggenerate™ sur la membrane d'œuf et les compléments alimentaires.",
     path: "/blog",
+    alt: "/en/blog",
   },
   mentionsLegales: {
     title: "Mentions légales | Reggenerate™",
     description: "Informations légales relatives au site Reggenerate™ de Circul'Egg.",
     path: "/mentions-legales",
+    alt: "/en/mentions-legales",
   },
   cgu: {
     title: "Conditions générales d'utilisation | Reggenerate™",
     description: "Règles d'utilisation du site Reggenerate™ et responsabilités.",
     path: "/cgu",
+    alt: "/en/cgu",
   },
   confidentialite: {
     title: "Politique de confidentialité | Reggenerate™",
     description: "Transparence sur la collecte et l'usage de vos données sur le site Reggenerate™.",
     path: "/politique-de-confidentialite",
+    alt: "/en/politique-de-confidentialite",
   },
 } satisfies Record<string, PageSeo>;
 
-/** Construit les métadonnées Next.js d'une page : title, description, canonical, Open Graph. */
-export function pageMetadata(page: PageSeo, extra: Partial<Metadata> = {}): Metadata {
+// Version anglaise du site (/en). Mêmes pages, textes traduits.
+export const PAGES_EN = {
+  home: {
+    title: "Joint, skin and hair ingredient | Reggenerate™ eggshell membrane",
+    description:
+      "Reggenerate™, eggshell membrane: collagen, elastin, hyaluronic acid, glucosamine and chondroitin in 300 mg. For your joint, skin and hair formulas.",
+    path: "/en",
+    alt: "/",
+  },
+  ingredient: {
+    title: "Native eggshell membrane: composition, studies, quality | Reggenerate™",
+    description:
+      "Composition, benefits for skin and joints, 16 scientific studies, specifications and quality of Reggenerate™, native eggshell membrane.",
+    path: "/en/ingredient",
+    alt: "/ingredient",
+  },
+  readyToMarket: {
+    title: "Private label eggshell membrane supplements | Reggenerate™",
+    description:
+      "Our EGGspress Launch range: ready-to-launch formulas based on Reggenerate™, in capsules, tablets, powders, gummies and bars.",
+    path: "/en/ready-to-market",
+    alt: "/ready-to-market",
+  },
+  clients: {
+    title: "Brands and products with eggshell membrane | Reggenerate™",
+    description:
+      "The dietary supplement brands formulating with Reggenerate™, eggshell membrane: capsules, gummies, powders and bars.",
+    path: "/en/clients",
+    alt: "/clients",
+  },
+  blog: {
+    title: "Eggshell membrane, collagen and formulation blog | Reggenerate™",
+    description:
+      "Technical expertise, innovation, market and trends, beauty and health: Reggenerate™ articles on eggshell membrane and dietary supplements.",
+    path: "/en/blog",
+    alt: "/blog",
+  },
+  mentionsLegales: {
+    title: "Legal notice | Reggenerate™",
+    description: "Legal information about the Reggenerate™ website by Circul'Egg.",
+    path: "/en/mentions-legales",
+    alt: "/mentions-legales",
+  },
+  cgu: {
+    title: "Terms of use | Reggenerate™",
+    description: "Rules for using the Reggenerate™ website and responsibilities.",
+    path: "/en/cgu",
+    alt: "/cgu",
+  },
+  confidentialite: {
+    title: "Privacy policy | Reggenerate™",
+    description: "Transparency on how your data is collected and used on the Reggenerate™ website.",
+    path: "/en/politique-de-confidentialite",
+    alt: "/politique-de-confidentialite",
+  },
+} satisfies Record<string, PageSeo>;
+
+export type Locale = "fr" | "en";
+
+/** Balises hreflang : la page courante, son équivalent dans l'autre langue, et le français par défaut. */
+export function languageAlternates(locale: Locale, path: string, alt?: string) {
+  const fr = locale === "fr" ? path : alt;
+  const en = locale === "en" ? path : alt;
+  const languages: Record<string, string> = {};
+  if (fr) languages["fr"] = fr;
+  if (en) languages["en"] = en;
+  if (fr) languages["x-default"] = fr;
+  return languages;
+}
+
+function buildMetadata(locale: Locale, page: PageSeo, extra: Partial<Metadata> = {}): Metadata {
   return {
     title: { absolute: page.title },
     description: page.description,
-    alternates: { canonical: page.path },
+    alternates: {
+      canonical: page.path,
+      languages: languageAlternates(locale, page.path, page.alt),
+    },
     openGraph: {
       title: page.title,
       description: page.description,
       url: page.path,
       siteName: BRAND,
-      locale: "fr_FR",
+      locale: locale === "en" ? "en_US" : "fr_FR",
       type: "website",
       images: ["/images/blog-hero.png"],
     },
@@ -90,6 +172,16 @@ export function pageMetadata(page: PageSeo, extra: Partial<Metadata> = {}): Meta
     },
     ...extra,
   };
+}
+
+/** Construit les métadonnées Next.js d'une page : title, description, canonical, hreflang, Open Graph. */
+export function pageMetadata(page: PageSeo, extra: Partial<Metadata> = {}): Metadata {
+  return buildMetadata("fr", page, extra);
+}
+
+/** Même chose pour une page du site anglais. */
+export function pageMetadataEn(page: PageSeo, extra: Partial<Metadata> = {}): Metadata {
+  return buildMetadata("en", page, extra);
 }
 
 /** Articles codés en dur encore en cours de rédaction : hors index et hors sitemap. */
@@ -144,6 +236,16 @@ export const websiteJsonLd = {
   publisher: { "@id": "https://circulegg.fr/#organization" },
 };
 
+export const websiteJsonLdEn = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "@id": `${SITE_URL}/en#website`,
+  name: BRAND,
+  url: `${SITE_URL}/en`,
+  inLanguage: "en",
+  publisher: { "@id": "https://circulegg.fr/#organization" },
+};
+
 // Textes repris mot pour mot du site (hero et FAQ).
 export const productJsonLd = {
   "@context": "https://schema.org",
@@ -191,6 +293,48 @@ export const faqJsonLd = {
   ],
 };
 
+// Version anglaise des données structurées de l'accueil et de la page ingrédient.
+export const productJsonLdEn = {
+  ...productJsonLd,
+  "@id": `${SITE_URL}/#reggenerate`,
+  alternateName: ["Reggenerate", "Reggenerate®", "Circul'Egg eggshell membrane"],
+  category: "Ingredient for dietary supplements",
+  description:
+    "Reggenerate™ is the first upcycled, all-in-one ingredient from the egg that brings together in a single dose every essential ingredient for skin beauty and joint health: collagen, hyaluronic acid, elastin, glucosamine, chondroitin. Its versatility and low dosage allow it to be integrated into any dosage form to meet every need.",
+  url: `${SITE_URL}/en/ingredient`,
+};
+
+export const faqJsonLdEn = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: [
+    {
+      "@type": "Question",
+      name: "How can it work with only 300 mg?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Reggenerate™ is effective at a low dose thanks to the natural synergy of its biomolecules (collagen types I, V, X, elastin, hyaluronic acid, GAGs, etc.). Unlike a conventional hydrolyzed collagen, each component acts in a complementary way, which increases bioavailability (≈85% versus 30 to 50% for other collagens). That's why just 300 mg is enough, backed by clinically proven efficacy.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "Which types of collagen are present?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Eggshell membrane naturally contains several types of collagen: Type I, the most abundant in skin, tendons and bones. Type V, involved in regulating collagen fibers and tissue structure. Type X, essential for cartilage regeneration and mineralization. This diversity explains the benefits for both joint health and the beauty of skin and hair.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "What is the molecular weight?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "The collagen in eggshell membrane is present in its native, non-hydrolyzed form. Each fibrillar collagen molecule (types I, V and X) has a mass of around 300 kDa and assembles into fibrils that can reach several million daltons. This high molecular weight reflects the structural integrity of the collagen and confirms the absence of chemical processing such as hydrolysis.",
+      },
+    },
+  ],
+};
+
 export function articleJsonLd(a: {
   title: string;
   description?: string;
@@ -198,6 +342,7 @@ export function articleJsonLd(a: {
   image?: string;
   datePublished?: string;
   author?: { name: string; jobTitle: string };
+  locale?: Locale;
 }) {
   return {
     "@context": "https://schema.org",
@@ -209,7 +354,7 @@ export function articleJsonLd(a: {
     image: a.image ? `${SITE_URL}${a.image}` : undefined,
     datePublished: a.datePublished,
     dateModified: a.datePublished,
-    inLanguage: "fr-FR",
+    inLanguage: a.locale === "en" ? "en" : "fr-FR",
     author: a.author
       ? {
           "@type": "Person",
@@ -224,13 +369,14 @@ export function articleJsonLd(a: {
 }
 
 // Fil d'Ariane Accueil > Blog > Article, pour Google.
-export function breadcrumbJsonLd(title: string, path: string) {
+export function breadcrumbJsonLd(title: string, path: string, locale: Locale = "fr") {
+  const en = locale === "en";
   return {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     itemListElement: [
-      { "@type": "ListItem", position: 1, name: "Accueil", item: `${SITE_URL}/` },
-      { "@type": "ListItem", position: 2, name: "Blog", item: `${SITE_URL}/blog` },
+      { "@type": "ListItem", position: 1, name: en ? "Home" : "Accueil", item: `${SITE_URL}${en ? "/en" : "/"}` },
+      { "@type": "ListItem", position: 2, name: "Blog", item: `${SITE_URL}${en ? "/en/blog" : "/blog"}` },
       { "@type": "ListItem", position: 3, name: title, item: `${SITE_URL}${path}` },
     ],
   };
@@ -247,7 +393,7 @@ function stripTags(html: string) {
     .trim();
 }
 export function faqJsonLdFromHtml(html: string) {
-  const m = html.match(/<h2[^>]*>\s*Questions fréquentes\s*<\/h2>([\s\S]*)$/i);
+  const m = html.match(/<h2[^>]*>\s*(?:Questions fréquentes|Frequently asked questions|FAQ)\s*<\/h2>([\s\S]*)$/i);
   if (!m) return undefined;
   const section = m[1].split(/<h2[^>]*>/i)[0];
   const parts = section.split(/<h3[^>]*>/i).slice(1);

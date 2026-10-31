@@ -32,6 +32,8 @@ export type Post = {
   /** Date ISO brute (AAAA-MM-JJ), pour les données structurées */
   publishedAtISO?: string;
   readMinutes?: number;
+  /** Article anglais : slug de l'original français */
+  translationOf?: string;
 };
 
 function makeBase(): Airtable.Base | null {
@@ -43,6 +45,23 @@ function makeBase(): Airtable.Base | null {
   }
 }
 
+// Construction locale sans clé Airtable : AIRTABLE_MOCK=1 fournit un article
+// d'exemple par langue (jamais utilisé en production, où la clé est définie).
+const MOCK = process.env.AIRTABLE_MOCK === "1";
+const MOCK_HTML = `<p>Paragraphe d'exemple.</p><h2>Questions fréquentes</h2><h3>Question ?</h3><p>Réponse.</p>`;
+const MOCK_POSTS: Record<Lang, Post> = {
+  fr: {
+    id: "mock-fr", slug: "test-mock", title: "Article de test", excerpt: "Extrait de test.",
+    html: MOCK_HTML, categoryLabel: "EGGSPERTISE TECHNIQUE", publishedAt: "01 nov. 2026",
+    publishedAtISO: "2026-11-01", readMinutes: 3,
+  },
+  en: {
+    id: "mock-en", slug: "test-mock-en", title: "Test article", excerpt: "Test excerpt.",
+    html: MOCK_HTML.replace("Questions fréquentes", "Frequently asked questions"), categoryLabel: "EGGSPERTISE",
+    publishedAt: "01 Nov 2026", publishedAtISO: "2026-11-01", readMinutes: 3, translationOf: "test-mock",
+  },
+};
+
 const TABLE = process.env.AIRTABLE_TABLE_NAME || "Posts";
 const VIEW = process.env.AIRTABLE_VIEW_NAME || "PublishedView";
 
@@ -50,6 +69,21 @@ const VIEW = process.env.AIRTABLE_VIEW_NAME || "PublishedView";
 // "PublishedAt" (ou tout de suite s'il n'en a pas). Le site étant reconstruit
 // chaque matin, il suffit de cocher "Active" et de mettre une date future.
 const SCHEDULED = "OR({PublishedAt} = BLANK(), NOT(IS_AFTER({PublishedAt}, TODAY())))";
+
+// Langue : les articles anglais (champ Lang = "en") alimentent /en/blog, les
+// autres (Lang vide ou "fr") le blog français. Un article anglais indique dans
+// TranslationOf le slug de son original français (liens hreflang FR/EN).
+export type Lang = "fr" | "en";
+function langFormula(lang: Lang) {
+  return lang === "en" ? '{Lang} = "en"' : '{Lang} != "en"';
+}
+function filterFor(lang: Lang, extra?: string) {
+  const parts = [SCHEDULED, langFormula(lang), ...(extra ? [extra] : [])];
+  return `AND(${parts.join(", ")})`;
+}
+export function blogPath(lang: Lang, slug: string) {
+  return lang === "en" ? `/en/blog/${slug}` : `/blog/${slug}`;
+}
 
 
 // Couverture : public/blog-covers/{slug}.png si l'image a été synchronisée depuis
@@ -72,12 +106,18 @@ const AUTHOR_FROM = "2026-11-01";
 export function authorFor(publishedAtISO?: string) {
   return publishedAtISO && publishedAtISO >= AUTHOR_FROM ? ARTICLE_AUTHOR : undefined;
 }
+/** Signature affichée sous le titre, dans la langue de la page. */
+export function authorLine(lang: Lang, publishedAtISO?: string) {
+  const a = authorFor(publishedAtISO);
+  if (!a) return undefined;
+  return lang === "en" ? `${a.name}, ${a.jobTitle} at Circul'Egg` : `${a.name}, ${a.jobTitle} chez Circul'Egg`;
+}
 
 // ------- helpers -------
-function formatDateFR(d?: string | Date) {
+function formatDate(d?: string | Date, lang: Lang = "fr") {
   if (!d) return "";
   const date = typeof d === "string" ? new Date(d) : d;
-  return date.toLocaleDateString("fr-FR", {
+  return date.toLocaleDateString(lang === "en" ? "en-GB" : "fr-FR", {
     day: "2-digit",
     month: "short",
     year: "numeric",
@@ -117,14 +157,19 @@ function mapCategoryToSlug(val: unknown): Category {
     "marche": "marche",
     "innovation": "innovation",
     "beaute": "beaute",
+    // libellés anglais (articles du site /en)
+    "eggspertise": "technique",
+    "health et wellness": "sante",
+    "market et trends": "marche",
+    "skin et hair": "beaute",
   };
   if (MAP[lower]) return MAP[lower];
 
-  if (lower.includes("tech")) return "technique";
-  if (lower.includes("sante") || lower.includes("bien etre")) return "sante";
-  if (lower.includes("tendance") || lower.includes("marche")) return "marche";
+  if (lower.includes("tech") || lower.includes("eggspertise")) return "technique";
+  if (lower.includes("sante") || lower.includes("bien etre") || lower.includes("health") || lower.includes("wellness")) return "sante";
+  if (lower.includes("tendance") || lower.includes("marche") || lower.includes("market") || lower.includes("trend")) return "marche";
   if (lower.includes("innov")) return "innovation";
-  if (lower.includes("beaute") || lower.includes("cheveu")) return "beaute";
+  if (lower.includes("beaute") || lower.includes("cheveu") || lower.includes("skin") || lower.includes("hair")) return "beaute";
   return "innovation";
 }
 
@@ -143,12 +188,16 @@ function decodeHtmlEntities(s: string): string {
 }
 
 // ------- LIST (/blog) -------
-export async function fetchArticlesFromAirtable(): Promise<ArticleCard[]> {
+export async function fetchArticlesFromAirtable(lang: Lang = "fr"): Promise<ArticleCard[]> {
   const base = makeBase();
-  if (!base) return [];
+  if (!base) {
+    if (!MOCK) return [];
+    const m = MOCK_POSTS[lang];
+    return [{ href: blogPath(lang, m.slug), image: DEFAULT_COVER, label: m.categoryLabel, title: m.title, date: m.publishedAt || "", read: "3 min", excerpt: m.excerpt || "", category: "technique" }];
+  }
 
   const records = await base(TABLE)
-    .select({ view: VIEW, pageSize: 100, filterByFormula: SCHEDULED })
+    .select({ view: VIEW, pageSize: 100, filterByFormula: filterFor(lang) })
     .all();
 
   return records.map((r) => {
@@ -166,11 +215,11 @@ export async function fetchArticlesFromAirtable(): Promise<ArticleCard[]> {
     const publishedAt = f["PublishedAt"] as string | Date | undefined;
 
     return {
-      href: `/blog/${slug}`,
+      href: blogPath(lang, slug),
       image: cover,
       label,
       title,
-      date: formatDateFR(publishedAt),
+      date: formatDate(publishedAt, lang),
       read: readMin ? `${readMin} min` : "4 min",
       excerpt,
       category: cat,
@@ -179,15 +228,15 @@ export async function fetchArticlesFromAirtable(): Promise<ArticleCard[]> {
 }
 
 // ------- ARTICLES (/blog/[slug]) -------
-export async function fetchPostBySlug(slug: string): Promise<Post | null> {
+export async function fetchPostBySlug(slug: string, lang: Lang = "fr"): Promise<Post | null> {
   const base = makeBase();
-  if (!base) return null;
+  if (!base) return MOCK && MOCK_POSTS[lang].slug === slug ? { ...MOCK_POSTS[lang], coverUrl: DEFAULT_COVER } : null;
 
   const recs = await base(TABLE)
     .select({
       view: VIEW,
       maxRecords: 1,
-      filterByFormula: `AND({Slug} = "${slug}", ${SCHEDULED})`,
+      filterByFormula: filterFor(lang, `{Slug} = "${slug}"`),
     })
     .all();
 
@@ -216,19 +265,20 @@ export async function fetchPostBySlug(slug: string): Promise<Post | null> {
     categoryLabel: (f["CategoryLabel"] as string) || "Article",
     categoryColor: (f["CategoryColor"] as string) || "#2eb2a4",
     coverUrl: cover,
-    publishedAt: formatDateFR(f["PublishedAt"] as string | Date | undefined),
+    publishedAt: formatDate(f["PublishedAt"] as string | Date | undefined, lang),
     publishedAtISO: typeof f["PublishedAt"] === "string" ? (f["PublishedAt"] as string) : undefined,
     readMinutes: computedRead,
+    translationOf: ((f["TranslationOf"] as string) || "").trim() || undefined,
   };
 }
 
 // ------- SLUGS (SSG) -------
-export async function fetchAllSlugs(): Promise<string[]> {
+export async function fetchAllSlugs(lang: Lang = "fr"): Promise<string[]> {
   const base = makeBase();
-  if (!base) return [];
+  if (!base) return MOCK ? [MOCK_POSTS[lang].slug] : [];
 
   const recs = await base(TABLE)
-    .select({ view: VIEW, fields: ["Slug"], pageSize: 100, filterByFormula: SCHEDULED })
+    .select({ view: VIEW, fields: ["Slug"], pageSize: 100, filterByFormula: filterFor(lang) })
     .all();
 
   return recs
@@ -237,16 +287,26 @@ export async function fetchAllSlugs(): Promise<string[]> {
 }
 
 // ------- MÉTA DES ARTICLES PUBLIÉS (sitemap, llms.txt) -------
-export type PublishedMeta = { slug: string; title: string; excerpt: string; publishedAtISO?: string };
-export async function fetchPublishedMeta(): Promise<PublishedMeta[]> {
+export type PublishedMeta = {
+  slug: string;
+  title: string;
+  excerpt: string;
+  publishedAtISO?: string;
+  translationOf?: string;
+};
+export async function fetchPublishedMeta(lang: Lang = "fr"): Promise<PublishedMeta[]> {
   const base = makeBase();
-  if (!base) return [];
+  if (!base) {
+    if (!MOCK) return [];
+    const m = MOCK_POSTS[lang];
+    return [{ slug: m.slug, title: m.title, excerpt: m.excerpt || "", publishedAtISO: m.publishedAtISO, translationOf: m.translationOf }];
+  }
   const recs = await base(TABLE)
     .select({
       view: VIEW,
-      fields: ["Slug", "Title", "Excerpt", "PublishedAt"],
+      fields: ["Slug", "Title", "Excerpt", "PublishedAt", "TranslationOf"],
       pageSize: 100,
-      filterByFormula: SCHEDULED,
+      filterByFormula: filterFor(lang),
     })
     .all();
   return recs
@@ -257,7 +317,21 @@ export async function fetchPublishedMeta(): Promise<PublishedMeta[]> {
         title: (f["Title"] as string) || "",
         excerpt: (f["Excerpt"] as string) || "",
         publishedAtISO: typeof f["PublishedAt"] === "string" ? (f["PublishedAt"] as string) : undefined,
+        translationOf: ((f["TranslationOf"] as string) || "").trim() || undefined,
       };
     })
     .filter((p) => p.slug);
+}
+
+// ------- CORRESPONDANCES FR ⇄ EN (hreflang) -------
+/** Renvoie { slugFrançais: slugAnglais } pour les articles anglais publiés. */
+export async function fetchTranslationMap(): Promise<Record<string, string>> {
+  const map: Record<string, string> = {};
+  try {
+    const en = await fetchPublishedMeta("en");
+    for (const p of en) if (p.translationOf) map[p.translationOf] = p.slug;
+  } catch {
+    // sans Airtable : aucune correspondance
+  }
+  return map;
 }

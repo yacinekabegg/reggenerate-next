@@ -1,24 +1,24 @@
-// app/blog/[slug]/page.tsx
+// app/(en)/en/blog/[slug]/page.tsx : article du blog anglais (Airtable, Lang = en)
 import { notFound } from "next/navigation";
-import { fetchPostBySlug, fetchAllSlugs, authorFor } from "@/lib/airtable";
+import { fetchPostBySlug, fetchAllSlugs, authorFor, authorLine } from "@/lib/airtable";
 import { BlogArticleLayout } from "@/components/BlogArticleLayout";
 import type { Metadata } from "next";
 import { JsonLd } from "@/components/JsonLd";
-import { articleJsonLd, breadcrumbJsonLd, faqJsonLdFromHtml, pageMetadata } from "@/lib/seo";
+import { articleJsonLd, breadcrumbJsonLd, faqJsonLdFromHtml, pageMetadataEn } from "@/lib/seo";
 
 export const dynamic = "force-static";
-export const dynamicParams = false; // seules les URLs listées par generateStaticParams seront générées
+export const dynamicParams = false;
 
-export default async function PostPage({
+export default async function PostPageEn({
   params,
 }: {
   params: Promise<{ slug: string }>
 }) {
   const { slug } = await params;
-  const post = await fetchPostBySlug(slug);
+  const post = await fetchPostBySlug(slug, "en");
   if (!post) return notFound();
 
-  const path = `/blog/${slug}`;
+  const path = `/en/blog/${slug}`;
   const author = authorFor(post.publishedAtISO);
   const faq = faqJsonLdFromHtml(post.html);
   const structured: object[] = [
@@ -29,8 +29,9 @@ export default async function PostPage({
       image: post.coverUrl,
       datePublished: post.publishedAtISO,
       author,
+      locale: "en",
     }),
-    breadcrumbJsonLd(post.title, path),
+    breadcrumbJsonLd(post.title, path, "en"),
   ];
   if (faq) structured.push(faq);
 
@@ -38,12 +39,13 @@ export default async function PostPage({
     <>
     <JsonLd data={structured} />
     <BlogArticleLayout
+      locale="en"
       title={post.title}
       categoryLabel={post.categoryLabel}
       categoryColor={post.categoryColor}
       date={post.publishedAt}
       readingTime={post.readMinutes ? `${post.readMinutes}` : undefined}
-      author={author ? `${author.name}, ${author.jobTitle} chez Circul'Egg` : undefined}
+      author={authorLine("en", post.publishedAtISO)}
       coverImage={post.coverUrl || "/images/hero-blog.png"}
     >
       <div
@@ -55,19 +57,23 @@ export default async function PostPage({
   );
 }
 
-// Title, description et canonical propres à chaque article, tirés des champs Airtable.
 export async function generateMetadata({
   params,
 }: {
   params: Promise<{ slug: string }>;
 }): Promise<Metadata> {
   const { slug } = await params;
-  const post = await fetchPostBySlug(slug);
+  const post = await fetchPostBySlug(slug, "en");
   if (!post) return {};
-  const path = `/blog/${slug}`;
+  const path = `/en/blog/${slug}`;
   const description = post.excerpt || undefined;
-  return pageMetadata(
-    { title: `${post.title} | Reggenerate™`, description: description ?? "", path },
+  return pageMetadataEn(
+    {
+      title: `${post.title} | Reggenerate™`,
+      description: description ?? "",
+      path,
+      alt: post.translationOf ? `/blog/${post.translationOf}` : undefined,
+    },
     {
       description,
       openGraph: {
@@ -83,6 +89,6 @@ export async function generateMetadata({
 }
 
 export async function generateStaticParams() {
-  const slugs = await fetchAllSlugs();
+  const slugs = await fetchAllSlugs("en");
   return slugs.map((slug) => ({ slug }));
 }
