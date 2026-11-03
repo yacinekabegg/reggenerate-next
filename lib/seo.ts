@@ -256,19 +256,21 @@ export const websiteJsonLdEn = {
 };
 
 // Textes repris mot pour mot du site (hero et FAQ).
+// Reggenerate™ est décrit comme une marque (Brand) et non comme un produit
+// (Product) : Google exige pour un Product un prix (offers) ou des avis notés,
+// qu'un ingrédient B2B vendu sur devis n'a pas, et le signalait en erreur
+// critique dans la Search Console (« Extraits de produits »).
 export const productJsonLd = {
   "@context": "https://schema.org",
-  "@type": "Product",
+  "@type": "Brand",
   "@id": `${SITE_URL}/#reggenerate`,
   name: BRAND,
   alternateName: ["Reggenerate", "Reggenerate®", "membrane de coquille d'œuf Circul'Egg"],
-  category: "Ingrédient pour compléments alimentaires",
   description:
     "Reggenerate™ est le 1er ingrédient upcyclé issu de l'œuf et tout-en-1 qui regroupe en une seule dose tous les ingrédients indispensables pour la beauté de la peau et la santé des articulations : collagène, acide hyaluronique, élastine, glucosamine, chondroïtine. Sa versatilité et sa faible posologie permettent une intégration dans toutes les galéniques pour s'adapter à tous les besoins.",
-  brand: { "@type": "Brand", name: BRAND },
-  manufacturer: { "@id": "https://circulegg.fr/#organization" },
   url: `${SITE_URL}/ingredient`,
   image: `${SITE_URL}/images/blog-hero.png`,
+  logo: `${SITE_URL}/icon.png`,
 };
 
 export const faqJsonLd = {
@@ -307,7 +309,6 @@ export const productJsonLdEn = {
   ...productJsonLd,
   "@id": `${SITE_URL}/#reggenerate`,
   alternateName: ["Reggenerate", "Reggenerate®", "Circul'Egg eggshell membrane"],
-  category: "Ingredient for dietary supplements",
   description:
     "Reggenerate™ is the first upcycled, all-in-one ingredient from the egg that brings together in a single dose every essential ingredient for skin beauty and joint health: collagen, hyaluronic acid, elastin, glucosamine, chondroitin. Its versatility and low dosage allow it to be integrated into any dosage form to meet every need.",
   url: `${SITE_URL}/en/ingredient`,
