@@ -1,9 +1,9 @@
 import type { MetadataRoute } from "next";
 import { fetchPublishedMeta, type PublishedMeta } from "@/lib/airtable";
 import {
-  DRAFT_BLOG_SLUGS,
   PAGES,
   PAGES_EN,
+  RETIRED_BLOG_SLUGS,
   SITE_UPDATED,
   SITE_URL,
   STATIC_BLOG_ARTICLES,
@@ -49,7 +49,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     enPosts = [];
   }
   const blogPosts = frPosts.filter(
-    (p) => !staticSlugs.has(p.slug) && !DRAFT_BLOG_SLUGS.includes(p.slug),
+    (p) => !staticSlugs.has(p.slug) && !RETIRED_BLOG_SLUGS.includes(p.slug),
   );
   // slug français → slug anglais
   const enBySlug: Record<string, string> = {};
