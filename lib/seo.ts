@@ -4,6 +4,7 @@
 // structurées). Modifier ici pour changer ce qu'affiche Google.
 
 import type { Metadata } from "next";
+import retiredBlogRedirects from "./retired-blog-redirects.json";
 
 // Adresses sans "/" final : en ligne, GitHub Pages sert /ingredient (200)
 // et renvoie 404 sur /ingredient/. Ne pas ajouter de "/" aux chemins ci-dessous.
@@ -184,13 +185,16 @@ export function pageMetadataEn(page: PageSeo, extra: Partial<Metadata> = {}): Me
   return buildMetadata("en", page, extra);
 }
 
-/** Articles codés en dur encore en cours de rédaction : hors index et hors sitemap. */
-export const DRAFT_BLOG_SLUGS = [
-  "collagene-marche-vraiment",
-  "membrane-nouvelle-revolution",
-  "molecules-indispensables-belle-peau",
-  "produits-revolution-marche",
-];
+/**
+ * Anciennes pages d'articles jamais rédigées (« Article en cours de rédaction »),
+ * supprimées : chaque adresse redirige vers l'article publié le plus proche
+ * (ancienne adresse → nouvelle, dans lib/retired-blog-redirects.json, lu aussi
+ * par scripts/lang-redirects.mjs qui génère les pages de redirection).
+ * Ces adresses ne figurent jamais dans le sitemap ni dans llms.txt.
+ * Pour republier un article à l'une de ces adresses, retirer sa ligne du fichier.
+ */
+export const RETIRED_BLOG_REDIRECTS: Record<string, string> = retiredBlogRedirects;
+export const RETIRED_BLOG_SLUGS = Object.keys(RETIRED_BLOG_REDIRECTS);
 
 /** Articles codés en dur publiés. */
 export const STATIC_BLOG_ARTICLES = [

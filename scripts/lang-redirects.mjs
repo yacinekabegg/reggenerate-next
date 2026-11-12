@@ -54,3 +54,26 @@ for (const lang of LANGS) {
   }
 }
 console.log(`Redirections de langues : ${n} pages générées (${LANGS.length} langues).`);
+
+// Anciennes pages d'articles jamais rédigées (« Article en cours de rédaction ») :
+// supprimées du site, chaque adresse redirige vers l'article publié le plus
+// proche. Liste dans lib/retired-blog-redirects.json (ancien slug → nouveau).
+// Ici on écrase volontairement : une adresse retirée redirige toujours, même si
+// une fiche Airtable portant ce slug était réactivée par erreur.
+const retired = JSON.parse(
+  fs.readFileSync(path.join(process.cwd(), "lib", "retired-blog-redirects.json"), "utf8"),
+);
+let r = 0;
+for (const [oldSlug, newSlug] of Object.entries(retired)) {
+  const target = `${SITE}/blog/${newSlug}`;
+  if (!exists(`blog/${newSlug}`)) {
+    console.warn(`⚠️ Article cible absent du site : /blog/${newSlug} (redirection depuis /blog/${oldSlug})`);
+  }
+  for (const rel of [`blog/${oldSlug}.html`, `blog/${oldSlug}/index.html`]) {
+    const file = path.join(OUT, rel);
+    fs.mkdirSync(path.dirname(file), { recursive: true });
+    fs.writeFileSync(file, page(target));
+  }
+  r++;
+}
+console.log(`Redirections d'articles retirés : ${r} anciennes adresses redirigées.`);

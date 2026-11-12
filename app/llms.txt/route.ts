@@ -1,5 +1,5 @@
 import { fetchPublishedMeta } from "@/lib/airtable";
-import { DRAFT_BLOG_SLUGS, SITE_URL, STATIC_BLOG_ARTICLES } from "@/lib/seo";
+import { RETIRED_BLOG_SLUGS, SITE_URL, STATIC_BLOG_ARTICLES } from "@/lib/seo";
 
 export const dynamic = "force-static";
 
@@ -150,7 +150,7 @@ export async function GET() {
     postsEn = [];
   }
   const all = [
-    ...posts.filter((p) => !DRAFT_BLOG_SLUGS.includes(p.slug)),
+    ...posts.filter((p) => !RETIRED_BLOG_SLUGS.includes(p.slug)),
     ...STATIC_BLOG_ARTICLES.map((a) => ({ slug: a.slug, title: a.title, excerpt: a.description })),
   ];
   const seen = new Set<string>();
